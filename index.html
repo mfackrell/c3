@@ -75,16 +75,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 340px; /* Increased to accommodate vertical branding */
+      height: 160px; /* Reduced from 340px to fix size issue */
       transition: height var(--transition-fast);
     }
 
     .brand {
       display: flex;
-      flex-direction: column; /* Stacked vertical layout */
+      flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 16px;
+      gap: 10px; /* Tightened gap */
     }
 
     .brand-logo-wrapper {
@@ -92,42 +92,42 @@
       align-items: center;
       justify-content: center;
       background: #FFFFFF;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 0;
-      box-shadow: 0 8px 24px rgba(0, 24, 53, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 24, 53, 0.1);
       overflow: hidden; 
-      width: 500px; 
-      height: 225px; 
+      width: 220px; /* Scaled down for balance */
+      height: 80px; 
     }
 
     .brand-logo {
-      height: 80%;
-      width: 700%;
+      height: 100%;
+      width: 100%;
       object-fit: cover; 
       object-position: center;
-      transform: scale(1.5); 
+      transform: scale(1.2); 
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
     }
 
     .brand-line-1 {
-      font-size: 22.5px; /* Increased by 25% from 18px */
-      letter-spacing: 0.18em;
+      font-size: 16px; /* Optimized for smaller header */
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--navy);
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     .brand-line-2 {
-      font-size: 18.75px; /* Increased by 25% from 15px */
+      font-size: 13px; /* Optimized for smaller header */
       color: var(--muted);
       font-weight: 500;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     nav {
@@ -161,7 +161,7 @@
     }
 
     .nav-cta {
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 999px;
       border: 1px solid var(--navy);
       color: var(--navy);
@@ -173,7 +173,7 @@
       background: var(--navy);
       color: #FFFFFF;
       text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0, 24, 53, 0.22);
+      box-shadow: 0 4px 12px rgba(0, 24, 53, 0.15);
     }
 
     main { flex: 1; }
@@ -694,8 +694,8 @@
     /* RESPONSIVE */
 
     @media (max-width: 1040px) {
-      .header-inner { height: auto; padding: 48px 0; }
-      .brand-logo-wrapper { width: 375px; height: 168px; }
+      .header-inner { height: auto; padding: 24px 0; }
+      .brand-logo-wrapper { width: 180px; height: 65px; }
       .cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       nav { gap: 22px; }
@@ -722,9 +722,9 @@
       .grid.cols-2 { grid-template-columns: minmax(0, 1fr); }
       .cases-grid { grid-template-columns: minmax(0, 1fr); }
       .people-grid { grid-template-columns: minmax(0, 1fr); }
-      .header-inner { padding: 32px 0; flex-direction: column; gap: 32px; }
+      .header-inner { padding: 24px 0; flex-direction: column; gap: 24px; }
       .brand { text-align: center; flex-direction: column; }
-      .brand-logo-wrapper { width: 100%; max-width: 400px; }
+      .brand-logo-wrapper { width: 100%; max-width: 220px; }
     }
   </style>
 </head>
@@ -736,7 +736,7 @@
       <div class="brand">
         <div class="brand-logo-wrapper">
           <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Executive Suite" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-          <div style="display:none; font-weight:bold; color:var(--navy); font-size:40px;">C³</div>
+          <div style="display:none; font-weight:bold; color:var(--navy); font-size:24px;">C³</div>
         </div>
         <div class="brand-text">
           <div class="brand-line-2">Integrated Executive Leadership &amp; Delivery</div>
