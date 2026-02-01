@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>C³ Executive Suite – Integrated Executive Leadership & Execution</title>
+  <title>C³ Executive Suite – Integrated Executive Leadership & Delivery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="C³ Executive Suite provides integrated executive leadership and execution across strategy, finance, technology, growth, and people for ambitious organizations." />
 
+  <!-- Headline & body fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      /* Brighter, more corporate palette (PwC/KPMG-inspired) */
-      --bg: #F5F7FB;
+      --bg: #F3F6FA;
       --bg-alt: #FFFFFF;
-      --navy: #002B5C;        /* Primary corporate blue */
-      --navy-dark: #001835;
-      --accent-orange: #F37021; /* Strong corporate accent */
-      --accent-cyan: #0099D8;   /* Secondary accent */
-      --text: #101827;
-      --muted: #5B6474;
-      --border: #D4D9E2;
-      --max-width: 1200px;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
-      --font-serif: "Georgia", "Times New Roman", serif;
-      --radius: 6px;
-      --transition-fast: 160ms ease-out;
+      --navy: #00338D;
+      --navy-dark: #001B4D;
+      --accent: #FF6A00;
+      --accent-soft: #FFE2CC;
+      --accent-blue-soft: #E2ECFF;
+      --text: #111827;
+      --muted: #4B5563;
+      --border: #D1D5DB;
+
+      --max-width: 1180px;
+      --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-serif: "DM Serif Display", "Georgia", "Times New Roman", serif;
+
+      --radius: 8px;
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.04);
+      --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.18);
+      --transition-fast: 150ms ease-out;
     }
 
     * { box-sizing: border-box; }
@@ -35,10 +44,12 @@
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
     }
 
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     a {
       color: var(--navy);
@@ -58,33 +69,32 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
 
     /* HEADER */
 
     header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(245, 247, 251, 0.98);
-      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5E7EB;
+      background: #FFFFFF;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 20;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
     }
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 160px; /* Reduced from 340px to fix size issue */
-      transition: height var(--transition-fast);
+      height: 90px;
     }
 
     .brand {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 10px; /* Tightened gap */
+      gap: 16px;
     }
 
     .brand-logo-wrapper {
@@ -92,48 +102,40 @@
       align-items: center;
       justify-content: center;
       background: #FFFFFF;
-      border-radius: 6px;
-      padding: 0;
-      box-shadow: 0 4px 12px rgba(0, 24, 53, 0.1);
-      overflow: hidden; 
-      width: 220px; /* Scaled down for balance */
-      height: 80px; 
+      border-radius: 12px;
+      padding: 6px 10px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #E5E7EB;
     }
 
     .brand-logo {
-      height: 100%;
-      width: 100%;
-      object-fit: cover; 
-      object-position: center;
-      transform: scale(1.2); 
+      height: 96px;
+      width: auto;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
     }
 
     .brand-line-1 {
-      font-size: 16px; /* Optimized for smaller header */
-      letter-spacing: 0.15em;
+      font-size: 16px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--navy);
-      font-weight: 700;
-      line-height: 1.1;
+      font-weight: 800;
     }
 
     .brand-line-2 {
-      font-size: 13px; /* Optimized for smaller header */
+      font-size: 13px;
       color: var(--muted);
       font-weight: 500;
-      line-height: 1.1;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       font-size: 14px;
       font-weight: 500;
     }
@@ -154,26 +156,26 @@
       position: absolute;
       left: 0;
       bottom: -4px;
-      width: 24px;
+      width: 26px;
       height: 3px;
       border-radius: 999px;
-      background: var(--accent-orange);
+      background: var(--accent);
     }
 
     .nav-cta {
-      padding: 10px 20px;
+      padding: 9px 18px;
       border-radius: 999px;
       border: 1px solid var(--navy);
       color: var(--navy);
       font-weight: 600;
-      transition: all var(--transition-fast);
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
     }
 
     .nav-cta:hover {
       background: var(--navy);
       color: #FFFFFF;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 24, 53, 0.15);
+      box-shadow: var(--shadow-strong);
     }
 
     main { flex: 1; }
@@ -182,6 +184,8 @@
       padding: 80px 0;
       border-bottom: 1px solid var(--border);
       background: var(--bg-alt);
+      position: relative;
+      overflow: hidden;
     }
 
     section:nth-of-type(odd) {
@@ -190,55 +194,86 @@
 
     .section-header {
       max-width: 720px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
+      position: relative;
     }
 
     .eyebrow {
       font-size: 12px;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--accent-orange);
-      margin-bottom: 10px;
+      color: var(--accent);
+      margin-bottom: 8px;
       font-weight: 700;
     }
 
     h1, h2, h3, h4 {
       margin: 0;
       font-family: var(--font-serif);
-      color: var(--navy);
+      color: var(--navy-dark);
     }
 
     h1 {
-      font-size: clamp(38px, 4vw, 52px);
-      line-height: 1.1;
+      font-size: clamp(40px, 4.4vw, 56px);
+      line-height: 1.08;
       margin-bottom: 18px;
-      font-weight: 700;
+      font-weight: 400; /* serif handles weight visually */
     }
 
     h2 {
       font-size: 30px;
-      margin-bottom: 12px;
-      font-weight: 700;
+      margin-bottom: 10px;
+      font-weight: 400;
     }
 
     h3 {
       font-size: 19px;
       margin-bottom: 8px;
-      font-weight: 700;
+      font-weight: 400;
     }
 
-    /* HERO */
+    .text-muted {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* HERO with geometric accents */
 
     .hero {
       padding: 96px 0 84px;
-      background: radial-gradient(circle at top left, #FFFFFF 0, #FFFFFF 36%, #F0F4FF 60%, #E5EEF9 100%);
-      border-bottom: 1px solid var(--border);
+      background: #F5F8FF;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,51,141,0.18) 0, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: -120px;
+      width: 260px;
+      height: 260px;
+      background: linear-gradient(135deg, rgba(255,106,0,0.14), rgba(255,255,255,0));
+      transform: skewX(-8deg);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 56px;
+      gap: 48px;
       align-items: center;
     }
 
@@ -246,15 +281,15 @@
       font-size: 18px;
       color: var(--muted);
       max-width: 620px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       font-weight: 400;
     }
 
     .hero-meta {
       font-size: 14px;
       color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 28px;
+      max-width: 540px;
+      margin-bottom: 26px;
     }
 
     .hero-ctas {
@@ -271,13 +306,12 @@
       font-size: 14px;
       font-weight: 600;
       color: #FFFFFF;
-      background: linear-gradient(120deg, var(--accent-orange), #FF9B3F);
+      background: linear-gradient(120deg, var(--accent), #FF8A33);
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 22px rgba(243, 112, 33, 0.35);
+      box-shadow: 0 8px 22px rgba(255, 106, 0, 0.35);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-      text-decoration: none;
     }
 
     .btn-primary span.arrow {
@@ -287,9 +321,8 @@
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(243, 112, 33, 0.45);
-      filter: brightness(1.03);
-      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(255, 106, 0, 0.45);
+      filter: brightness(1.04);
     }
 
     .btn-primary:hover span.arrow {
@@ -302,8 +335,8 @@
       gap: 6px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--navy);
-      border-bottom: 2px solid rgba(0, 43, 92, 0.3);
+      color: var(--navy-dark);
+      border-bottom: 2px solid rgba(0, 51, 141, 0.4);
       padding-bottom: 2px;
       text-decoration: none;
       transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
@@ -315,8 +348,8 @@
     }
 
     .btn-secondary-link:hover {
-      border-color: var(--accent-cyan);
-      color: var(--navy-dark);
+      border-color: var(--accent);
+      color: var(--navy);
       text-decoration: none;
     }
 
@@ -325,11 +358,11 @@
     }
 
     .hero-aside {
-      padding: 24px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 10px 28px rgba(0, 24, 53, 0.08);
+      padding: 20px 22px 18px;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-soft);
       font-size: 14px;
       color: var(--muted);
     }
@@ -338,41 +371,48 @@
       font-size: 12px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent-cyan);
-      margin-bottom: 12px;
+      color: var(--navy);
+      margin-bottom: 6px;
       font-weight: 700;
     }
 
     .hero-aside p { margin: 0; }
 
-    .hero-aside strong {
-      font-weight: 600;
-      color: var(--text);
+    /* Section intro accent band (for key sections) */
+
+    .section-intro-band {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: linear-gradient(90deg, rgba(0,51,141,0.08), transparent);
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* GRID / CARDS */
 
     .grid {
       display: grid;
-      gap: 26px;
+      gap: 24px;
     }
 
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .card {
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: var(--bg-alt);
-      padding: 24px;
-      height: 100%;
+      background: #FFFFFF;
+      padding: 20px 18px 18px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
 
     .card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy-dark);
       margin-bottom: 8px;
     }
 
@@ -389,11 +429,6 @@
       align-items: flex-start;
     }
 
-    .text-muted {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
     .two-column-copy {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -408,21 +443,18 @@
       color: var(--muted);
     }
 
-    .tag-list li { 
-      margin-bottom: 12px;
-      padding-left: 20px;
-      position: relative;
+    .tag-list li { margin-bottom: 6px; }
+
+    .pill-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
     }
 
-    .tag-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent-orange);
-      font-weight: bold;
-    }
-
-    /* CAPABILITY MATRIX */
+    /* CAPABILITY GRID */
 
     .capability-grid {
       display: grid;
@@ -433,7 +465,7 @@
 
     .capability-col-title {
       font-size: 13px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 10px;
@@ -447,22 +479,9 @@
     }
 
     .capability-row-title {
-      font-weight: 700;
-      color: var(--navy);
+      font-weight: 600;
+      color: var(--navy-dark);
       margin-bottom: 4px;
-    }
-
-    .pill-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: 700;
-      background: var(--bg);
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
     }
 
     /* CASES */
@@ -476,43 +495,41 @@
     .case-card {
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: var(--bg-alt);
-      padding: 24px;
+      background: #FFFFFF;
+      padding: 20px 18px 18px;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-      display: flex;
-      flex-direction: column;
     }
 
     .case-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 24, 53, 0.12);
-      border-color: rgba(0, 43, 92, 0.3);
+      box-shadow: var(--shadow-strong);
+      border-color: rgba(0, 51, 141, 0.45);
     }
 
     .case-tag {
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent-cyan);
-      margin-bottom: 8px;
+      color: var(--navy);
+      margin-bottom: 6px;
       font-weight: 700;
     }
 
     .case-title {
       font-family: var(--font-serif);
-      font-size: 17px;
-      color: var(--navy);
-      margin-bottom: 12px;
-      font-weight: 700;
+      font-size: 18px;
+      color: var(--navy-dark);
+      margin-bottom: 8px;
+      font-weight: 400;
     }
 
     .case-label {
       font-size: 12px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 4px;
-      margin-top: 12px;
+      margin-top: 8px;
       font-weight: 600;
     }
 
@@ -533,18 +550,19 @@
     .person-card {
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: var(--bg-alt);
-      padding: 20px;
+      background: #FFFFFF;
+      padding: 18px 14px 14px;
       display: flex;
       flex-direction: column;
       height: 100%;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
 
     .person-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .person-photo {
@@ -552,39 +570,33 @@
       height: 56px;
       border-radius: 999px;
       object-fit: cover;
-      border: 2px solid rgba(0, 43, 92, 0.1);
-      background: #eee;
+      border: 2px solid #E5E7EB;
     }
 
     .person-name {
       font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--navy-dark);
+      margin-bottom: 3px;
     }
 
     .person-role {
       font-size: 12px;
       color: var(--muted);
       font-weight: 500;
-      line-height: 1.2;
     }
 
     .person-body {
       font-size: 13px;
       color: var(--muted);
-      margin: 0 0 12px;
+      margin: 0 0 6px;
       flex: 1;
-      line-height: 1.5;
     }
 
     .person-meta {
       font-size: 12px;
       color: var(--muted);
       margin: 0;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-      font-style: italic;
     }
 
     /* CONTACT */
@@ -597,134 +609,156 @@
       font-size: 15px;
       color: var(--muted);
       max-width: 500px;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .contact-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-      gap: 48px;
+      gap: 40px;
       align-items: flex-start;
     }
 
     form {
       display: grid;
-      gap: 16px;
-      background: #fff;
-      padding: 32px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      gap: 12px;
     }
 
     label {
       font-size: 13px;
       color: var(--muted);
       display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
+      margin-bottom: 4px;
+      font-weight: 500;
     }
 
     input[type="text"],
     input[type="email"],
     textarea {
       width: 100%;
-      padding: 12px;
+      padding: 9px 10px;
       border-radius: 4px;
       border: 1px solid var(--border);
       font-family: inherit;
       font-size: 14px;
-      background: #fcfcfc;
+      background: #FFFFFF;
       color: var(--text);
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 100px;
       resize: vertical;
     }
 
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 0 3px rgba(0, 153, 216, 0.1);
-      background: #fff;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 1px rgba(0, 51, 141, 0.18);
     }
 
     .helper-text {
       font-size: 12px;
       color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.4;
+      margin-top: 2px;
     }
 
     /* FOOTER */
 
     footer {
-      padding: 48px 0;
+      padding: 28px 0 22px;
       background: var(--navy-dark);
-      font-size: 13px;
-      color: #D1D5E0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px;
+      color: #E5E7EB;
     }
 
     .footer-inner {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 24px;
+      gap: 16px;
       align-items: center;
     }
 
     .footer-nav {
       display: flex;
-      gap: 24px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .footer-nav a {
-      color: #D1D5E0;
+      color: #E5E7EB;
       text-decoration: none;
     }
 
     .footer-nav a:hover {
-      color: #fff;
       text-decoration: underline;
     }
 
     /* RESPONSIVE */
 
     @media (max-width: 1040px) {
-      .header-inner { height: auto; padding: 24px 0; }
-      .brand-logo-wrapper { width: 180px; height: 65px; }
-      .cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      nav { gap: 22px; }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
+        gap: 36px;
+      }
+      .cases-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .people-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 900px) {
-      nav { display: none; }
+      nav {
+        display: none;
+      }
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
         gap: 32px;
       }
-      .section-split { grid-template-columns: minmax(0, 1fr); }
-      .two-column-copy { grid-template-columns: minmax(0, 1fr); }
-      .capability-grid { grid-template-columns: minmax(0, 1fr); }
-      .contact-layout { grid-template-columns: minmax(0, 1fr); }
+      .section-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-column-copy {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .capability-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 720px) {
-      header { position: static; }
-      .hero { padding-top: 72px; }
-      section { padding: 64px 0; }
+      header {
+        position: static;
+      }
+      .hero {
+        padding-top: 78px;
+      }
+      section {
+        padding: 64px 0;
+      }
       .grid.cols-3,
-      .grid.cols-4,
-      .grid.cols-2 { grid-template-columns: minmax(0, 1fr); }
-      .cases-grid { grid-template-columns: minmax(0, 1fr); }
-      .people-grid { grid-template-columns: minmax(0, 1fr); }
-      .header-inner { padding: 24px 0; flex-direction: column; gap: 24px; }
-      .brand { text-align: center; flex-direction: column; }
-      .brand-logo-wrapper { width: 100%; max-width: 220px; }
+      .grid.cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .cases-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .people-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .header-inner {
+        height: 80px;
+      }
+      .brand-logo {
+        height: 80px;
+      }
     }
   </style>
 </head>
@@ -735,15 +769,15 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-logo-wrapper">
-          <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Executive Suite" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-          <div style="display:none; font-weight:bold; color:var(--navy); font-size:24px;">C³</div>
+          <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Executive Suite" class="brand-logo" />
         </div>
         <div class="brand-text">
+          <div class="brand-line-1">C³ Executive Suite</div>
           <div class="brand-line-2">Integrated Executive Leadership &amp; Delivery</div>
         </div>
       </div>
       <nav aria-label="Primary">
-        <a href="#model">How We Engage</a>
+        <a href="#model" class="active">How We Engage</a>
         <a href="#services">Executive Coverage</a>
         <a href="#cases">Client Outcomes</a>
         <a href="#team">Leadership Team</a>
@@ -757,32 +791,32 @@
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div>
-          <div class="eyebrow">Executive‑level thinking. Execution‑level delivery.</div>
-          <h1>Integrated C‑Suite leadership with the execution power to make it real.</h1>
+          <div class="eyebrow">Executive clarity. Coordinated execution.</div>
+          <h1>Integrated C‑Suite leadership with the delivery power to match.</h1>
           <p class="hero-subtitle">
             C³ Executive Suite provides coordinated leadership across strategy, finance, technology, growth, and people &mdash;
-            supported by the technical and operational teams required to execute.
+            backed by teams that can design, build, and operate the solutions.
           </p>
           <div class="hero-meta">
-            Engage us as a complete executive suite for a defined period, or as a focused partner in the specific domains where you
-            need additional strength.
+            Engage us as a complete executive suite for a defined period, or as a focused partner in the specific disciplines
+            where you require additional strength.
           </div>
           <div class="hero-ctas">
             <a href="#model" class="btn-primary">
-              <span>Explore our engagement model</span>
+              <span>Explore how we engage</span>
               <span class="arrow">→</span>
             </a>
             <a href="#contact" class="btn-secondary-link">
-              <span>Speak with a partner</span>
+              <span>Schedule a working discussion</span>
               <span class="arrow">→</span>
             </a>
           </div>
         </div>
         <aside class="hero-aside" aria-label="Overview">
-          <div class="hero-aside-title">What makes C³ different</div>
+          <div class="hero-aside-title">What distinguishes C³</div>
           <p>
-            We combine senior executive leadership with hands‑on delivery capability. That means one integrated team that can design,
-            align, and execute &mdash; across the full span of your business, or within the specific functions that matter most right now.
+            We operate as a unified executive layer, not a collection of disconnected advisors. Each discipline is led by an experienced
+            executive with direct access to the specialist talent required to deliver measurable results.
           </p>
         </aside>
       </div>
@@ -790,67 +824,70 @@
 
     <!-- CONTEXT -->
     <section id="context">
+      <div class="section-intro-band"></div>
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Context</div>
-          <h2>Where organizations typically need additional executive strength</h2>
+          <h2>Where additional executive capacity changes the outcome.</h2>
           <p class="text-muted">
-            Our clients are not short on talent. They are short on specific leadership capacity and coordinated execution around critical
-            initiatives and inflection points.
+            Our clients are established organizations facing inflection points &mdash; transactions, transformations, or
+            periods of accelerated growth &mdash; where coordination across executive functions is essential.
           </p>
         </div>
         <div class="grid cols-3">
           <div class="card">
-            <div class="card-title">Transformation without a unified spine</div>
+            <div class="card-title">Enterprise transformation</div>
             <p class="card-body">
-              Major growth, technology, or operating‑model changes moving ahead without a single integrated view across finance, product,
-              people, and go‑to‑market.
+              Major shifts in strategy, operating model, or technology landscape that require aligned leadership across finance, product,
+              operations, people, and go‑to‑market.
             </p>
           </div>
           <div class="card">
-            <div class="card-title">Strong operators, limited bandwidth</div>
+            <div class="card-title">Leadership bandwidth</div>
             <p class="card-body">
-              A capable leadership team that is already at capacity &mdash; leaving no one free to architect and drive the next level of performance.
+              A capable executive team with limited capacity to architect and drive the next level of performance while maintaining
+              day‑to‑day responsibilities.
             </p>
           </div>
           <div class="card">
-            <div class="card-title">Critical roles in transition</div>
+            <div class="card-title">Critical roles in motion</div>
             <p class="card-body">
-              Key executive seats unfilled or in flux during moments when board, investor, or market expectations are increasing.
+              Key executive roles unfilled or changing during periods when boards, investors, and markets expect clarity and consistent delivery.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE ENGAGE / MODEL -->
+    <!-- HOW WE ENGAGE -->
     <section id="model">
+      <div class="section-intro-band"></div>
       <div class="container section-split">
         <div>
           <div class="section-header">
             <div class="eyebrow">How we engage</div>
-            <h2>Targeted executive coverage, aligned to your reality.</h2>
+            <h2>Structured engagement, tailored to your leadership reality.</h2>
             <p class="text-muted">
-              We start with your existing leadership and operating model, then design a tailored engagement around where additional executive
-              and delivery capacity will have the greatest impact.
+              We begin with a clear view of your current executive structure, strategic priorities, and delivery capacity. From there, we
+              design a targeted engagement focused on the roles and initiatives that will move the organization forward.
             </p>
           </div>
         </div>
         <div>
-          <div class="grid cols-1" style="gap:20px;">
+          <div class="grid cols-3" style="gap:20px;">
             <div class="card">
-              <div class="pill-label">01 &mdash; Focused leadership</div>
-              <h3>Single executive role</h3>
+              <div class="pill-label">01 &mdash; Executive role coverage</div>
+              <h3>Fractional or interim leadership</h3>
               <p class="card-body">
-                Fractional or interim leadership for a specific function (e.g., CFO, CMO, CTO, CHRO, COO) to support transformation, transactions,
-                or periods of accelerated change.
+                Senior leadership in a specific domain (CFO, CMO, CTO, CHRO, COO) to support transactions, transformations, or major initiatives
+                without immediately adding permanent headcount.
               </p>
             </div>
             <div class="card">
-              <div class="pill-label">02 &mdash; Thematic initiatives</div>
-              <h3>Cross‑functional programs</h3>
+              <div class="pill-label">02 &mdash; Cross‑functional programs</div>
+              <h3>Initiative‑based leadership</h3>
               <p class="card-body">
-                Leadership and delivery for initiatives that cut across functions &mdash; such as restructuring, new product/platform builds,
+                Coordinated leadership and delivery for programs that cut across functions &mdash; such as restructuring, platform builds,
                 go‑to‑market redesign, or workforce transformation.
               </p>
             </div>
@@ -858,8 +895,8 @@
               <div class="pill-label">03 &mdash; Integrated suite</div>
               <h3>Coordinated C‑Suite</h3>
               <p class="card-body">
-                A coordinated executive team that operates as your suite for a defined period, then supports the hiring and transition of
-                permanent leaders once the new structure is in place.
+                An integrated executive team acting as your suite for a defined period, then supporting hiring and transition to permanent
+                leaders once the new operating model is established.
               </p>
             </div>
           </div>
@@ -867,16 +904,17 @@
       </div>
     </section>
 
-    <!-- EXECUTIVE COVERAGE / CAPABILITY MATRIX -->
+    <!-- EXECUTIVE COVERAGE -->
     <section id="services">
+      <div class="section-intro-band"></div>
       <div class="container section-split">
         <div>
           <div class="section-header">
             <div class="eyebrow">Executive coverage</div>
             <h2>Leadership and delivery across the core disciplines of your business.</h2>
             <p class="text-muted">
-              Each domain is led by an experienced executive with access to specialist teams. You can engage across the full portfolio or
-              concent on the functions most relevant to your current agenda.
+              Each function is led by a senior executive with a proven track record. Behind them sit specialist teams capable of
+              translating decisions into implementation and ongoing operations.
             </p>
           </div>
         </div>
@@ -886,21 +924,21 @@
               <div class="capability-col-title">Executive leadership</div>
             </div>
             <div>
-              <div class="capability-col-title">Execution capability</div>
+              <div class="capability-col-title">Delivery &amp; operations</div>
             </div>
 
             <!-- Strategy / CEO-COO -->
             <div class="capability-row">
               <div class="capability-row-title">Strategy, CEO / COO</div>
               <p class="text-muted">
-                Enterprise strategy, portfolio and capital allocation, operating model design, and governance that aligns leadership around
-                a clear direction of travel.
+                Enterprise strategy, portfolio choices, operating model design, and governance that align the leadership team around
+                a clear set of priorities.
               </p>
             </div>
             <div class="capability-row">
-              <div class="capability-row-title">Program &amp; operating rhythm</div>
+              <div class="capability-row-title">Program &amp; execution rhythm</div>
               <p class="text-muted">
-                Program management, decision forums, KPI design, and performance dashboards that translate strategy into day‑to‑day execution.
+                Program management offices, decision forums, KPI frameworks, and operating cadences that keep execution on track.
               </p>
             </div>
 
@@ -908,13 +946,13 @@
             <div class="capability-row">
               <div class="capability-row-title">Finance, CFO</div>
               <p class="text-muted">
-                Financial architecture, capital structure, investor and lender communication, and economic design for sustainable growth.
+                Financial architecture, capital structure, risk posture, and communication with boards, investors, and lenders.
               </p>
             </div>
             <div class="capability-row">
-              <div class="capability-row-title">Financial operations &amp; analytics</div>
+              <div class="capability-row-title">Financial operations &amp; insight</div>
               <p class="text-muted">
-                Forecasting, reporting, controls, and analysis that give leadership confidence in the numbers and clarity on performance drivers.
+                Forecasting, reporting, controls, and analysis that provide a reliable view of performance and support decision‑making.
               </p>
             </div>
 
@@ -922,13 +960,13 @@
             <div class="capability-row">
               <div class="capability-row-title">Technology &amp; product, CTO</div>
               <p class="text-muted">
-                Technology strategy, architecture, and product roadmaps that enable scalability, resilience, and differentiation.
+                Technology strategy, architecture, and product direction that support scale, resilience, and differentiation.
               </p>
             </div>
             <div class="capability-row">
-              <div class="capability-row-title">Engineering &amp; delivery</div>
+              <div class="capability-row-title">Engineering &amp; implementation</div>
               <p class="text-muted">
-                Implementation oversight, vendor management, integration work, and quality governance across platforms and systems.
+                Implementation oversight, vendor and partner management, integration work, and quality governance across platforms and systems.
               </p>
             </div>
 
@@ -936,13 +974,13 @@
             <div class="capability-row">
               <div class="capability-row-title">Growth &amp; brand, CMO</div>
               <p class="text-muted">
-                Positioning, market strategy, and commercial models that connect investment in growth to measurable business outcomes.
+                Market positioning, go‑to‑market strategy, and commercial models that tie marketing and sales investments to outcomes.
               </p>
             </div>
             <div class="capability-row">
               <div class="capability-row-title">Demand generation &amp; pipeline</div>
               <p class="text-muted">
-                Campaign, content, digital channels, and sales enablement designed and operated to drive predictable demand and revenue.
+                Campaigns, digital channels, sales enablement, and performance reporting designed to generate predictable demand and revenue.
               </p>
             </div>
 
@@ -956,7 +994,7 @@
             <div class="capability-row">
               <div class="capability-row-title">HR operations &amp; development</div>
               <p class="text-muted">
-                Policy, learning platforms, talent processes, and change management that make complex shifts executable and sustainable.
+                Talent processes, learning platforms, policy, and change management that make complex shifts executable and sustainable.
               </p>
             </div>
           </div>
@@ -966,29 +1004,30 @@
 
     <!-- FIT -->
     <section id="fit">
+      <div class="section-intro-band"></div>
       <div class="container two-column-copy">
         <div>
           <div class="section-header" style="margin-bottom:20px;">
             <div class="eyebrow">Who we serve</div>
-            <h2>Organizations where executive coordination matters.</h2>
+            <h2>Organizations where coordinated leadership is critical.</h2>
           </div>
           <ul class="tag-list">
-            <li>Owner‑led and investor‑backed companies with material complexity and ambition.</li>
-            <li>Leadership teams preparing for transactions, large‑scale transformations, or rapid expansion.</li>
-            <li>Boards seeking integrated perspectives across finance, operations, technology, and people.</li>
-            <li>Organizations that value clarity, accountability, and measurable results.</li>
+            <li>• Owner‑led and investor‑backed companies with meaningful scale and complexity.</li>
+            <li>• Leadership teams navigating transactions, transformations, or rapid growth.</li>
+            <li>• Boards seeking unified perspectives across finance, operations, technology, and people.</li>
+            <li>• Organizations that value clarity, accountability, and measurable results.</li>
           </ul>
         </div>
         <div>
           <div class="section-header" style="margin-bottom:20px;">
             <div class="eyebrow">Where we are not a fit</div>
-            <h2>Situations better served elsewhere.</h2>
+            <h2>Situations better suited to other partners.</h2>
           </div>
           <ul class="tag-list">
-            <li>Early experiments focused primarily on pitching for initial funding.</li>
-            <li>One‑off, highly tactical tasks with no interest in structural improvement.</li>
-            <li>Engagements where communication and decision‑making cannot be centralized.</li>
-            <li>Projects where optics are valued more than operational and financial reality.</li>
+            <li>• Early‑stage concepts focused primarily on initial fundraising.</li>
+            <li>• One‑off tactical projects without interest in structural improvement.</li>
+            <li>• Engagements where executive decision‑making cannot be centralized.</li>
+            <li>• Scenarios where optics and narrative are valued over operational reality.</li>
           </ul>
         </div>
       </div>
@@ -996,12 +1035,13 @@
 
     <!-- CASE STUDIES -->
     <section id="cases">
+      <div class="section-intro-band"></div>
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Client outcomes</div>
-          <h2>Examples of integrated leadership and delivery in practice.</h2>
+          <h2>Examples of integrated leadership and delivery.</h2>
           <p class="text-muted">
-            Each engagement is unique, but the pattern is consistent: align leadership, install clarity, and deliver against commitments.
+            Representative engagements where coordinated executive leadership and hands‑on delivery changed the trajectory of the business.
           </p>
         </div>
 
@@ -1009,10 +1049,10 @@
           <!-- Education Company -->
           <article class="case-card">
             <div class="case-tag">Education &mdash; Transaction readiness</div>
-            <h3 class="case-title">Financial overhaul for a $100M acquisition</h3>
+            <h3 class="case-title">Preparing a $100M acquisition for scrutiny.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              Disorganized records and unreliable reporting slowed decisions and undermined buyer confidence during a strategic sale process.
+              Disorganized records and inconsistent reporting slowed decisions and raised concerns during a strategic sale process.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
@@ -1023,24 +1063,25 @@
           <!-- Cloud Computing -->
           <article class="case-card">
             <div class="case-tag">Cloud &amp; infrastructure &mdash; Restructuring</div>
-            <h3 class="case-title">Stabilizing operations through Chapter 11</h3>
+            <h3 class="case-title">Stabilizing a business through Chapter 11.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              Severe revenue shock created continuity risk and threatened covenant compliance across lenders and key partners.
+              Severe revenue shock created continuity risk and threatened covenant compliance across key relationships.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Implemented cash controls, covenant tracking, contract restructuring, and disciplined workstreams to protect operations during restructuring.
+              Implemented cash controls, covenant tracking, contract restructuring, and disciplined workstreams to protect core operations
+              during restructuring.
             </p>
           </article>
 
           <!-- Custom Cabinet -->
           <article class="case-card">
             <div class="case-tag">Manufacturing &mdash; Turnaround</div>
-            <h3 class="case-title">From contraction to a viable core business</h3>
+            <h3 class="case-title">Right‑sizing to a viable core business.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              Sales collapsed from ~&#36;500K to ~&#36;50K per month and the cost base was misaligned with the new reality.
+              Sales declined from ~&#36;500K to ~&#36;50K per month and the cost base no longer reflected the size of the business.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
@@ -1051,44 +1092,44 @@
           <!-- Software Dev -->
           <article class="case-card">
             <div class="case-tag">Software &amp; services &mdash; Growth performance</div>
-            <h3 class="case-title">From stalled sales to predictable growth</h3>
+            <h3 class="case-title">From stalled pipeline to consistent growth.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              No sales for three consecutive months created a growth stall and pressure from investors.
+              No sales for three consecutive months created a severe growth stall and pressure from investors.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Installed a performance management system with clear accountability, taking the business to consistent &#36;200K/month
-              in sales, then doubling within nine months.
+              Implemented a performance management system with clear accountability, leading to consistent &#36;200K/month in sales
+              and subsequent doubling within nine months.
             </p>
           </article>
 
           <!-- Funded Product -->
           <article class="case-card">
             <div class="case-tag">Funded product &mdash; Investor communication</div>
-            <h3 class="case-title">Marketing performance scoreboard for investors</h3>
+            <h3 class="case-title">Clarifying marketing performance for investors.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              Scattered metrics and unclear accountability made it difficult for investors to assess the effectiveness of marketing spend.
+              Disparate metrics and unclear accountability made it difficult for investors to understand the impact of marketing spend.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Built a clear scoreboard showing performance at 5–6% versus benchmark, providing data‑driven answers and eliminating speculation.
+              Built a clear performance scoreboard showing 5–6% benchmark performance, providing data‑driven answers and eliminating speculation.
             </p>
           </article>
 
           <!-- B2B Procurement -->
           <article class="case-card">
             <div class="case-tag">B2B procurement &mdash; Scale‑up</div>
-            <h3 class="case-title">From stalled launch to a major revenue engine</h3>
+            <h3 class="case-title">From stalled launch to a growth platform.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              A new solution launched after six months of effort with zero revenue, unclear ownership, and excess complexity.
+              A new solution launched after six months of effort with zero revenue and unclear ownership.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Simplified architecture and incentives; within two years the initiative became a 100+ person team and a vertical contributing
-              more than 25% incremental revenue.
+              Simplified architecture and incentives; within two years the initiative became a 100+ person vertical contributing
+              over 25% incremental revenue.
             </p>
           </article>
         </div>
@@ -1097,13 +1138,14 @@
 
     <!-- PEOPLE -->
     <section id="team">
+      <div class="section-intro-band"></div>
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Leadership team</div>
-          <h2>Experienced executives with a mandate to deliver.</h2>
+          <h2>Executive experience with an operator’s bias.</h2>
           <p class="text-muted">
-            Each partner brings deep domain expertise and a track record of operating accountability. We are comfortable in the boardroom
-            and alongside your teams in day‑to‑day execution.
+            Each partner brings deep domain expertise and a history of direct accountability for results. We are comfortable in the
+            boardroom and alongside your teams in day‑to‑day execution.
           </p>
         </div>
 
@@ -1111,7 +1153,7 @@
           <!-- Mark -->
           <article class="person-card">
             <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Mark.jpg" alt="Mark Fackrell" class="person-photo" />
+              <img src="https://storage.googleapis.com/permanent-assets/Mark.jpg" alt="Photo of Mark Fackrell" class="person-photo" />
               <div>
                 <div class="person-name">Mark Fackrell</div>
                 <div class="person-role">Managing Partner &mdash; Finance &amp; Operations</div>
@@ -1119,91 +1161,95 @@
             </div>
             <p class="person-body">
               Senior finance and operations leader with over 25 years of experience across SaaS, e‑commerce, services, construction, and
-              PE‑backed companies.
+              PE‑backed companies. Specializes in complex, time‑sensitive situations requiring clear decisions and disciplined execution.
             </p>
             <p class="person-meta">
-              Special situations, transactions, and restructurings.
+              Focus: special situations, transactions, restructurings, and building durable finance and operating models.
             </p>
           </article>
 
           <!-- Ravi -->
           <article class="person-card">
             <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Ravi.jpg" alt="Ravi VC" class="person-photo" />
+              <img src="https://storage.googleapis.com/permanent-assets/Ravi.jpg" alt="Photo of Ravi VC" class="person-photo" />
               <div>
                 <div class="person-name">Ravi VC</div>
                 <div class="person-role">Business Architect &mdash; Strategy &amp; Risk</div>
               </div>
             </div>
             <p class="person-body">
-              Focused on assessing and correcting execution risk. Concentrates on whether strategy and operating models can convert capital into durable outcomes.
+              Business Architect focused on assessing and correcting execution risk prior to capital deployment. With an engineering foundation,
+              his work ensures strategy, technology, and operating models are capable of converting capital into durable outcomes.
             </p>
             <p class="person-meta">
-              Systems architecture and Blue Ocean strategy.
+              Expertise: systems architecture, parametric design, Blue Ocean strategy, procurement semantics, and negotiation design.
             </p>
           </article>
 
           <!-- Eric -->
           <article class="person-card">
             <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/eric.jpg" alt="Eric Hughes" class="person-photo" />
+              <img src="https://storage.googleapis.com/permanent-assets/eric.jpg" alt="Photo of Eric Hughes" class="person-photo" />
               <div>
                 <div class="person-name">Eric Hughes</div>
                 <div class="person-role">Partner &mdash; Marketing &amp; Growth</div>
               </div>
             </div>
             <p class="person-body">
-              Marketing and business development executive. Eric aligns brand, digital, and commercial initiatives with growth and M&amp;A objectives.
+              Marketing and business development executive and serial entrepreneur. Brings practical experience aligning brand, digital,
+              and commercial initiatives with growth and M&amp;A objectives.
             </p>
             <p class="person-meta">
-              Branding, identity, and internet marketing.
+              Focus: branding and identity, internet marketing, and growth strategies that support enterprise‑level outcomes.
             </p>
           </article>
 
           <!-- Andy -->
           <article class="person-card">
             <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Andy.jpg" alt="Andy Wise" class="person-photo" />
+              <img src="https://storage.googleapis.com/permanent-assets/Andy.jpg" alt="Photo of Andy Wise" class="person-photo" />
               <div>
                 <div class="person-name">Andy Wise</div>
                 <div class="person-role">Partner &mdash; People &amp; Transformation</div>
               </div>
             </div>
             <p class="person-body">
-              HR Director with 15+ years of global experience leading HR transformation and workforce strategy across sectors.
+              Human Resources Director and Senior HR Business Partner with 15+ years of global experience leading HR transformation,
+              organizational development, and workforce strategy across sectors and geographies.
             </p>
             <p class="person-meta">
-              Agility, large-scale learning, and data-driven change.
+              Track record: significant cost savings, workforce agility, large‑scale learning programs, and data‑driven, people‑first change.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT / CTA -->
+    <!-- CONTACT -->
     <section id="contact">
+      <div class="section-intro-band"></div>
       <div class="container contact-layout">
         <div class="cta-section">
           <div class="eyebrow">Next step</div>
           <h2>Arrange a working conversation with the partners.</h2>
           <p>
-            If you are considering additional executive capacity or coordinating a complex initiative, we are available for a focused,
-            no‑obligation discussion about your current situation and priorities.
+            If you are evaluating additional executive capacity or coordinating a complex initiative, we are available for a focused
+            discussion about your current situation, leadership structure, and priorities.
           </p>
-          <p class="text-muted" style="max-width:440px;">
-            Share a brief outline of your organization, current leadership structure, and the decisions or milestones in front of you.
-            We will respond with clarification questions and proposed times.
+          <p class="text-muted" style="max-width:460px;">
+            Share a brief outline of your organization and the decisions in front of you. We will respond with clarifying questions and
+            proposed times for a substantive conversation.
           </p>
         </div>
         <div>
-          <form onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'text-align:center; padding: 40px;\'><h3 style=\'color:var(--navy);\'>Thank you</h3><p style=\'color:var(--muted);\'>We have received your inquiry and will be in touch shortly.</p></div>';">
+          <form>
             <div>
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+              <input id="name" name="name" type="text" autocomplete="name" />
             </div>
             <div>
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+              <input id="email" name="email" type="email" autocomplete="email" />
             </div>
             <div>
               <label for="company">Company</label>
@@ -1217,7 +1263,7 @@
               <label for="context">What would you like to discuss?</label>
               <textarea id="context" name="context" placeholder="A short overview of your current priorities, challenges, and timelines."></textarea>
               <div class="helper-text">
-                Helpful context: sector, revenue range, current C‑Suite structure, and any upcoming transactions or major launches.
+                Helpful context: sector, revenue range, current C‑Suite structure, and any upcoming transactions, transformations, or launches.
               </div>
             </div>
             <div>
