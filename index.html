@@ -18,8 +18,6 @@
       --navy: #00338D;
       --navy-dark: #001B4D;
       --accent: #FF6A00;
-      --accent-soft: #FFE2CC;
-      --accent-blue-soft: #E2ECFF;
       --text: #111827;
       --muted: #4B5563;
       --border: #D1D5DB;
@@ -194,8 +192,12 @@
 
     .section-header {
       max-width: 720px;
-      margin-bottom: 36px;
-      position: relative;
+      margin: 0 auto 40px auto; /* centered and consistent margin */
+    }
+
+    .section-header.align-left {
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .eyebrow {
@@ -203,7 +205,7 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: 700;
     }
 
@@ -217,12 +219,12 @@
       font-size: clamp(40px, 4.4vw, 56px);
       line-height: 1.08;
       margin-bottom: 18px;
-      font-weight: 400; /* serif handles weight visually */
+      font-weight: 400;
     }
 
     h2 {
       font-size: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-weight: 400;
     }
 
@@ -237,7 +239,7 @@
       color: var(--muted);
     }
 
-    /* HERO with geometric accents */
+    /* HERO */
 
     .hero {
       padding: 96px 0 84px;
@@ -296,6 +298,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      margin-top: 4px;
     }
 
     .btn-primary {
@@ -378,15 +381,15 @@
 
     .hero-aside p { margin: 0; }
 
-    /* Section intro accent band (for key sections) */
+    /* SECTION INTRO BAND */
 
     .section-intro-band {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 64px;
-      background: linear-gradient(90deg, rgba(0,51,141,0.08), transparent);
+      height: 56px;
+      background: linear-gradient(90deg, rgba(0,51,141,0.06), transparent);
       pointer-events: none;
       z-index: 0;
     }
@@ -443,7 +446,7 @@
       color: var(--muted);
     }
 
-    .tag-list li { margin-bottom: 6px; }
+    .tag-list li { margin-bottom: 8px; }
 
     .pill-label {
       font-size: 11px;
@@ -608,7 +611,7 @@
     .cta-section p {
       font-size: 15px;
       color: var(--muted);
-      max-width: 500px;
+      max-width: 520px;
       margin-bottom: 18px;
     }
 
@@ -759,6 +762,9 @@
       .brand-logo {
         height: 80px;
       }
+      .section-header {
+        margin-bottom: 32px;
+      }
     }
   </style>
 </head>
@@ -826,7 +832,7 @@
     <section id="context">
       <div class="section-intro-band"></div>
       <div class="container">
-        <div class="section-header">
+        <div class="section-header align-left">
           <div class="eyebrow">Context</div>
           <h2>Where additional executive capacity changes the outcome.</h2>
           <p class="text-muted">
@@ -864,7 +870,7 @@
       <div class="section-intro-band"></div>
       <div class="container section-split">
         <div>
-          <div class="section-header">
+          <div class="section-header align-left">
             <div class="eyebrow">How we engage</div>
             <h2>Structured engagement, tailored to your leadership reality.</h2>
             <p class="text-muted">
@@ -909,7 +915,7 @@
       <div class="section-intro-band"></div>
       <div class="container section-split">
         <div>
-          <div class="section-header">
+          <div class="section-header align-left">
             <div class="eyebrow">Executive coverage</div>
             <h2>Leadership and delivery across the core disciplines of your business.</h2>
             <p class="text-muted">
@@ -1007,7 +1013,7 @@
       <div class="section-intro-band"></div>
       <div class="container two-column-copy">
         <div>
-          <div class="section-header" style="margin-bottom:20px;">
+          <div class="section-header align-left" style="margin-bottom:24px;">
             <div class="eyebrow">Who we serve</div>
             <h2>Organizations where coordinated leadership is critical.</h2>
           </div>
@@ -1019,7 +1025,7 @@
           </ul>
         </div>
         <div>
-          <div class="section-header" style="margin-bottom:20px;">
+          <div class="section-header align-left" style="margin-bottom:24px;">
             <div class="eyebrow">Where we are not a fit</div>
             <h2>Situations better suited to other partners.</h2>
           </div>
@@ -1037,7 +1043,7 @@
     <section id="cases">
       <div class="section-intro-band"></div>
       <div class="container">
-        <div class="section-header">
+        <div class="section-header align-left">
           <div class="eyebrow">Client outcomes</div>
           <h2>Examples of integrated leadership and delivery.</h2>
           <p class="text-muted">
@@ -1140,7 +1146,7 @@
     <section id="team">
       <div class="section-intro-band"></div>
       <div class="container">
-        <div class="section-header">
+        <div class="section-header align-left">
           <div class="eyebrow">Leadership team</div>
           <h2>Executive experience with an operator’s bias.</h2>
           <p class="text-muted">
@@ -1236,13 +1242,13 @@
             If you are evaluating additional executive capacity or coordinating a complex initiative, we are available for a focused
             discussion about your current situation, leadership structure, and priorities.
           </p>
-          <p class="text-muted" style="max-width:460px;">
+          <p class="text-muted">
             Share a brief outline of your organization and the decisions in front of you. We will respond with clarifying questions and
             proposed times for a substantive conversation.
           </p>
         </div>
         <div>
-          <form id="contact-form">
+          <form>
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" />
@@ -1295,49 +1301,7 @@
 </div>
 
 <script>
-  // Set the current year in the footer
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Handle the Form Submission
-  const contactForm = document.getElementById('contact-form');
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // 1. Visual feedback for the user
-    const submitBtn = contactForm.querySelector('button');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span>Sending...</span>';
-
-    // 2. Capture the form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      // 3. Send data to your Zapier URL
-      await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
-        method: 'POST',
-        mode: 'no-cors', // Standard for Zapier webhooks to avoid browser blocks
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      // 4. Success!
-      alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
-      contactForm.reset();
-
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('Error sending message. Please try again or check your connection.');
-    } finally {
-      // 5. Reset button state
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
-    }
-  });
 </script>
 </body>
 </html>
