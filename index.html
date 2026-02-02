@@ -44,16 +44,9 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
-    a {
-      color: var(--navy);
-      text-decoration: none;
-    }
-
+    a { color: var(--navy); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .page {
@@ -192,9 +185,8 @@
 
     .section-header {
       max-width: 720px;
-      margin: 0 auto 40px auto; /* centered and consistent margin */
+      margin: 0 auto 32px auto;
     }
-
     .section-header.align-left {
       margin-left: 0;
       margin-right: 0;
@@ -218,19 +210,19 @@
     h1 {
       font-size: clamp(40px, 4.4vw, 56px);
       line-height: 1.08;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       font-weight: 400;
     }
 
     h2 {
       font-size: 30px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       font-weight: 400;
     }
 
     h3 {
       font-size: 19px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 400;
     }
 
@@ -242,7 +234,7 @@
     /* HERO */
 
     .hero {
-      padding: 96px 0 84px;
+      padding: 96px 0 72px;
       background: #F5F8FF;
     }
 
@@ -280,24 +272,34 @@
     }
 
     .hero-subtitle {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
       max-width: 620px;
-      margin-bottom: 20px;
-      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .hero-bullets {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 24px 0;
+      padding-left: 18px;
+    }
+
+    .hero-bullets li {
+      margin-bottom: 4px;
     }
 
     .hero-meta {
       font-size: 14px;
       color: var(--muted);
       max-width: 540px;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       margin-top: 4px;
     }
 
@@ -408,15 +410,15 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: #FFFFFF;
-      padding: 20px 18px 18px;
+      padding: 18px 18px 16px;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
 
     .card-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--navy-dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .card-body {
@@ -477,8 +479,8 @@
 
     .capability-row {
       border-top: 1px solid var(--border);
-      padding-top: 12px;
-      margin-top: 12px;
+      padding-top: 10px;
+      margin-top: 10px;
     }
 
     .capability-row-title {
@@ -499,7 +501,7 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: #FFFFFF;
-      padding: 20px 18px 18px;
+      padding: 18px 18px 16px;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     }
 
@@ -522,7 +524,7 @@
       font-family: var(--font-serif);
       font-size: 18px;
       color: var(--navy-dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 400;
     }
 
@@ -532,7 +534,7 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 4px;
-      margin-top: 8px;
+      margin-top: 6px;
       font-weight: 600;
     }
 
@@ -554,7 +556,7 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: #FFFFFF;
-      padding: 18px 14px 14px;
+      padding: 16px 14px 14px;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -612,7 +614,7 @@
       font-size: 15px;
       color: var(--muted);
       max-width: 520px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .contact-layout {
@@ -649,7 +651,7 @@
     }
 
     textarea {
-      min-height: 100px;
+      min-height: 90px;
       resize: vertical;
     }
 
@@ -664,6 +666,26 @@
       font-size: 12px;
       color: var(--muted);
       margin-top: 2px;
+    }
+
+    .reason-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .reason-options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .reason-options input {
+      width: auto;
     }
 
     /* FOOTER */
@@ -715,9 +737,7 @@
     }
 
     @media (max-width: 900px) {
-      nav {
-        display: none;
-      }
+      nav { display: none; }
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
         gap: 32px;
@@ -734,18 +754,15 @@
       .contact-layout {
         grid-template-columns: minmax(0, 1fr);
       }
+      .reason-options {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 720px) {
-      header {
-        position: static;
-      }
-      .hero {
-        padding-top: 78px;
-      }
-      section {
-        padding: 64px 0;
-      }
+      header { position: static; }
+      .hero { padding-top: 78px; }
+      section { padding: 64px 0; }
       .grid.cols-3,
       .grid.cols-2 {
         grid-template-columns: minmax(0, 1fr);
@@ -763,7 +780,7 @@
         height: 80px;
       }
       .section-header {
-        margin-bottom: 32px;
+        margin-bottom: 28px;
       }
     }
   </style>
@@ -783,11 +800,11 @@
         </div>
       </div>
       <nav aria-label="Primary">
-        <a href="#model" class="active">How We Engage</a>
-        <a href="#services">Executive Coverage</a>
+        <a href="#model" class="active">Get Started</a>
+        <a href="#services">Services</a>
         <a href="#cases">Client Outcomes</a>
         <a href="#team">Leadership Team</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#contact" class="nav-cta">Book a Call</a>
       </nav>
     </div>
   </header>
@@ -798,261 +815,56 @@
       <div class="container hero-inner">
         <div>
           <div class="eyebrow">Executive clarity. Coordinated execution.</div>
-          <h1>Integrated C‑Suite leadership with the delivery power to match.</h1>
+          <h1>We provide the C‑Suite leadership and delivery to finish mission‑critical work.</h1>
           <p class="hero-subtitle">
-            C³ Executive Suite provides coordinated leadership across strategy, finance, technology, growth, and people &mdash;
-            backed by teams that can design, build, and operate the solutions.
+            For organizations facing transactions, transformations, or aggressive growth targets.
           </p>
+          <ul class="hero-bullets">
+            <li>Shorten time‑to‑decision and time‑to‑market on strategic initiatives.</li>
+            <li>Increase board and investor confidence with coherent plans and reporting.</li>
+            <li>Stabilize operations while you upgrade leadership, systems, and structure.</li>
+          </ul>
           <div class="hero-meta">
-            Engage us as a complete executive suite for a defined period, or as a focused partner in the specific disciplines
-            where you require additional strength.
+            You can engage C³ as a complete executive suite for a defined period, or to strengthen specific functions
+            (finance, technology, growth, or people) with leadership and hands‑on delivery.
           </div>
           <div class="hero-ctas">
-            <a href="#model" class="btn-primary">
-              <span>Explore how we engage</span>
+            <a href="#contact" class="btn-primary">
+              <span>Book a 20‑minute executive call</span>
               <span class="arrow">→</span>
             </a>
-            <a href="#contact" class="btn-secondary-link">
-              <span>Schedule a working discussion</span>
+            <a href="#cases" class="btn-secondary-link">
+              <span>See client results</span>
               <span class="arrow">→</span>
             </a>
           </div>
         </div>
         <aside class="hero-aside" aria-label="Overview">
-          <div class="hero-aside-title">What distinguishes C³</div>
+          <div class="hero-aside-title">What clients use us for</div>
           <p>
-            We operate as a unified executive layer, not a collection of disconnected advisors. Each discipline is led by an experienced
-            executive with direct access to the specialist talent required to deliver measurable results.
+            • Preparing for sale, acquisition, or refinancing<br />
+            • Leading cross‑functional programs that keep stalling<br />
+            • Bridging gaps while key executive roles are in transition<br />
+            • Installing structure and accountability after rapid growth
           </p>
         </aside>
       </div>
     </section>
 
-    <!-- CONTEXT -->
-    <section id="context">
-      <div class="section-intro-band"></div>
-      <div class="container">
-        <div class="section-header align-left">
-          <div class="eyebrow">Context</div>
-          <h2>Where additional executive capacity changes the outcome.</h2>
-          <p class="text-muted">
-            Our clients are established organizations facing inflection points &mdash; transactions, transformations, or
-            periods of accelerated growth &mdash; where coordination across executive functions is essential.
-          </p>
-        </div>
-        <div class="grid cols-3">
-          <div class="card">
-            <div class="card-title">Enterprise transformation</div>
-            <p class="card-body">
-              Major shifts in strategy, operating model, or technology landscape that require aligned leadership across finance, product,
-              operations, people, and go‑to‑market.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-title">Leadership bandwidth</div>
-            <p class="card-body">
-              A capable executive team with limited capacity to architect and drive the next level of performance while maintaining
-              day‑to‑day responsibilities.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-title">Critical roles in motion</div>
-            <p class="card-body">
-              Key executive roles unfilled or changing during periods when boards, investors, and markets expect clarity and consistent delivery.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW WE ENGAGE -->
-    <section id="model">
-      <div class="section-intro-band"></div>
-      <div class="container section-split">
-        <div>
-          <div class="section-header align-left">
-            <div class="eyebrow">How we engage</div>
-            <h2>Structured engagement, tailored to your leadership reality.</h2>
-            <p class="text-muted">
-              We begin with a clear view of your current executive structure, strategic priorities, and delivery capacity. From there, we
-              design a targeted engagement focused on the roles and initiatives that will move the organization forward.
-            </p>
-          </div>
-        </div>
-        <div>
-          <div class="grid cols-3" style="gap:20px;">
-            <div class="card">
-              <div class="pill-label">01 &mdash; Executive role coverage</div>
-              <h3>Fractional or interim leadership</h3>
-              <p class="card-body">
-                Senior leadership in a specific domain (CFO, CMO, CTO, CHRO, COO) to support transactions, transformations, or major initiatives
-                without immediately adding permanent headcount.
-              </p>
-            </div>
-            <div class="card">
-              <div class="pill-label">02 &mdash; Cross‑functional programs</div>
-              <h3>Initiative‑based leadership</h3>
-              <p class="card-body">
-                Coordinated leadership and delivery for programs that cut across functions &mdash; such as restructuring, platform builds,
-                go‑to‑market redesign, or workforce transformation.
-              </p>
-            </div>
-            <div class="card">
-              <div class="pill-label">03 &mdash; Integrated suite</div>
-              <h3>Coordinated C‑Suite</h3>
-              <p class="card-body">
-                An integrated executive team acting as your suite for a defined period, then supporting hiring and transition to permanent
-                leaders once the new operating model is established.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXECUTIVE COVERAGE -->
-    <section id="services">
-      <div class="section-intro-band"></div>
-      <div class="container section-split">
-        <div>
-          <div class="section-header align-left">
-            <div class="eyebrow">Executive coverage</div>
-            <h2>Leadership and delivery across the core disciplines of your business.</h2>
-            <p class="text-muted">
-              Each function is led by a senior executive with a proven track record. Behind them sit specialist teams capable of
-              translating decisions into implementation and ongoing operations.
-            </p>
-          </div>
-        </div>
-        <div>
-          <div class="capability-grid">
-            <div>
-              <div class="capability-col-title">Executive leadership</div>
-            </div>
-            <div>
-              <div class="capability-col-title">Delivery &amp; operations</div>
-            </div>
-
-            <!-- Strategy / CEO-COO -->
-            <div class="capability-row">
-              <div class="capability-row-title">Strategy, CEO / COO</div>
-              <p class="text-muted">
-                Enterprise strategy, portfolio choices, operating model design, and governance that align the leadership team around
-                a clear set of priorities.
-              </p>
-            </div>
-            <div class="capability-row">
-              <div class="capability-row-title">Program &amp; execution rhythm</div>
-              <p class="text-muted">
-                Program management offices, decision forums, KPI frameworks, and operating cadences that keep execution on track.
-              </p>
-            </div>
-
-            <!-- Finance -->
-            <div class="capability-row">
-              <div class="capability-row-title">Finance, CFO</div>
-              <p class="text-muted">
-                Financial architecture, capital structure, risk posture, and communication with boards, investors, and lenders.
-              </p>
-            </div>
-            <div class="capability-row">
-              <div class="capability-row-title">Financial operations &amp; insight</div>
-              <p class="text-muted">
-                Forecasting, reporting, controls, and analysis that provide a reliable view of performance and support decision‑making.
-              </p>
-            </div>
-
-            <!-- Technology / Product -->
-            <div class="capability-row">
-              <div class="capability-row-title">Technology &amp; product, CTO</div>
-              <p class="text-muted">
-                Technology strategy, architecture, and product direction that support scale, resilience, and differentiation.
-              </p>
-            </div>
-            <div class="capability-row">
-              <div class="capability-row-title">Engineering &amp; implementation</div>
-              <p class="text-muted">
-                Implementation oversight, vendor and partner management, integration work, and quality governance across platforms and systems.
-              </p>
-            </div>
-
-            <!-- Growth / Marketing -->
-            <div class="capability-row">
-              <div class="capability-row-title">Growth &amp; brand, CMO</div>
-              <p class="text-muted">
-                Market positioning, go‑to‑market strategy, and commercial models that tie marketing and sales investments to outcomes.
-              </p>
-            </div>
-            <div class="capability-row">
-              <div class="capability-row-title">Demand generation &amp; pipeline</div>
-              <p class="text-muted">
-                Campaigns, digital channels, sales enablement, and performance reporting designed to generate predictable demand and revenue.
-              </p>
-            </div>
-
-            <!-- People / HR -->
-            <div class="capability-row">
-              <div class="capability-row-title">People &amp; culture, CHRO</div>
-              <p class="text-muted">
-                Workforce strategy, organizational design, leadership development, and culture shaping that support long‑term performance.
-              </p>
-            </div>
-            <div class="capability-row">
-              <div class="capability-row-title">HR operations &amp; development</div>
-              <p class="text-muted">
-                Talent processes, learning platforms, policy, and change management that make complex shifts executable and sustainable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FIT -->
-    <section id="fit">
-      <div class="section-intro-band"></div>
-      <div class="container two-column-copy">
-        <div>
-          <div class="section-header align-left" style="margin-bottom:24px;">
-            <div class="eyebrow">Who we serve</div>
-            <h2>Organizations where coordinated leadership is critical.</h2>
-          </div>
-          <ul class="tag-list">
-            <li>• Owner‑led and investor‑backed companies with meaningful scale and complexity.</li>
-            <li>• Leadership teams navigating transactions, transformations, or rapid growth.</li>
-            <li>• Boards seeking unified perspectives across finance, operations, technology, and people.</li>
-            <li>• Organizations that value clarity, accountability, and measurable results.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="section-header align-left" style="margin-bottom:24px;">
-            <div class="eyebrow">Where we are not a fit</div>
-            <h2>Situations better suited to other partners.</h2>
-          </div>
-          <ul class="tag-list">
-            <li>• Early‑stage concepts focused primarily on initial fundraising.</li>
-            <li>• One‑off tactical projects without interest in structural improvement.</li>
-            <li>• Engagements where executive decision‑making cannot be centralized.</li>
-            <li>• Scenarios where optics and narrative are valued over operational reality.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE STUDIES -->
+    <!-- CLIENT OUTCOMES (moved up) -->
     <section id="cases">
       <div class="section-intro-band"></div>
       <div class="container">
         <div class="section-header align-left">
           <div class="eyebrow">Client outcomes</div>
-          <h2>Examples of integrated leadership and delivery.</h2>
+          <h2>What “better” looks like in practice.</h2>
           <p class="text-muted">
-            Representative engagements where coordinated executive leadership and hands‑on delivery changed the trajectory of the business.
+            A sample of situations where integrated executive leadership and delivery protected value, accelerated results,
+            or made a transaction possible.
           </p>
         </div>
 
         <div class="cases-grid">
-          <!-- Education Company -->
           <article class="case-card">
             <div class="case-tag">Education &mdash; Transaction readiness</div>
             <h3 class="case-title">Preparing a $100M acquisition for scrutiny.</h3>
@@ -1062,11 +874,11 @@
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Delivered audit‑ready financials, forecasting, and diligence support to enable a successful $100M private equity transaction.
+              Delivered audit‑ready financials, defensible forecasts, and diligence support to enable a successful $100M
+              private equity transaction.
             </p>
           </article>
 
-          <!-- Cloud Computing -->
           <article class="case-card">
             <div class="case-tag">Cloud &amp; infrastructure &mdash; Restructuring</div>
             <h3 class="case-title">Stabilizing a business through Chapter 11.</h3>
@@ -1076,12 +888,10 @@
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Implemented cash controls, covenant tracking, contract restructuring, and disciplined workstreams to protect core operations
-              during restructuring.
+              Implemented cash controls, covenant tracking, and contract restructuring to protect core operations during restructuring.
             </p>
           </article>
 
-          <!-- Custom Cabinet -->
           <article class="case-card">
             <div class="case-tag">Manufacturing &mdash; Turnaround</div>
             <h3 class="case-title">Right‑sizing to a viable core business.</h3>
@@ -1095,22 +905,20 @@
             </p>
           </article>
 
-          <!-- Software Dev -->
           <article class="case-card">
             <div class="case-tag">Software &amp; services &mdash; Growth performance</div>
             <h3 class="case-title">From stalled pipeline to consistent growth.</h3>
             <div class="case-label">Context</div>
             <p class="case-text">
-              No sales for three consecutive months created a severe growth stall and pressure from investors.
+              No sales for three consecutive months created a severe growth stall and investor pressure.
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Implemented a performance management system with clear accountability, leading to consistent &#36;200K/month in sales
-              and subsequent doubling within nine months.
+              Implemented a performance management system with clear accountability, leading to consistent &#36;200K/month
+              in sales and subsequent doubling within nine months.
             </p>
           </article>
 
-          <!-- Funded Product -->
           <article class="case-card">
             <div class="case-tag">Funded product &mdash; Investor communication</div>
             <h3 class="case-title">Clarifying marketing performance for investors.</h3>
@@ -1120,11 +928,10 @@
             </p>
             <div class="case-label">Outcome</div>
             <p class="case-text">
-              Built a clear performance scoreboard showing 5–6% benchmark performance, providing data‑driven answers and eliminating speculation.
+              Built a clear performance scoreboard showing 5–6% benchmark performance, providing data‑driven answers and ending speculation.
             </p>
           </article>
 
-          <!-- B2B Procurement -->
           <article class="case-card">
             <div class="case-tag">B2B procurement &mdash; Scale‑up</div>
             <h3 class="case-title">From stalled launch to a growth platform.</h3>
@@ -1142,16 +949,192 @@
       </div>
     </section>
 
+    <!-- CONTEXT (shortened, more concrete) -->
+    <section id="context">
+      <div class="section-intro-band"></div>
+      <div class="container">
+        <div class="section-header align-left">
+          <div class="eyebrow">When we’re engaged</div>
+          <h2>Typical situations where C³ changes the trajectory.</h2>
+          <p class="text-muted">
+            In most cases, there is already a capable team in place. What’s missing is coordinated executive capacity to get through
+            a high‑stakes moment.
+          </p>
+        </div>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="card-title">Major strategic shifts</div>
+            <p class="card-body">
+              Example: entering new markets, consolidating business units, or re‑platforming core systems with tight board timelines.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Leadership bandwidth constraints</div>
+            <p class="card-body">
+              Example: CEO and existing C‑suite are fully allocated to day‑to‑day operations while investors expect accelerated change.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Executive transitions</div>
+            <p class="card-body">
+              Example: CFO, CMO, or CTO roles are unfilled at the same time that lenders, auditors, or regulators are asking deeper questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE ENGAGE -->
+    <section id="model">
+      <div class="section-intro-band"></div>
+      <div class="container section-split">
+        <div>
+          <div class="section-header align-left">
+            <div class="eyebrow">Get started</div>
+            <h2>Flexible engagement models that match your reality.</h2>
+            <p class="text-muted">
+              We keep the structure simple so decisions are fast and expectations are clear.
+            </p>
+            <ul class="tag-list" style="margin-top:8px;">
+              <li>• Start with a focused mandate and expand only if impact is proven.</li>
+              <li>• Clear owners for outcomes, not just activities.</li>
+              <li>• Integration with your existing leadership, not a parallel structure.</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="grid cols-3" style="gap:20px;">
+            <div class="card">
+              <div class="pill-label">01 &mdash; Executive role coverage</div>
+              <h3>Fractional or interim leadership</h3>
+              <p class="card-body">
+                Fill a specific seat (CFO, CMO, CTO, CHRO, COO) for a defined period while maintaining momentum on
+                financial, product, people, or go‑to‑market commitments.
+              </p>
+            </div>
+            <div class="card">
+              <div class="pill-label">02 &mdash; Cross‑functional programs</div>
+              <h3>Initiative‑based leadership</h3>
+              <p class="card-body">
+                Lead programs that cut across functions &mdash; e.g., restructuring, platform builds, or GTM redesign &mdash;
+                with a single spine of accountability from board to delivery teams.
+              </p>
+            </div>
+            <div class="card">
+              <div class="pill-label">03 &mdash; Integrated suite</div>
+              <h3>Coordinated C‑Suite</h3>
+              <p class="card-body">
+                Stand up a full executive layer for a season, then help you hire and transition permanent leaders once
+                the new operating model is in place and performing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE COVERAGE -->
+    <section id="services">
+      <div class="section-intro-band"></div>
+      <div class="container section-split">
+        <div>
+          <div class="section-header align-left">
+            <div class="eyebrow">Services</div>
+            <h2>Leadership and execution across the core disciplines.</h2>
+            <p class="text-muted">
+              Our work spans five executive domains. You can engage across the full portfolio or concentrate on the functions
+              most relevant to your current agenda.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="capability-grid">
+            <div>
+              <div class="capability-col-title">Executive leadership</div>
+            </div>
+            <div>
+              <div class="capability-col-title">Delivery &amp; operations</div>
+            </div>
+
+            <div class="capability-row">
+              <div class="capability-row-title">Strategy, CEO / COO</div>
+              <p class="text-muted">
+                Set direction and operating cadence so leadership, board, and teams are aligned on “what we’re doing and why.”
+              </p>
+            </div>
+            <div class="capability-row">
+              <div class="capability-row-title">Program &amp; execution rhythm</div>
+              <p class="text-muted">
+                Program management, KPI frameworks, and decision forums that keep initiatives moving and visible.
+              </p>
+            </div>
+
+            <div class="capability-row">
+              <div class="capability-row-title">Finance, CFO</div>
+              <p class="text-muted">
+                Clarify the economic model, align capital with priorities, and give stakeholders a reliable view of performance and risk.
+              </p>
+            </div>
+            <div class="capability-row">
+              <div class="capability-row-title">Financial operations &amp; insight</div>
+              <p class="text-muted">
+                Forecasting, reporting, and controls that support faster, better‑informed decisions.
+              </p>
+            </div>
+
+            <div class="capability-row">
+              <div class="capability-row-title">Technology &amp; product, CTO</div>
+              <p class="text-muted">
+                Design technology and product roadmaps that support growth, resilience, and differentiation.
+              </p>
+            </div>
+            <div class="capability-row">
+              <div class="capability-row-title">Engineering &amp; implementation</div>
+              <p class="text-muted">
+                Oversee builds, integrations, and vendors so what’s shipped matches the architecture on paper.
+              </p>
+            </div>
+
+            <div class="capability-row">
+              <div class="capability-row-title">Growth &amp; brand, CMO</div>
+              <p class="text-muted">
+                Align positioning, go‑to‑market, and commercial models with the revenue and margin targets leadership has committed to.
+              </p>
+            </div>
+            <div class="capability-row">
+              <div class="capability-row-title">Demand generation &amp; pipeline</div>
+              <p class="text-muted">
+                Build campaigns, funnels, and reporting that make growth performance measurable and manageable.
+              </p>
+            </div>
+
+            <div class="capability-row">
+              <div class="capability-row-title">People &amp; culture, CHRO</div>
+              <p class="text-muted">
+                Design workforce and leadership strategies that support the business you are becoming, not just the business you are today.
+              </p>
+            </div>
+            <div class="capability-row">
+              <div class="capability-row-title">HR operations &amp; development</div>
+              <p class="text-muted">
+                Implement talent processes, learning platforms, and change support that make large shifts executable and humane.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PEOPLE -->
     <section id="team">
       <div class="section-intro-band"></div>
       <div class="container">
         <div class="section-header align-left">
           <div class="eyebrow">Leadership team</div>
-          <h2>Executive experience with an operator’s bias.</h2>
+          <h2>Partners who have carried the targets you’re now facing.</h2>
           <p class="text-muted">
-            Each partner brings deep domain expertise and a history of direct accountability for results. We are comfortable in the
-            boardroom and alongside your teams in day‑to‑day execution.
+            Each partner has led teams through similar stakes: revenue growth expectations, cost pressure, restructurings,
+            and investor scrutiny. We bring that experience as a service.
           </p>
         </div>
 
@@ -1166,8 +1149,8 @@
               </div>
             </div>
             <p class="person-body">
-              Senior finance and operations leader with over 25 years of experience across SaaS, e‑commerce, services, construction, and
-              PE‑backed companies. Specializes in complex, time‑sensitive situations requiring clear decisions and disciplined execution.
+              Senior finance and operations leader with over 25 years across SaaS, e‑commerce, services, construction, and
+              PE‑backed companies. Frequently engaged where clarity and disciplined execution are urgent.
             </p>
             <p class="person-meta">
               Focus: special situations, transactions, restructurings, and building durable finance and operating models.
@@ -1184,8 +1167,8 @@
               </div>
             </div>
             <p class="person-body">
-              Marketing and business development executive and serial entrepreneur. Brings practical experience aligning brand, digital,
-              and commercial initiatives with growth and M&amp;A objectives.
+              Marketing and business development executive and serial entrepreneur. Aligns brand, digital, and commercial initiatives
+              with growth and M&amp;A objectives.
             </p>
             <p class="person-meta">
               Focus: branding and identity, internet marketing, and growth strategies that support enterprise‑level outcomes.
@@ -1202,8 +1185,8 @@
               </div>
             </div>
             <p class="person-body">
-              Business Architect focused on assessing and correcting execution risk prior to capital deployment. With an engineering foundation,
-              his work ensures strategy, technology, and operating models are capable of converting capital into durable outcomes.
+              Business Architect focused on assessing and correcting execution risk prior to capital deployment. Ensures strategy,
+              technology, and operating models can actually convert capital into durable outcomes.
             </p>
             <p class="person-meta">
               Expertise: systems architecture, parametric design, Blue Ocean strategy, procurement semantics, and negotiation design.
@@ -1220,11 +1203,11 @@
               </div>
             </div>
             <p class="person-body">
-              Human Resources Director and Senior HR Business Partner with 15+ years of global experience leading HR transformation,
-              organizational development, and workforce strategy across sectors and geographies.
+              Human Resources Director and Senior HR Business Partner with 15+ years of global experience in HR transformation,
+              organizational development, and workforce strategy.
             </p>
             <p class="person-meta">
-              Track record: significant cost savings, workforce agility, large‑scale learning programs, and data‑driven, people‑first change.
+              Track record: material cost savings, workforce redeployment at scale, and global learning programs that support complex change.
             </p>
           </article>
         </div>
@@ -1237,14 +1220,13 @@
       <div class="container contact-layout">
         <div class="cta-section">
           <div class="eyebrow">Next step</div>
-          <h2>Arrange a working conversation with the partners.</h2>
+          <h2>Book a short, working conversation with the partners.</h2>
           <p>
-            If you are evaluating additional executive capacity or coordinating a complex initiative, we are available for a focused
-            discussion about your current situation, leadership structure, and priorities.
+            We use the first 20 minutes to understand your situation, not to sell a package. If there is a clear fit, we’ll outline
+            options and next steps. If not, we’ll say so directly.
           </p>
           <p class="text-muted">
-            Share a brief outline of your organization and the decisions in front of you. We will respond with clarifying questions and
-            proposed times for a substantive conversation.
+            Many clients are referred through boards, investors, or advisors. If that is your context, feel free to mention it below.
           </p>
         </div>
         <div>
@@ -1262,19 +1244,26 @@
               <input id="company" name="company" type="text" autocomplete="organization" />
             </div>
             <div>
-              <label for="role">Your role</label>
-              <input id="role" name="role" type="text" />
+              <label>Reason for reaching out</label>
+              <div class="reason-options">
+                <label><input type="checkbox" name="reason" value="transaction" /> Transaction (sale, acquisition, refinancing)</label>
+                <label><input type="checkbox" name="reason" value="transformation" /> Transformation / major initiative</label>
+                <label><input type="checkbox" name="reason" value="role-gap" /> Interim / fractional executive role</label>
+                <label><input type="checkbox" name="reason" value="growth" /> Growth, GTM, or performance issues</label>
+                <label><input type="checkbox" name="reason" value="people" /> People / organization / HR challenges</label>
+                <label><input type="checkbox" name="reason" value="other" /> Other</label>
+              </div>
             </div>
             <div>
-              <label for="context">What would you like to discuss?</label>
-              <textarea id="context" name="context" placeholder="A short overview of your current priorities, challenges, and timelines."></textarea>
+              <label for="context">Anything else we should know?</label>
+              <textarea id="context" name="context" placeholder="Optional: a short overview of your current priorities, challenges, and timelines."></textarea>
               <div class="helper-text">
-                Helpful context: sector, revenue range, current C‑Suite structure, and any upcoming transactions, transformations, or launches.
+                Helpful context: sector, revenue range, current C‑Suite structure, and any upcoming deadlines or decision points.
               </div>
             </div>
             <div>
               <button type="submit" class="btn-primary">
-                <span>Submit inquiry</span>
+                <span>Book 20‑minute call</span>
                 <span class="arrow">→</span>
               </button>
             </div>
@@ -1290,11 +1279,11 @@
       <div>© <span id="year"></span> C³ Executive Suite. All rights reserved.</div>
       <div class="footer-nav">
         <a href="#top">Home</a>
-        <a href="#model">How We Engage</a>
-        <a href="#services">Executive Coverage</a>
+        <a href="#model">Get Started</a>
+        <a href="#services">Services</a>
         <a href="#cases">Client Outcomes</a>
         <a href="#team">Leadership Team</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Book a Call</a>
       </div>
     </div>
   </footer>
