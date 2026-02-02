@@ -1230,7 +1230,7 @@
           </p>
         </div>
         <div>
-          <form>
+          <form id="contact-form">
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" />
@@ -1290,7 +1290,49 @@
 </div>
 
 <script>
+  // Set the current year in the footer
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Handle the Form Submission
+  const contactForm = document.getElementById('contact-form');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 1. Visual feedback for the user
+    const submitBtn = contactForm.querySelector('button');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Sending...</span>';
+
+    // 2. Capture the form data
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // 3. Send data to your Zapier URL
+      await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
+        method: 'POST',
+        mode: 'no-cors', // Standard for Zapier webhooks to avoid browser blocks
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      // 4. Success!
+      alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
+      contactForm.reset();
+
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Error sending message. Please try again or check your connection.');
+    } finally {
+      // 5. Reset button state
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+  });
 </script>
 </body>
 </html>
