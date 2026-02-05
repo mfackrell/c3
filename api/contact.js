@@ -3,22 +3,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { name, email, company, role, context } = req.body;
+  const payload = req.body;
 
-  if (!name || !email || !context) {
+  if (!payload?.name || !payload?.email) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
-  // Replace with your real email or automation logic
-  console.log('New contact form submission:', {
-    name,
-    email,
-    company,
-    role,
-    context
-  });
-
-  // Optional: send to email via SendGrid/Mailgun/etc or save to Airtable, Notion, Google Sheets...
+  console.log('New contact form submission:', payload);
 
   return res.status(200).json({ message: 'Submission received' });
 }
