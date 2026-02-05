@@ -1177,30 +1177,28 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (Updated with 2 buttons) -->
     <section id="contact">
-      <div class="section-intro-band"></div>
       <div class="container contact-layout">
         <div class="cta-section">
           <div class="eyebrow">Next step</div>
           <h2>Book a working conversation about your CXO needs.</h2>
           <p>
-            We use the first 20 minutes to understand your situation, timeline, and existing team. If there is a clear fit for fractional
-            or interim CXO support, we’ll outline options and next steps. If not, we’ll say so directly.
+            We use the first 20 minutes to understand your situation, timeline, and existing team. If there is a clear fit, we’ll outline options and next steps.
           </p>
           <p class="text-muted">
-            Many of our engagements begin as interim coverage for a specific seat, and evolve into build‑to‑hire or long‑term fractional roles.
+            Many of our engagements begin as interim coverage and evolve into long‑term fractional roles.
           </p>
         </div>
         <div>
           <form id="contact-form">
             <div>
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" />
+              <input id="name" name="name" type="text" autocomplete="name" required />
             </div>
             <div>
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" />
+              <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
             <div>
               <label for="company">Company</label>
@@ -1219,16 +1217,23 @@
             </div>
             <div>
               <label for="context">Anything else we should know?</label>
-              <textarea id="context" name="context" placeholder="Optional: a short overview of your current priorities, challenges, and timelines."></textarea>
+              <textarea id="context" name="context" placeholder="Optional: a short overview of your current priorities and timelines."></textarea>
               <div class="helper-text">
-                Helpful context: sector, revenue range, current C‑Suite structure, and any upcoming deadlines or decision points.
+                Helpful context: sector, revenue range, and any upcoming deadlines.
               </div>
             </div>
-            <div>
-              <button type="submit" class="btn-primary">
-                <span>Book 20‑minute call</span>
+            
+            <!-- BUTTON GROUP -->
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" id="submit-btn">
+                <span>Send Inquiry</span>
                 <span class="arrow">→</span>
               </button>
+              
+              <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary-btn" onclick="gtag('event', 'calendly_click');">
+                <span>Book 20-minute call</span>
+                <span class="arrow">→</span>
+              </a>
             </div>
           </form>
         </div>
