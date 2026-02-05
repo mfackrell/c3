@@ -785,6 +785,15 @@
     }
   </style>
 
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWL2212988"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RWL2212988');
+  </script>
+  
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -836,7 +845,7 @@
             leaders when the time and scale are right.
           </div>
           <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">
+            <a href="#contact" class="btn-primary" onclick="gtag('event', 'cta_interest');">
               <span>Book a 20‑minute CXO consult</span>
               <span class="arrow">→</span>
             </a>
@@ -1273,6 +1282,8 @@
           'Content-Type': 'application/json'
         }
       });
+
+      gtag('event', 'contact_form_submit');
 
       // 4. Success!
       alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
