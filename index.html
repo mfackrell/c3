@@ -1270,7 +1270,20 @@
 
     // 2. Capture the form data
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
+    
+    // collect checkboxes correctly
+    const reasons = [];
+    contactForm.querySelectorAll('input[name="reason"]:checked')
+      .forEach(cb => reasons.push(cb.value));
+    
+    const data = {
+      name: formData.get('name') || '',
+      email: formData.get('email') || '',
+      company: formData.get('company') || '',
+      reason: reasons.join(', '),
+      context: formData.get('context') || ''
+    };
+
 
     try {
       // 3. Send data to your Zapier URL
