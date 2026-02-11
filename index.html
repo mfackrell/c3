@@ -598,6 +598,17 @@
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
 
+    .person-top {
+      min-height:118px; /* forces same vertical start line */
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+    
+    .person-card .credential-badge {
+      margin-top:6px;
+    }
+
     .person-divider {
       height:1px;
       background:var(--border);
@@ -609,7 +620,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .person-photo {
@@ -1122,7 +1133,6 @@
     </section>
     </div>
 
-
     <!-- PEOPLE -->
     <section id="team">
       <div class="section-intro-band"></div>
@@ -1135,22 +1145,26 @@
             as an on-demand executive layer.
           </p>
         </div>
-
+    
         <div class="people-grid">
           <!-- Mark -->
           <article class="person-card">
-            <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Mark.jpg" alt="Photo of Mark Fackrell" class="person-photo" />
-              <div>
-                <div class="person-name">Mark Fackrell</div>
-                <div class="person-role">Partner &mdash; Finance &amp; Operations</div>
+            <div class="person-top">
+              <div class="person-header">
+                <img src="https://storage.googleapis.com/permanent-assets/Mark.jpg" alt="Photo of Mark Fackrell" class="person-photo" />
+                <div>
+                  <div class="person-name">Mark Fackrell</div>
+                  <div class="person-role">Partner &mdash; Finance &amp; Operations</div>
+                </div>
               </div>
+    
+              <a href="#recognition-mark" class="credential-badge">
+                <img src="https://storage.googleapis.com/permanent-assets/digital%20reference%20-%20fackrell.png"
+                     alt="Recognized as Best Fractional CFO - Digital Reference" />
+                <span>Recognized among top Fractional CFOs</span>
+              </a>
             </div>
-            <a href="#recognition-mark" class="credential-badge">
-              <img src="https://storage.googleapis.com/permanent-assets/digital%20reference%20-%20fackrell.png"
-                   alt="Recognized as Best Fractional CFO - Digital Reference" />
-              <span>Recognized among top Fractional CFOs</span>
-            </a>
+    
             <p class="person-body">
               Finance and operations executive with 25+ years across SaaS, e-commerce, services, construction, and
               PE-backed companies. Frequently engaged in situations requiring rapid clarity, stabilization, and
@@ -1164,21 +1178,24 @@
               Focus: special situations, transactions, restructurings, and building durable finance and operating models.
             </p>
           </article>
-
+    
           <!-- Eric -->
           <article class="person-card">
-            <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/eric.jpg" alt="Photo of Eric Hughes" class="person-photo" />
-              <div>
-                <div class="person-name">Eric Hughes</div>
-                <div class="person-role">Partner &mdash; Marketing &amp; Growth</div>
+            <div class="person-top">
+              <div class="person-header">
+                <img src="https://storage.googleapis.com/permanent-assets/eric.jpg" alt="Photo of Eric Hughes" class="person-photo" />
+                <div>
+                  <div class="person-name">Eric Hughes</div>
+                  <div class="person-role">Partner &mdash; Marketing &amp; Growth</div>
+                </div>
               </div>
             </div>
+    
             <p class="person-body">
               Marketing and business development executive and serial entrepreneur. Leads positioning, demand generation,
               and commercial alignment so growth efforts translate into measurable revenue rather than activity.
             </p>
-
+    
             <div class="person-divider"></div>
             
             <p class="person-meta">
@@ -1186,45 +1203,51 @@
               building scalable lead systems tied directly to pipeline and valuation outcomes.
             </p>
           </article>
-
+    
           <!-- Ravi -->
           <article class="person-card">
-            <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Ravi.jpg" alt="Photo of Ravi VC" class="person-photo" />
-              <div>
-                <div class="person-name">Ravi VC</div>
-                <div class="person-role">Partner &mdash; Strategy &amp; Risk</div>
+            <div class="person-top">
+              <div class="person-header">
+                <img src="https://storage.googleapis.com/permanent-assets/Ravi.jpg" alt="Photo of Ravi VC" class="person-photo" />
+                <div>
+                  <div class="person-name">Ravi VC</div>
+                  <div class="person-role">Partner &mdash; Strategy &amp; Risk</div>
+                </div>
               </div>
             </div>
+    
             <p class="person-body">
               Business architect focused on identifying execution risk before capital is deployed. Evaluates whether strategy,
               systems, and operating model can realistically produce the intended business outcome.
             </p>
-
+    
             <div class="person-divider"></div>
-
+    
             <p class="person-meta">
               Work includes operating model design, procurement and negotiation structures, and aligning technology decisions
               with financial return instead of theoretical capability.
             </p>
           </article>
-
+    
           <!-- Andy -->
           <article class="person-card">
-            <div class="person-header">
-              <img src="https://storage.googleapis.com/permanent-assets/Andy.jpg" alt="Photo of Andy Wise" class="person-photo" />
-              <div>
-                <div class="person-name">Andy Wise</div>
-                <div class="person-role">Partner &mdash; People &amp; Transformation</div>
+            <div class="person-top">
+              <div class="person-header">
+                <img src="https://storage.googleapis.com/permanent-assets/Andy.jpg" alt="Photo of Andy Wise" class="person-photo" />
+                <div>
+                  <div class="person-name">Andy Wise</div>
+                  <div class="person-role">Partner &mdash; People &amp; Transformation</div>
+                </div>
               </div>
             </div>
+    
             <p class="person-body">
               Senior HR leader specializing in organizational structure, accountability systems, and workforce transformation
               during periods of growth or operational change.
             </p>
-
+    
             <div class="person-divider"></div>
-
+    
             <p class="person-meta">
               Guides leadership teams through restructuring, performance management frameworks, and change adoption so
               operational improvements actually stick after implementation.
@@ -1233,6 +1256,8 @@
         </div>
       </div>
     </section>
+
+ 
 
     
 
