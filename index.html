@@ -549,7 +549,9 @@
     .people-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
+      gap: 22px;
+      align-items:start; /* IMPORTANT: prevents stretching */
+
     }
 
     .credential-badge {
@@ -590,7 +592,8 @@
       padding: 16px 14px 14px;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: auto;
+      align-self:start;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
 
@@ -598,7 +601,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .person-photo {
@@ -625,12 +628,15 @@
     .person-body {
       font-size: 13px;
       color: var(--muted);
+      margin-top:14px;
+      line-height:1.55;
       margin: 0 0 6px;
       flex: 1;
     }
 
     .person-meta {
-      font-size: 12px;
+      margin-top:12px;
+      font-size: 13.5px;
       color: var(--muted);
       margin: 0;
     }
@@ -1137,11 +1143,6 @@
                    alt="Recognized as Best Fractional CFO - Digital Reference" />
               <span>Recognized among top Fractional CFOs</span>
             </a>
-            <div class="credential-badge">
-              <img src="https://storage.googleapis.com/permanent-assets/digital%20reference%20-%20fackrell.png"
-                   alt="Recognized as Best Fractional CFO - Digital Reference" />
-              <span>Recognized among top Fractional CFOs</span>
-            </div>
             <p class="person-body">
               Finance and operations executive with 25+ years across SaaS, e-commerce, services, construction, and
               PE-backed companies. Frequently engaged in situations requiring rapid clarity, stabilization, and
@@ -1166,11 +1167,12 @@
               </div>
             </div>
             <p class="person-body">
-              Marketing and business development executive and serial entrepreneur. Aligns brand, digital, and commercial initiatives
-              with growth and M&amp;A objectives.
+              Marketing and business development executive and serial entrepreneur. Leads positioning, demand generation,
+              and commercial alignment so growth efforts translate into measurable revenue rather than activity.
             </p>
             <p class="person-meta">
-              Focus: branding and identity, internet marketing, and growth strategies that support enterprise‑level outcomes.
+              Experience includes go-to-market restructuring, brand repositioning, acquisition-support marketing, and
+              building scalable lead systems tied directly to pipeline and valuation outcomes.
             </p>
           </article>
 
@@ -1184,11 +1186,12 @@
               </div>
             </div>
             <p class="person-body">
-              Business Architect focused on assessing and correcting execution risk prior to capital deployment. Ensures strategy,
-              technology, and operating models can actually convert capital into durable outcomes.
+              Business architect focused on identifying execution risk before capital is deployed. Evaluates whether strategy,
+              systems, and operating model can realistically produce the intended business outcome.
             </p>
             <p class="person-meta">
-              Expertise: systems architecture, parametric design, Blue Ocean strategy, procurement semantics, and negotiation design.
+              Work includes operating model design, procurement and negotiation structures, and aligning technology decisions
+              with financial return instead of theoretical capability.
             </p>
           </article>
 
@@ -1202,11 +1205,12 @@
               </div>
             </div>
             <p class="person-body">
-              Human Resources Director and Senior HR Business Partner with 15+ years of global experience in HR transformation,
-              organizational development, and workforce strategy.
+              Senior HR leader specializing in organizational structure, accountability systems, and workforce transformation
+              during periods of growth or operational change.
             </p>
             <p class="person-meta">
-              Track record: material cost savings, workforce redeployment at scale, and global learning programs that support complex change.
+              Guides leadership teams through restructuring, performance management frameworks, and change adoption so
+              operational improvements actually stick after implementation.
             </p>
           </article>
         </div>
