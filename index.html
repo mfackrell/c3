@@ -552,6 +552,37 @@
       gap: 24px;
     }
 
+    .credential-badge {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:10px 0 12px 0;
+      padding:8px 10px;
+      background:#F4F7FB;
+      border:1px solid var(--border);
+      border-radius:8px;
+      font-size:13px;
+      font-weight:500;
+      color:#2A3550;
+    }
+
+    .credential-badge:hover {
+      background:#EAF1FF;
+      transform:translateY(-1px);
+    }
+    
+    .credential-badge img {
+      height:22px;
+      width:auto;
+      opacity:0.95;
+    }
+
+    .credibility-detail {
+      padding:70px 0;
+      background:#FAFBFF;
+      border-top:1px solid var(--border);
+    }
+    
     .person-card {
       border-radius: var(--radius);
       border: 1px solid var(--border);
@@ -1101,9 +1132,24 @@
                 <div class="person-role">Partner &mdash; Finance &amp; Operations</div>
               </div>
             </div>
+            <a href="#recognition-mark" class="credential-badge">
+              <img src="https://storage.googleapis.com/permanent-assets/digital%20reference%20-%20fackrell.png"
+                   alt="Recognized as Best Fractional CFO - Digital Reference" />
+              <span>Recognized among top Fractional CFOs</span>
+            </a>
+            <div class="credential-badge">
+              <img src="https://storage.googleapis.com/permanent-assets/digital%20reference%20-%20fackrell.png"
+                   alt="Recognized as Best Fractional CFO - Digital Reference" />
+              <span>Recognized among top Fractional CFOs</span>
+            </div>
             <p class="person-body">
-              Senior finance and operations leader with over 25 years across SaaS, e‑commerce, services, construction, and
-              PE‑backed companies. Frequently engaged where clarity and disciplined execution are urgent.
+              Finance and operations executive with 25+ years across SaaS, e-commerce, services, construction, and
+              PE-backed companies. Frequently engaged in situations requiring rapid clarity, stabilization, and
+              executive-level decision support.
+            </p>
+            
+            <p class="person-meta">
+              Recognized among top fractional CFOs by an independent editorial review platform.
             </p>
             <p class="person-meta">
               Focus: special situations, transactions, restructurings, and building durable finance and operating models.
@@ -1278,6 +1324,22 @@
     </section>
   </main>
 
+  <!-- Recognition Detail -->
+  <section id="recognition-mark" class="credibility-detail">
+    <div class="container narrow">
+      <div class="section-header align-left">
+        <div class="eyebrow">Independent recognition</div>
+        <h2>Why this matters</h2>
+        <p class="text-muted">
+          Mark Fackrell was featured by an independent editorial platform highlighting leading fractional CFO consultants.
+          The recognition reflects practical work helping companies implement financial systems, improve operational clarity,
+          and support executive decision making without a full-time hire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  
   <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
