@@ -342,18 +342,68 @@
     </section>
 
     <!-- Contact Section Re-inserted -->
-    <section id="contact">
-      <div class="container narrow">
-        <div class="card" style="padding: 50px; text-align: center; background: var(--navy); color: white; border-radius: 12px;">
-          <h2 style="color: white; font-size: 2.25rem; margin-bottom: 20px;">Ready to bridge the gap?</h2>
-          <p style="font-size: 1.1rem; margin-bottom: 15px;">We don't do "sales pitches." We do <strong>Gap Assessments.</strong></p>
-          <p style="margin-bottom: 30px; opacity: 0.9;">Book a 20-minute call to determine if your business has an ownership gap, and if a transitional leader is the fastest way to close it.</p>
-          <div style="margin-top: 30px;">
-              <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background: var(--gold); color: var(--navy-dark); font-size: 1.1rem; padding: 20px 40px;">Book Your Transition Review →</a>
-          </div>
+    <section id="contact" style="background: var(--bg-light); border-top: 1px solid var(--border);">
+      <div class="container contact-layout">
+        <div class="cta-section">
+          <div class="eyebrow">Next step</div>
+          <h2 style="font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px;">Determine whether a leadership gap currently exists in your business.</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 20px;">
+            We use this conversation to uncover specific missing executive functions. <strong>This is typically the conversation companies have internally 3–6 months later anyway — having it now prevents avoidable mistakes.</strong>
+          </p>
+          <p class="text-muted">
+            Many of our engagements begin as interim coverage and evolve into long‑term fractional roles.
+          </p>
+        </div>
+        <div>
+          <form id="contact-form">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div>
+              <label>Reason for reaching out</label>
+              <div class="reason-options">
+                <label><input type="checkbox" name="reason" value="transaction" /> Transaction (sale, acquisition, refinancing)</label>
+                <label><input type="checkbox" name="reason" value="transformation" /> Transformation / major initiative</label>
+                <label><input type="checkbox" name="reason" value="role-gap" /> Interim / fractional executive role</label>
+                <label><input type="checkbox" name="reason" value="growth" /> Growth, GTM, or performance issues</label>
+                <label><input type="checkbox" name="reason" value="people" /> People / organization / HR challenges</label>
+                <label><input type="checkbox" name="reason" value="other" /> Other</label>
+              </div>
+            </div>
+            <div>
+              <label for="context">Anything else we should know?</label>
+              <textarea id="context" name="context" placeholder="Optional: a short overview of your current priorities and timelines."></textarea>
+              <div class="helper-text">
+                Helpful context: sector, revenue range, and any upcoming deadlines.
+              </div>
+            </div>
+            
+            <!-- BUTTON GROUP -->
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" id="submit-btn">
+                <span>Send Inquiry</span>
+                <span class="arrow">→</span>
+              </button>
+              
+              <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary-btn" onclick="gtag('event', 'calendly_click');">
+                <span>Book 20-minute call</span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
