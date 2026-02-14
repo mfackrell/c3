@@ -1,845 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>C³ Executive Suite – Fractional & Interim Executive Leadership</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="C³ Executive Suite provides senior Fractional and Interim Executive leadership across finance, strategy, technology, growth, and people—bridging gaps until full-time hires are in place or serving as long-term fractional partners." />
-
-  <!-- Headline & body fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #F3F6FA;
-      --bg-alt: #FFFFFF;
-      --navy: #00338D;
-      --navy-dark: #001B4D;
-      --accent: #FF6A00;
-      --text: #111827;
-      --muted: #4B5563;
-      --border: #D1D5DB;
-
-      --max-width: 1180px;
-      --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-serif: "DM Serif Display", "Georgia", "Times New Roman", serif;
-
-      --radius: 8px;
-      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.04);
-      --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.18);
-      --transition-fast: 150ms ease-out;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; display: block; }
-
-    a { color: var(--navy); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* HEADER */
-
-    header {
-      border-bottom: 1px solid #E5E7EB;
-      background: #FFFFFF;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 90px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .brand-logo-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #FFFFFF;
-      border-radius: 12px;
-      padding: 6px 10px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #E5E7EB;
-    }
-
-    .brand-logo {
-      height: 96px;
-      width: auto;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-line-1 {
-      font-size: 16px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--navy);
-      font-weight: 800;
-    }
-
-    .brand-line-2 {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    nav a {
-      color: var(--muted);
-      position: relative;
-      padding-bottom: 3px;
-    }
-
-    nav a:hover {
-      color: var(--navy);
-      text-decoration: none;
-    }
-
-    nav a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 26px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .nav-cta {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--navy);
-      color: var(--navy);
-      font-weight: 600;
-      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .nav-cta:hover {
-      background: var(--navy);
-      color: #FFFFFF;
-      text-decoration: none;
-      box-shadow: var(--shadow-strong);
-    }
-
-    main { flex: 1; }
-
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-alt);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section:nth-of-type(odd) {
-      background: var(--bg);
-    }
-
-    .section-header {
-      max-width: 720px;
-      margin: 0 auto 32px auto;
-    }
-    .section-header.align-left {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-family: var(--font-serif);
-      color: var(--navy-dark);
-    }
-
-    h1 {
-      font-size: clamp(30px, 4.4vw, 40px);
-      line-height: 1.08;
-      margin-bottom: 16px;
-      font-weight: 400;
-    }
-
-    h2 {
-      font-size: 30px;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-
-    h3 {
-      font-size: 19px;
-      margin-bottom: 6px;
-      font-weight: 400;
-    }
-
-    .text-muted {
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 96px 0 72px;
-      background: #F5F8FF;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,51,141,0.18) 0, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 40px;
-      left: -120px;
-      width: 260px;
-      height: 260px;
-      background: linear-gradient(135deg, rgba(255,106,0,0.14), rgba(255,255,255,0));
-      transform: skewX(-8deg);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-subtitle {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 620px;
-      margin-bottom: 16px;
-    }
-
-    .hero-bullets {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0 0 24px 0;
-      padding-left: 18px;
-    }
-
-    .hero-bullets li {
-      margin-bottom: 4px;
-    }
-
-    .hero-meta {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 540px;
-      margin-bottom: 22px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 4px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #FFFFFF;
-      background: linear-gradient(120deg, var(--accent), #FF8A33);
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(255, 106, 0, 0.35);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-    }
-
-    .btn-primary span.arrow {
-      font-family: system-ui, sans-serif;
-      transition: transform var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(255, 106, 0, 0.45);
-      filter: brightness(1.04);
-    }
-
-    .btn-primary:hover span.arrow {
-      transform: translateX(2px);
-    }
-
-    .btn-secondary-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--navy-dark);
-      border-bottom: 2px solid rgba(0, 51, 141, 0.4);
-      padding-bottom: 2px;
-      text-decoration: none;
-      transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .btn-secondary-link span.arrow {
-      font-family: system-ui, sans-serif;
-      transition: transform var(--transition-fast);
-    }
-
-    .btn-secondary-link:hover {
-      border-color: var(--accent);
-      color: var(--navy);
-      text-decoration: none;
-    }
-
-    .btn-secondary-link:hover span.arrow {
-      transform: translateX(2px);
-    }
-
-    .hero-aside {
-      padding: 20px 22px 18px;
-      border-radius: 12px;
-      border: 1px solid #E5E7EB;
-      background: #FFFFFF;
-      box-shadow: var(--shadow-soft);
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .hero-aside-title {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    .hero-aside p { margin: 0; }
-
-    /* SECTION INTRO BAND */
-
-    .section-intro-band {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 56px;
-      background: linear-gradient(90deg, rgba(0,51,141,0.06), transparent);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* GRID / CARDS */
-
-    .grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-    .card {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: #FFFFFF;
-      padding: 18px 18px 16px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-    }
-
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy-dark);
-      margin-bottom: 6px;
-    }
-
-    .card-body {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .section-split {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.8fr);
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .two-column-copy {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 40px;
-    }
-
-    .tag-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .tag-list li { margin-bottom: 8px; }
-
-    .pill-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    /* CAPABILITY GRID */
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
-      gap: 24px;
-      font-size: 14px;
-    }
-
-    .capability-col-title {
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .capability-row {
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
-      margin-top: 10px;
-    }
-
-    .capability-row-title {
-      font-weight: 600;
-      color: var(--navy-dark);
-      margin-bottom: 4px;
-    }
-
-    /* CASES */
-
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .case-card {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: #FFFFFF;
-      padding: 18px 18px 16px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .case-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-strong);
-      border-color: rgba(0, 51, 141, 0.45);
-    }
-
-    .case-tag {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    .case-title {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      color: var(--navy-dark);
-      margin-bottom: 6px;
-      font-weight: 400;
-    }
-
-    .case-label {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-      margin-top: 6px;
-      font-weight: 600;
-    }
-
-    .case-text {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* PEOPLE */
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      align-items:start; /* IMPORTANT: prevents stretching */
-
-    }
-
-    .credential-badge {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin:10px 0 12px 0;
-      padding:8px 10px;
-      background:#F4F7FB;
-      border:1px solid var(--border);
-      border-radius:8px;
-      font-size:13px;
-      font-weight:500;
-      color:#2A3550;
-    }
-
-    .credential-badge:hover {
-      background:#EAF1FF;
-      transform:translateY(-1px);
-    }
-    
-    .credential-badge img {
-      height:22px;
-      width:auto;
-      opacity:0.95;
-    }
-
-    .credibility-detail {
-      padding:70px 0;
-      background:#FAFBFF;
-      border-top:1px solid var(--border);
-    }
-    
-    .person-card {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: #FFFFFF;
-      padding: 16px 14px 14px;
-      display: flex;
-      flex-direction: column;
-      margin-bottom:18px;
-      height: auto;
-      align-self:start;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-    }
-
-    .person-top {
-      min-height:118px; /* forces same vertical start line */
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-    }
-    
-    .person-card .credential-badge {
-      margin-top:6px;
-    }
-
-    .person-divider {
-      height:1px;
-      background:var(--border);
-      margin:14px 0 12px 0;
-      opacity:.7;
-    }
-
-    .person-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .person-photo {
-      width: 56px;
-      height: 56px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 2px solid #E5E7EB;
-    }
-
-    .person-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy-dark);
-      margin-bottom: 3px;
-    }
-
-    .person-role {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .person-body {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top:14px;
-      line-height:1.55;
-      margin: 0 0 6px;
-      flex: 1;
-    }
-
-    .person-meta {
-      margin-top:12px;
-      font-size: 13.5px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* CONTACT */
-
-    .cta-section {
-      text-align: left;
-    }
-
-    .cta-section p {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 16px;
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    form {
-      display: grid;
-      gap: 12px;
-    }
-
-    label {
-      font-size: 13px;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 9px 10px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      font-family: inherit;
-      font-size: 14px;
-      background: #FFFFFF;
-      color: var(--text);
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--navy);
-      box-shadow: 0 0 0 1px rgba(0, 51, 141, 0.18);
-    }
-
-    .helper-text {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .reason-options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 4px 16px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .reason-options label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 0;
-      cursor: pointer;
-    }
-
-    .reason-options input {
-      width: auto;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 28px 0 22px;
-      background: var(--navy-dark);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 12px;
-      color: #E5E7EB;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav a {
-      color: #E5E7EB;
-      text-decoration: none;
-    }
-
-    .footer-nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1040px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
-        gap: 36px;
-      }
-      .cases-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .people-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 900px) {
-      nav { display: none; }
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
-      }
-      .section-split {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .two-column-copy {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .capability-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .reason-options {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
-      header { position: static; }
-      .hero { padding-top: 78px; }
-      section { padding: 64px 0; }
-      .grid.cols-3,
-      .grid.cols-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .cases-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .people-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .header-inner {
-        height: 80px;
-      }
-      .brand-logo {
-        height: 80px;
-      }
-      .section-header {
-        margin-bottom: 28px;
-      }
-    }
-  </style>
 
   <script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('DzLR5a5A0JxaBoQ2'); </script>
   
@@ -857,29 +17,185 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C³ Executive Suite | Transitional & Interim Leadership</title>
-    </head>
+    <title>C³ Executive Suite | Bridge the Executive Gap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A192F;
+            --navy-dark: #020617;
+            --gold: #C5A022;
+            --white: #FFFFFF;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --bg-light: #F8FAFC;
+            --accent-red: #BA1A1A;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            line-height: 1.6; 
+            color: var(--navy); 
+            background: var(--white); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container.narrow { max-width: 800px; }
+
+        /* Header */
+        header { 
+            padding: 15px 0; 
+            border-bottom: 1px solid var(--border); 
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand-logo { height: 50px; width: auto; }
+        
+        .brand-line-1 { font-weight: 800; font-size: 1.2rem; color: var(--navy); line-height: 1.1; }
+        .brand-line-2 { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        
+        nav a { text-decoration: none; color: var(--navy); margin-left: 25px; font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        nav a:hover { color: var(--gold); }
+        .nav-cta { color: var(--gold) !important; font-weight: 700; border: 1px solid var(--gold); padding: 8px 16px; border-radius: 4px; }
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-header { margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; }
+        .eyebrow { color: var(--gold); text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 12px; display: block; }
+        .text-muted { color: var(--muted); }
+
+        /* Hero */
+        .hero { padding: 80px 0; background: white; position: relative; }
+        .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
+        h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 24px; font-weight: 800; letter-spacing: -0.02em; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--muted); margin-bottom: 24px; font-weight: 400; }
+        
+        .credibility-anchor { 
+            font-weight: 600; 
+            color: var(--navy); 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid var(--gold); 
+            display: inline-block; 
+            padding-bottom: 4px; 
+            font-style: italic; 
+            font-size: 1.05rem;
+        }
+        
+        .hero-aside { 
+            background: var(--bg-light); 
+            padding: 35px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .hero-aside-title { font-weight: 800; margin-bottom: 18px; font-size: 1.15rem; color: var(--navy); }
+        .hero-aside ul { list-style-type: none; padding: 0; }
+        .hero-aside li { font-size: 0.95rem; line-height: 1.5; color: var(--muted); margin-bottom: 14px; position: relative; padding-left: 20px; }
+        .hero-aside li::before { content: "•"; position: absolute; left: 0; color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+
+        /* Buttons */
+        .btn-primary { 
+            background: var(--navy); 
+            color: white; 
+            padding: 18px 36px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s; 
+            border: none; 
+            cursor: pointer; 
+            text-align: center;
+            font-size: 1rem;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(10, 25, 47, 0.15); }
+
+        /* Grid / Cards */
+        .grid { display: grid; gap: 24px; }
+        .cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .cols-2 { grid-template-columns: repeat(2, 1fr); }
+        
+        .card { 
+            padding: 35px; 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            background: white; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 10px; font-size: 1.35rem; font-weight: 700; }
+        .card p { color: var(--muted); font-size: 0.95rem; }
+
+        /* Phase Badges */
+        .phase-badge {
+            background: var(--navy); color: white; display: inline-block; 
+            padding: 4px 12px; border-radius: 20px; font-size: 11px; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px;
+        }
+
+        /* Transition Partners / People Grid */
+        .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+        .person-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); padding: 24px; text-align: left; }
+        .person-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; margin-bottom: 20px; filter: grayscale(20%); }
+        .person-name { font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: 4px; }
+        .person-role { color: var(--gold); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .person-body { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+        /* Footer */
+        footer { background: var(--white); padding: 60px 0; border-top: 1px solid var(--border); }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }
+        .footer-nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .footer-nav a:hover { color: var(--navy); }
+
+        @media (max-width: 1024px) {
+            .people-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .cols-3, .cols-2, .people-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
 <body>
 
   <header>
     <div class="container header-inner">
       <div class="brand">
-        <div class="brand-logo-wrapper">
-          <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Executive Suite" class="brand-logo" />
-        </div>
-        <div class="brand-text">
+        <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Logo" class="brand-logo">
+        <div>
           <div class="brand-line-1">C³ Executive Suite</div>
           <div class="brand-line-2">Transitional &amp; Interim Leadership</div>
         </div>
       </div>
       <nav aria-label="Primary">
-        <a href="#manifesto">The Manifesto</a>
-        <a href="#model">The Transition Model</a>
-        <a href="#team">Transition Partners</a>
-        <a href="#contact" class="nav-cta">Plan Your Exit</a>
+        <a href="#recognition">Symptoms</a>
+        <a href="#model">The Plan</a>
+        <a href="#team">Architects</a>
+        <a href="https://calendly.com/mfackrell79/30min" class="nav-cta">30-Minute Gap Review</a>
       </nav>
     </div>
   </header>
@@ -888,93 +204,111 @@
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div>
-          <div class="eyebrow">Temporary by Design. Results are Permanent.</div>
-          <h1>We build the engine, hire the driver, and hand over the keys.</h1>
+          <span class="eyebrow">Recognition</span>
+          <h1>Your company needs executive decisions, but the executive seat doesn't fully exist yet.</h1>
           
           <p class="hero-subtitle">
-          Most consultants want to become permanent furniture in your office. <strong>We want to fire ourselves.</strong> C³ provides high-impact, transitional leadership to bridge the gap between where you are and where you need to be.
+            You’ve reached the stage where revenue has outpaced your structure. Decisions are getting bigger, but ownership still sits with you. <strong>This is the Executive Gap.</strong>
           </p>
+
+          <div class="credibility-anchor">
+            We operate the seat until it becomes a real role — then we help you hire the person who should own it.
+          </div>
           
-          <ul class="hero-bullets">
-            <li><strong>Velocity over Stability:</strong> We don't manage the status quo; we accelerate change.</li>
-            <li><strong>Planned Obsolescence:</strong> If we are still here in 24 months, we both failed.</li>
-            <li><strong>The Single Spine:</strong> One integrated team, not five disconnected freelancers.</li>
-            <li><strong>The Handover:</strong> We don't leave until your permanent hire is vetted and onboarded.</li>
-          </ul>
-          
+          <div style="margin: 25px 0; padding: 25px; border-left: 4px solid var(--gold); background: var(--bg-light); border-radius: 0 8px 8px 0;">
+            <p style="margin: 0; font-size: 1.05rem; color: var(--navy); line-height: 1.5;">
+              <strong>Why this happens:</strong> Companies grow revenue before they grow authority. Responsibility expands, but ownership doesn't. You can feel it because <strong>progress depends on you being personally involved.</strong>
+            </p>
+          </div>
+
           <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">
-              <span>Request a Transition Roadmap</span>
-              <span class="arrow">→</span>
-            </a>
-            <a href="#cases" class="btn-secondary-link">
-              <span>See the "Before &amp; After"</span>
+            <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">
+              <span>Book a 30-Minute Gap Review</span>
               <span class="arrow">→</span>
             </a>
           </div>
         </div>
+
         <aside class="hero-aside">
-          <div class="hero-aside-title">The Transitional Mandate</div>
-          <p>
-            • <strong>Phase 1: Stabilize</strong> (Days 1-30)<br />
-            • <strong>Phase 2: Optimize</strong> (Days 31-120)<br />
-            • <strong>Phase 3: Recruit &amp; Handover</strong> (Days 121-Exit)
-            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #EEE; font-weight: 600; color: var(--navy);">
-              We measure success by how quickly you no longer need us.
-            </div>
-          </p>
+          <div class="hero-aside-title">The Bottleneck</div>
+          <ul>
+            <li>Things move—but only after you touch them.</li>
+            <li>Decisions don’t become real until the weekly meeting.</li>
+            <li>Managers escalate sideways because nobody owns the outcome.</li>
+            <li>You’re approving details you shouldn't even see.</li>
+            <li><strong>Lenders, investors, or partners start questioning the numbers.</strong></li>
+          </ul>
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); font-weight: 700; color: var(--navy); font-size: 0.95rem;">
+              If you are still the primary fixer in 24 months, we didn’t do our job.
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="manifesto" style="background: var(--navy-dark); color: white; padding: 80px 0;">
-      <div class="container">
-        <div class="section-header align-left">
-          <div class="eyebrow" style="color: var(--gold);">The C³ Manifesto</div>
-          <h2 style="color: white;">Why we are the "Anti-Consultants."</h2>
-        </div>
-        <div class="grid cols-2">
-          <p style="font-size: 1.25rem; line-height: 1.6;">
-            The "Fractional" industry is broken. It has become a way for semi-retired executives to collect retainers while providing "advice" without accountability. 
-            <br><br>
-            <strong>C³ is different.</strong> We don't sell hours; we sell a destination. We provide the "Single Spine" of leadership—Finance, Growth, Strategy, and People—that moves as one unit to solve a specific business transition.
-          </p>
-          <div class="card" style="background: rgba(255,255,255,0.1); border: none;">
-            <h3 style="color: var(--gold);">"If we’re here in two years, we failed."</h3>
-            <p>Our engagements are finite. We are here to bridge a gap, restructure a function, or prepare for a transaction. Once the systems are built and the permanent leader is in the seat, we retract. No scope creep. No "billable-hour" traps.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="model">
+    <!-- Diagnosis & Consequences (Collapsed for brevity, content preserved) -->
+    <section id="recognition" style="padding: 100px 0; background: white; border-top: 1px solid var(--border);">
       <div class="container">
         <div class="section-header">
-          <div class="eyebrow">The Model</div>
-          <h2>Productizing the Exit.</h2>
-          <p class="text-muted">We don't just fill a seat; we upgrade it for your successor.</p>
+          <span class="eyebrow">Diagnostic</span>
+          <h2>6 Signs you’ve hit the Executive Gap.</h2>
         </div>
         <div class="grid cols-3">
-          <div class="card">
-            <h3>1. The Bridge</h3>
-            <p>Interim coverage during a sudden vacancy. We stop the bleeding, stabilize the team, and keep the board informed so you don't have to "panic hire" the wrong person.</p>
+          <div class="card"><h3>The Hero Culture</h3><p>Reality relies on 2–3 "hero" employees redlining toward burnout to keep things moving.</p></div>
+          <div class="card"><h3>Opinions Over Ownership</h3><p>Everyone has a perspective, but nobody owns the outcome.</p></div>
+          <div class="card"><h3>The Double-Check</h3><p>You manually double-check math before every major board or lender call.</p></div>
+          <div class="card"><h3>90-Day Strategy Resets</h3><p>The strategy shifts every quarter because nobody is in the seat long enough to execute vision.</p></div>
+          <div class="card"><h3>Weekly Stalls</h3><p>The weekly leadership meeting is the only place decisions happen.</p></div>
+          <div class="card"><h3>Recurring Fires</h3><p>You are solving the same operational or financial fires every month.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="consequences" style="background: var(--bg-light); padding: 100px 0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Cost</span>
+          <h2>What happens if you wait?</h2>
+        </div>
+        <div class="grid cols-2">
+          <div class="card" style="border-top: 4px solid var(--accent-red);">
+            <h3 style="color: var(--accent-red);">The "Slow Year"</h3>
+            <p>You work harder than ever, but the company didn’t become more independent.</p>
           </div>
-          <div class="card">
-            <h3>2. The SMART Build</h3>
-            <p>We install our proprietary SMART frameworks—cleaning up the data, building the KPI scoreboards, and defining the accountability structures that a $50M+ company requires.</p>
+          <div class="card" style="border-top: 4px solid var(--accent-red);">
+            <h3 style="color: var(--accent-red);">The 12-Month Churn</h3>
+            <p>Panic-hiring an executive into an undefined role leads to failure within 6 months.</p>
           </div>
-          <div class="card">
-            <h3>3. The Successor Handover</h3>
-            <p>This is where most firms fail. We write the JD, vet the candidates, and spend 30 days downloading 25 years of institutional knowledge into your new hire's brain.</p>
+          <div class="card" style="border-top: 4px solid var(--accent-red);">
+            <h3 style="color: var(--accent-red);">Founder Stagnation</h3>
+            <p>You remain the single point of failure and cannot focus on high-level enterprise value.</p>
+          </div>
+          <div class="card" style="border-top: 4px solid var(--accent-red);">
+            <h3 style="color: var(--accent-red);">Valuation "Haircuts"</h3>
+            <p>Buyers see a "key man risk" and drop their offer price accordingly.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <section id="model" style="padding: 100px 0; background: white;">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Roadmap</span>
+          <h2>How the Gap Gets Closed</h2>
+        </div>
+        <div class="grid cols-3">
+          <div class="card"><span class="phase-badge">Phase 1</span><h3>Take Control</h3><p>We stop the drift and assess the team immediately.</p></div>
+          <div class="card"><span class="phase-badge">Phase 2</span><h3>Build the Rhythm</h3><p>We establish clear ownership and operating rhythm.</p></div>
+          <div class="card"><span class="phase-badge">Phase 3</span><h3>Install the Leader</h3><p>We transfer institutional knowledge to your permanent hire then exit.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section Re-inserted -->
     <section id="team" style="background: #f4f7f9;">
       <div class="container">
         <div class="section-header">
-          <div class="eyebrow">The Transition Partners</div>
+          <span class="eyebrow">The Transition Partners</span>
           <h2>One Spine. Four Disciplines.</h2>
           <p class="text-muted">Managed as a single unit to eliminate cross-functional friction.</p>
         </div>
@@ -1007,14 +341,15 @@
       </div>
     </section>
 
+    <!-- Contact Section Re-inserted -->
     <section id="contact">
       <div class="container narrow">
-        <div class="card" style="padding: 50px; text-align: center; background: var(--navy); color: white;">
-          <h2 style="color: white;">Ready to bridge the gap?</h2>
-          <p>We don't do "sales pitches." We do <strong>Gap Assessments.</strong></p>
-          <p>Book a 20-minute call to determine if your business has an ownership gap, and if a transitional leader is the fastest way to close it.</p>
+        <div class="card" style="padding: 50px; text-align: center; background: var(--navy); color: white; border-radius: 12px;">
+          <h2 style="color: white; font-size: 2.25rem; margin-bottom: 20px;">Ready to bridge the gap?</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 15px;">We don't do "sales pitches." We do <strong>Gap Assessments.</strong></p>
+          <p style="margin-bottom: 30px; opacity: 0.9;">Book a 20-minute call to determine if your business has an ownership gap, and if a transitional leader is the fastest way to close it.</p>
           <div style="margin-top: 30px;">
-             <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background: var(--gold); color: var(--navy-dark);">Book Your Transition Review →</a>
+              <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background: var(--gold); color: var(--navy-dark); font-size: 1.1rem; padding: 20px 40px;">Book Your Transition Review →</a>
           </div>
         </div>
       </div>
@@ -1023,80 +358,66 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© 2026 C³ Executive Suite. <strong>Temporary by Design.</strong></div>
+      <div>© <span id="year"></span> C³ Executive Suite. <strong>Temporary by Design.</strong></div>
       <div class="footer-nav">
         <a href="#top">Home</a>
-        <a href="#manifesto">Manifesto</a>
+        <a href="#recognition">Symptoms</a>
         <a href="#model">Model</a>
         <a href="#team">Team</a>
       </div>
     </div>
   </footer>
 
-</div>
+  <script>
+    // Set the current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<script>
-  // Set the current year in the footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+    // Handle the Form Submission (Script provided by user)
+    // Note: This logic looks for 'contact-form' element
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('button');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
 
-  // Handle the Form Submission
-  const contactForm = document.getElementById('contact-form');
+        const formData = new FormData(contactForm);
+        const reasons = [];
+        contactForm.querySelectorAll('input[name="reason"]:checked').forEach(cb => reasons.push(cb.value));
+        
+        const data = {
+          name: formData.get('name') || '',
+          email: formData.get('email') || '',
+          company: formData.get('company') || '',
+          reason: reasons.join(', '),
+          context: formData.get('context') || ''
+        };
 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // 1. Visual feedback for the user
-    const submitBtn = contactForm.querySelector('button');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span>Sending...</span>';
-
-    // 2. Capture the form data
-    const formData = new FormData(contactForm);
-    
-    // collect checkboxes correctly
-    const reasons = [];
-    contactForm.querySelectorAll('input[name="reason"]:checked')
-      .forEach(cb => reasons.push(cb.value));
-    
-    const data = {
-      name: formData.get('name') || '',
-      email: formData.get('email') || '',
-      company: formData.get('company') || '',
-      reason: reasons.join(', '),
-      context: formData.get('context') || ''
-    };
-
-
-    try {
-      // 3. Send data to your Zapier URL
-      await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
-        method: 'POST',
-        mode: 'no-cors', // Standard for Zapier webhooks to avoid browser blocks
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
+        try {
+          await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+          });
+          // Assuming gtag is initialized globally
+          if (typeof gtag === 'function') gtag('event', 'generate_lead');
+          alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
+          contactForm.reset();
+        } catch (error) {
+          console.error('Submission error:', error);
+          alert('Error sending message. Please try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
         }
       });
-
-      gtag('event', 'generate_lead');
-
-      // 4. Success!
-      alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
-      contactForm.reset();
-
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('Error sending message. Please try again or check your connection.');
-    } finally {
-      // 5. Reset button state
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
     }
-  });
-</script>
+  </script>
 
-<script src="//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js" async></script>
-  
+  <!-- Tidio Script -->
+  <script src="//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js" async></script>
 </body>
 </html>
