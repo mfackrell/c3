@@ -282,62 +282,79 @@
             color: white;
         }
 
-         /* Client Outcomes Styling */
-         .cases-grid { 
-             display: grid; 
-             grid-template-columns: repeat(3, 1fr); 
-             gap: 30px; 
-             margin-top: 40px; 
-         }
-         
-         .case-card {
-             background: white;
-             padding: 30px;
-             border: 1px solid var(--border);
-             border-radius: 12px;
-             display: flex;
-             flex-direction: column;
-         }
-         
-         .case-tag {
-             font-size: 10px;
-             text-transform: uppercase;
-             font-weight: 800;
-             color: var(--gold);
-             letter-spacing: 1px;
-             margin-bottom: 15px;
-         }
-         
-         .case-title {
-             font-size: 1.25rem;
-             font-weight: 800;
-             margin-bottom: 20px;
-             line-height: 1.3;
-         }
-         
-         .case-label {
-             font-size: 11px;
-             font-weight: 800;
-             text-transform: uppercase;
-             color: var(--navy);
-             margin-bottom: 5px;
-             opacity: 0.7;
-         }
-         
-         .case-text {
-             font-size: 0.95rem;
-             color: var(--muted);
-             margin-bottom: 20px;
-             line-height: 1.5;
-         }
-         
-         @media (max-width: 1024px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
-         @media (max-width: 768px) { .cases-grid { grid-template-columns: 1fr; } }
-        
-        @media (max-width: 768px) {
-            .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-            .form-row, .reason-grid { grid-template-columns: 1fr; }
-        }
+      /* Fixed Client Outcomes Grid */
+      #cases {
+          background: var(--bg-light); /* Adds subtle separation from the white sections */
+          padding: 100px 0;
+      }
+      
+      .cases-grid { 
+          display: grid; 
+          grid-template-columns: repeat(3, 1fr); 
+          gap: 30px; 
+          margin-top: 50px;
+          width: 100%; /* Forces the grid to fill the container */
+      }
+      
+      .case-card {
+          background: var(--white);
+          padding: 40px;
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          height: 100%; /* Ensures all cards in a row are the same height */
+          transition: transform 0.3s ease;
+      }
+      
+      .case-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      }
+      
+      .case-tag {
+          font-size: 10px;
+          text-transform: uppercase;
+          font-weight: 800;
+          color: var(--gold);
+          letter-spacing: 1.5px;
+          margin-bottom: 20px;
+          display: block;
+      }
+      
+      .case-title {
+          font-size: 1.35rem;
+          font-weight: 800;
+          margin-bottom: 25px;
+          line-height: 1.3;
+          color: var(--navy);
+      }
+      
+      .case-label {
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: uppercase;
+          color: var(--navy);
+          margin-bottom: 8px;
+          letter-spacing: 0.5px;
+      }
+      
+      .case-text {
+          font-size: 0.95rem;
+          color: var(--muted);
+          margin-bottom: 25px;
+          line-height: 1.6;
+      }
+      
+      /* Responsiveness Fixes */
+      @media (max-width: 1024px) { 
+          .cases-grid { grid-template-columns: repeat(2, 1fr); } 
+      }
+      
+      @media (max-width: 768px) { 
+          .cases-grid { grid-template-columns: 1fr; } 
+          .case-card { padding: 30px; }
+      }
     </style>
 </head>
 <body>
@@ -451,103 +468,74 @@
     </section>
     
     <!-- CLIENT OUTCOMES (moved up) -->
-    <section id="cases">
-      <div class="section-intro-band"></div>
-      <div class="container">
-        <div class="section-header align-left">
-            <div class="eyebrow">Client outcomes</div>
-            <h2>What Fractional &amp; Interim Executive leadership has delivered.</h2>
-            <p class="text-muted">
-              Representative situations where an interim or fractional executive changed the outcome—by stabilizing leadership,
-              accelerending decisions, and preparing the ground for a strong permanent hire.
-            </p>
-        </div>
-
-        <div class="cases-grid">
-          <article class="case-card">
-            <div class="case-tag">Education &mdash; Transaction readiness</div>
-            <h3 class="case-title">Preparing a $100M acquisition for scrutiny.</h3>
-            <div class="case-label">The Friction</div>
-            <p class="case-text">
-              Disorganized records and inconsistent reporting slowed decisions and raised concerns during a strategic sale process.
-            </p>
-            <div class="case-label">The Result</div>
-            <p class="case-text">
-              Delivered audit‑ready financials, defensible forecasts, and diligence support to enable a successful $100M
-              private equity transaction.
-            </p>
-          </article>
-
-          <article class="case-card">
-            <div class="case-tag">Cloud &amp; infrastructure &mdash; Restructuring</div>
-            <h3 class="case-title">Stabilizing a business through Chapter 11.</h3>
-            <div class="case-label">Context</div>
-            <p class="case-text">
-              Severe revenue shock created continuity risk and threatened covenant compliance across key relationships.
-            </p>
-            <div class="case-label">Outcome</div>
-            <p class="case-text">
-              Implemented cash controls, covenant tracking, and contract restructuring to protect core operations during restructuring.
-            </p>
-          </article>
-
-          <article class="case-card">
-            <div class="case-tag">Manufacturing &mdash; Turnaround</div>
-            <h3 class="case-title">Right‑sizing to a viable core business.</h3>
-            <div class="case-label">Context</div>
-            <p class="case-text">
-              Sales declined from ~&#36;500K to ~&#36;50K per month and the cost base no longer reflected the size of the business.
-            </p>
-            <div class="case-label">Outcome</div>
-            <p class="case-text">
-              Negotiated exits, liquidated non‑essential assets, and right‑sized operations to stabilize the business and preserve value.
-            </p>
-          </article>
-
-          <article class="case-card">
-            <div class="case-tag">Software &amp; services &mdash; Growth performance</div>
-            <h3 class="case-title">From stalled pipeline to consistent growth.</h3>
-            <div class="case-label">Context</div>
-            <p class="case-text">
-              No sales for three consecutive months created a severe growth stall and investor pressure.
-            </p>
-            <div class="case-label">Outcome</div>
-            <p class="case-text">
-              Implemented a performance management system with clear accountability, leading to consistent &#36;200K/month
-              in sales and subsequent doubling within nine months.
-            </p>
-          </article>
-
-          <article class="case-card">
-            <div class="case-tag">Funded product &mdash; Investor communication</div>
-            <h3 class="case-title">Clarifying marketing performance for investors.</h3>
-            <div class="case-label">Context</div>
-            <p class="case-text">
-              Disparate metrics and unclear accountability made it difficult for investors to understand the impact of marketing spend.
-            </p>
-            <div class="case-label">Outcome</div>
-            <p class="case-text">
-              Built a clear performance scoreboard showing 5–6% benchmark performance, providing data‑driven answers and ending speculation.
-            </p>
-          </article>
-
-          <article class="case-card">
-            <div class="case-tag">B2B procurement &mdash; Scale‑up</div>
-            <h3 class="case-title">From stalled launch to a growth platform.</h3>
-            <div class="case-label">Context</div>
-            <p class="case-text">
-              A new solution launched after six months of effort with zero revenue and unclear ownership.
-            </p>
-            <div class="case-label">Outcome</div>
-            <p class="case-text">
-              Simplified architecture and incentives; within two years the initiative became a 100+ person vertical contributing
-              over 25% incremental revenue.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section> 
-
+      <section id="cases">
+        <div class="container">
+          <div class="section-header">
+              <span class="eyebrow">Client outcomes</span>
+              <h2>What Fractional &amp; Interim leadership delivers.</h2>
+              <p class="text-muted" style="max-width: 700px;">
+                Representative situations where an interim or fractional executive stabilized leadership, 
+                accelerated decisions, and prepared the ground for a permanent hire.
+              </p>
+          </div>
+      
+          <div class="cases-grid">
+            <article class="case-card">
+              <div class="case-tag">Education — Transaction readiness</div>
+              <h3 class="case-title">Preparing a $100M acquisition for scrutiny.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">Disorganized records and inconsistent reporting raised concerns during a strategic sale process.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Delivered audit-ready financials and defensible forecasts to enable a successful $100M transaction.</p>
+            </article>
+      
+            <article class="case-card">
+              <div class="case-tag">Infrastructure — Restructuring</div>
+              <h3 class="case-title">Stabilizing a business through Chapter 11.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">Severe revenue shock created continuity risk and threatened covenant compliance.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Implemented cash controls and contract restructuring to protect core operations during restructuring.</p>
+            </article>
+      
+            <article class="case-card">
+              <div class="case-tag">Manufacturing — Turnaround</div>
+              <h3 class="case-title">Right-sizing to a viable core business.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">Sales declined 90% and the cost base no longer reflected the size of the business.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Liquidated non-essential assets and right-sized operations to stabilize the business and preserve value.</p>
+            </article>
+      
+            <article class="case-card">
+              <div class="case-tag">Software — Growth performance</div>
+              <h3 class="case-title">From stalled pipeline to consistent growth.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">No sales for three consecutive months created a severe growth stall and investor pressure.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Established accountability systems, leading to consistent $200K/mo sales and subsequent doubling.</p>
+            </article>
+      
+            <article class="case-card">
+              <div class="case-tag">Funded Product — Investor Comms</div>
+              <h3 class="case-title">Clarifying marketing ROI for investors.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">Unclear accountability made it difficult for investors to understand the impact of marketing spend.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Built a performance scoreboard providing data-driven answers and ending investor speculation.</p>
+            </article>
+      
+            <article class="case-card">
+              <div class="case-tag">B2B Procurement — Scale-up</div>
+              <h3 class="case-title">From stalled launch to a growth platform.</h3>
+              <div class="case-label">The Friction</div>
+              <p class="case-text">A new solution launched with zero revenue and unclear ownership after six months of effort.</p>
+              <div class="case-label">The Result</div>
+              <p class="case-text">Simplified architecture; initiative became a 100+ person vertical contributing 25% incremental revenue.</p>
+            </article>
+          </div>
+        </div>
+      </section>
      
     <section id="model" style="padding: 100px 0; background: white;">
       <div class="container">
