@@ -355,6 +355,32 @@
           .cases-grid { grid-template-columns: 1fr; } 
           .case-card { padding: 30px; }
       }
+
+      .low-ask-box {
+          background: var(--navy);
+          color: white;
+          padding: 40px;
+          border-radius: 12px;
+          margin: 40px 0;
+          text-align: center;
+      }
+      .low-ask-box h3 { color: white; margin-bottom: 10px; font-size: 1.5rem; }
+      .low-ask-box p { color: #cbd5e1; margin-bottom: 25px; }
+      .inline-form {
+          display: flex;
+          gap: 10px;
+          max-width: 500px;
+          margin: 0 auto;
+      }
+      .inline-form input {
+          flex: 1;
+          padding: 12px;
+          border-radius: 6px;
+          border: none;
+      }
+      @media (max-width: 600px) {
+          .inline-form { flex-direction: column; }
+      }
     </style>
 </head>
 <body>
@@ -439,6 +465,28 @@
         </div>
       </div>
     </section>
+
+    <section class="container narrow">
+       <div class="low-ask-box">
+           <span class="eyebrow" style="color: var(--gold);">Self-Diagnostic</span>
+           <h3>The CEO Bottleneck Scorecard</h3>
+           <p>A 1-page framework to identify exactly which executive functions are missing from your current structure.</p>
+           
+           <form class="inline-form" id="scorecard-form">
+               <input type="hidden" name="context" value="SCORECARD REQUEST: Send CEO Bottleneck PDF">
+               
+               <input type="text" name="name" placeholder="Name" required style="flex: 1; padding: 12px; border-radius: 6px; border: none;">
+               <input type="email" name="email" placeholder="Work Email" required style="flex: 1; padding: 12px; border-radius: 6px; border: none;">
+               
+               <button type="submit" class="btn-primary" id="scorecard-submit" style="background: var(--gold); color: var(--navy); border: none; padding: 12px 24px; cursor: pointer; font-weight: 700; border-radius: 6px;">
+                   Get Scorecard
+               </button>
+           </form>
+           <div id="scorecard-success" style="display:none; margin-top: 15px; color: var(--gold); font-weight: 700;">
+               Check your inbox. The scorecard is on the way.
+           </div>
+       </div>
+   </section>
 
     <section id="consequences" style="background: var(--bg-light); padding: 100px 0;">
       <div class="container">
@@ -662,55 +710,68 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Set the current year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Handle the Form Submission (Script provided by user)
-    // Note: This logic looks for 'contact-form' element
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('button');
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Sending...</span>';
-
-        const formData = new FormData(contactForm);
-        const reasons = [];
-        contactForm.querySelectorAll('input[name="reason"]:checked').forEach(cb => reasons.push(cb.value));
-        
-        const data = {
-          name: formData.get('name') || '',
-          email: formData.get('email') || '',
-          company: formData.get('company') || '',
-          reason: reasons.join(', '),
-          context: formData.get('context') || ''
-        };
-
-        try {
-          await fetch('/api/contact', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-          });
-          // Assuming gtag is initialized globally
-          if (typeof gtag === 'function') gtag('event', 'generate_lead');
-          alert('Thank you. Your inquiry has been sent to the C³ leadership team.');
-          contactForm.reset();
-        } catch (error) {
-          console.error('Submission error:', error);
-          alert('Error sending message. Please try again.');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
-        }
-      });
-    }
-  </script>
-
+   
+   <script>
+       document.getElementById('year').textContent = new Date().getFullYear();
+   
+       // Unified Form Handler
+       async function handleFormSubmit(e, formId, successId) {
+           e.preventDefault();
+           const form = document.getElementById(formId);
+           const submitBtn = form.querySelector('button');
+           const originalBtnText = submitBtn.innerHTML;
+           
+           submitBtn.disabled = true;
+           submitBtn.innerHTML = '<span>Sending...</span>';
+   
+           const formData = new FormData(form);
+           const reasons = [];
+           form.querySelectorAll('input[name="reason"]:checked').forEach(cb => reasons.push(cb.value));
+           
+           const data = {
+               name: formData.get('name') || '',
+               email: formData.get('email') || '',
+               company: formData.get('company') || '',
+               reason: reasons.join(', '),
+               context: formData.get('context') || ''
+           };
+   
+           try {
+               const response = await fetch('/api/contact', {
+                   method: 'POST',
+                   body: JSON.stringify(data),
+                   headers: { 'Content-Type': 'application/json' }
+               });
+   
+               if (response.ok) {
+                   if (typeof gtag === 'function') gtag('event', 'generate_lead', { 'form_id': formId });
+                   
+                   // Show success message and hide form
+                   form.style.display = 'none';
+                   document.getElementById(successId).style.display = 'block';
+               } else {
+                   throw new Error('Server error');
+               }
+           } catch (error) {
+               console.error('Submission error:', error);
+               alert('Error sending message. Please try again.');
+               submitBtn.disabled = false;
+               submitBtn.innerHTML = originalBtnText;
+           }
+       }
+   
+       // Attach to Contact Form
+       const contactForm = document.getElementById('contact-form');
+       if (contactForm) {
+           contactForm.addEventListener('submit', (e) => handleFormSubmit(e, 'contact-form', 'form-success'));
+       }
+   
+       // Attach to Scorecard Form
+       const scorecardForm = document.getElementById('scorecard-form');
+       if (scorecardForm) {
+           scorecardForm.addEventListener('submit', (e) => handleFormSubmit(e, 'scorecard-form', 'scorecard-success'));
+       }
+   </script>
   <!-- Tidio Script -->
   <script src="//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js" async></script>
 </body>
