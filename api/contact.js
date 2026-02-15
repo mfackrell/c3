@@ -5,11 +5,26 @@ export default async function handler(req, res) {
 
   const payload = req.body;
 
-  if (!payload?.name || !payload?.email) {
+  // 1. THE GATEKEEPER: Stop blank requests here
+  if (!payload?.name || !payload?.email || payload.name.trim() === "") {
+    console.log('Blocked a blank/bot submission.');
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
-  console.log('New contact form submission:', payload);
+  try {
+    // 2. THE SECRET CALL: Use the hidden environment variable
+    const zapierResponse = await fetch(process.env.ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' }
+    });
 
-  return res.status(200).json({ message: 'Submission received' });
+    if (zapierResponse.ok) {
+      return res.status(200).json({ message: 'Success' });
+    } else {
+      throw new Error('Zapier failed');
+    }
+  } catch (error) {
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
 }
