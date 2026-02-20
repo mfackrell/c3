@@ -1,170 +1,262 @@
-<section class="model-wrap">
-  <div class="model-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C³ Executive Suite | Our Operating Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A192F;
+      --navy-dark: #020617;
+      --gold: #C5A022;
+      --white: #FFFFFF;
+      --muted: #64748B;
+      --border: #E2E8F0;
+    }
 
-    <!-- HEADER -->
-    <h1 class="model-title">How this actually works</h1>
-    <p class="model-sub">
-      We don’t advise. We step into the role and own it.
-    </p>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- 3 STEP PROCESS -->
-    <div class="model-steps">
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--navy);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
 
-      <div class="step">
-        <div class="step-number">1</div>
-        <h2 class="step-title">Identify the gap</h2>
-        <p class="step-text">
-          We define the role that’s missing—CFO, COO, or Growth—and what ownership actually looks like in your business.
-        </p>
-      </div>
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-      <div class="step">
-        <div class="step-number">2</div>
-        <h2 class="step-title">Place the operator</h2>
-        <p class="step-text">
-          We match you with someone who has already done the job—someone who can step in and lead immediately.
-        </p>
-      </div>
+    header {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-      <div class="step">
-        <div class="step-number">3</div>
-        <h2 class="step-title">Operate the seat</h2>
-        <p class="step-text">
-          They integrate into your team, take ownership, and drive execution—without the delay of a full-time hire.
-        </p>
-      </div>
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .brand-logo { height: 50px; width: auto; }
+    .brand-line-1 { font-weight: 800; font-size: 1.2rem; color: var(--navy); line-height: 1.1; }
+    .brand-line-2 { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
 
-    </div>
+    nav a { text-decoration: none; color: var(--navy); margin-left: 25px; font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--gold); }
+    .nav-cta { color: var(--gold) !important; font-weight: 700; border: 1px solid var(--gold); padding: 8px 16px; border-radius: 4px; }
+    .nav-cta:hover { background: var(--gold); color: white !important; }
 
-    <!-- SPEED / TIMING -->
-    <div class="model-speed">
-      <p>
-        Most placements start in days—not months.
-      </p>
-    </div>
+    main {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      min-height: calc(100vh - 180px);
+      padding: 72px 0;
+    }
 
-    <!-- TRANSITION -->
-    <div class="model-transition">
-      <p>
-        We operate the seat until it becomes a permanent role—then help you hire the right person to take it over.
-      </p>
-    </div>
+    .model-container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
 
-    <!-- CTA -->
-    <div class="model-cta">
-      <a href="https://calendly.com/mfackrell79/30min" class="cta-btn primary">Check Availability</a>
-      <a href="/timing.html" class="btn btn-secondary">When do I actually need this? →</a>
-    </div>
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
 
-  </div>
-</section>
+    .model-title {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
 
-<style>
-  .model-wrap {
-    padding: 64px 0;
-    background: #ffffff;
-  }
+    .model-sub {
+      font-size: clamp(17px, 2.2vw, 22px);
+      margin: 0 auto 40px;
+      color: var(--muted);
+      max-width: 660px;
+    }
 
-  .model-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-  }
+    .model-steps { display: grid; gap: 22px; margin-bottom: 36px; }
 
-  .model-title {
-    font-size: clamp(32px, 4vw, 48px);
-    line-height: 1.1;
-    margin-bottom: 12px;
-    color: #0A192F;
-  }
+    .step {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.04);
+    }
 
-  .model-sub {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #64748B;
-  }
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--navy);
+      background: #f3e8bf;
+    }
 
-  .model-steps {
-    display: grid;
-    gap: 24px;
-    margin-bottom: 40px;
-  }
+    .step-title { font-size: 19px; margin-bottom: 8px; color: var(--navy); }
+    .step-text { font-size: 15px; line-height: 1.55; color: #334155; }
 
-  .step {
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: left;
-    background: #F8FAFC;
-  }
+    .model-speed {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--navy);
+    }
 
-  .step-number {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: #C5A022;
-  }
-
-  .step-title {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: #0A192F;
-  }
-
-  .step-text {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #334155;
-  }
-
-  .model-speed {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #0A192F;
-  }
-
-  .model-transition {
-    font-size: 16px;
-    margin-bottom: 32px;
-    color: #334155;
-  }
-
-  .model-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .btn {
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 14px;
-  }
-
-  .btn-primary {
-    background: #0A192F;
-    color: #ffffff;
-  }
-
-  .btn-secondary {
-    background: #ffffff;
-    color: #0A192F;
-    border: 1px solid #CBD5F5;
-  }
-
-  @media (min-width: 768px) {
-    .model-steps {
-      grid-template-columns: 1fr 1fr 1fr;
+    .model-transition {
+      font-size: 16px;
+      margin: 0 auto 30px;
+      color: #334155;
+      max-width: 720px;
     }
 
     .model-cta {
-      flex-direction: row;
-      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
     }
-  }
-</style>
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn.primary {
+      background: var(--gold);
+      color: var(--navy);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid #CBD5E1;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    footer { background: var(--white); padding: 32px 0; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }
+    .footer-nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 500; }
+    .footer-nav a:hover { color: var(--navy); }
+
+    @media (min-width: 768px) {
+      .model-steps { grid-template-columns: repeat(3, 1fr); }
+      .model-cta { flex-direction: row; justify-content: center; }
+    }
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
+      .footer-nav a { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="/index.html" aria-label="C³ Executive Suite home">
+        <img src="https://storage.googleapis.com/permanent-assets/C3%20Logo.png" alt="C³ Logo" class="brand-logo">
+        <div>
+          <div class="brand-line-1">C³ Executive Suite</div>
+          <div class="brand-line-2">Transitional &amp; Interim Leadership</div>
+        </div>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/index.html#recognition">Symptoms</a>
+        <a href="/timing.html">Timing</a>
+        <a href="/index.html#team">Architects</a>
+        <a href="https://calendly.com/mfackrell79/30min" class="nav-cta">30-Minute Gap Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="model-container">
+      <span class="eyebrow">Operating Model</span>
+      <h1 class="model-title">How this actually works</h1>
+      <p class="model-sub">We don’t advise. We step into the role and own it.</p>
+
+      <div class="model-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h2 class="step-title">Identify the gap</h2>
+          <p class="step-text">We define the role that’s missing—CFO, COO, or Growth—and what ownership actually looks like in your business.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h2 class="step-title">Place the operator</h2>
+          <p class="step-text">We match you with someone who has already done the job—someone who can step in and lead immediately.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h2 class="step-title">Operate the seat</h2>
+          <p class="step-text">They integrate into your team, take ownership, and drive execution—without the delay of a full-time hire.</p>
+        </div>
+      </div>
+
+      <div class="model-speed">
+        <p>Most placements start in days—not months.</p>
+      </div>
+
+      <div class="model-transition">
+        <p>We operate the seat until it becomes a permanent role—then help you hire the right person to take it over.</p>
+      </div>
+
+      <div class="model-cta">
+        <a href="https://calendly.com/mfackrell79/30min" class="btn cta-btn primary">Check Availability</a>
+        <a href="/timing.html" class="btn btn-secondary">When do I actually need this? →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> C³ Executive Suite. <strong>Temporary by Design.</strong></div>
+      <div class="footer-nav">
+        <a href="/index.html">Home</a>
+        <a href="/timing.html">Timing</a>
+        <a href="/index.html#team">Team</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
