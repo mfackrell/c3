@@ -144,6 +144,16 @@
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
+        .clickable-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-content {
+            height: 100%;
+        }
+
         .path-card:hover {
             border-color: rgba(15, 23, 42, .2);
         }
@@ -165,6 +175,29 @@
             margin: 12px 0 0; 
             font-size: 13px; 
             color: #64748b;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .primary-button {
+            background: #0f172a;
+            color: #ffffff;
+            border: 1px solid #0f172a;
+        }
+
+        .secondary-ghost {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
         }
 
         .btn { 
@@ -563,25 +596,31 @@
       </p>
 
       <div class="hero-split" role="group" aria-label="Choose your path">
-        <div class="path-card path-now">
-          <h2 class="path-title">I need this now</h2>
-          <p class="path-text">
-            You have a gap. It’s slowing execution.<br />
-            You need someone in the seat—not another plan.
-          </p>
-            <a href="https://calendly.com/mfackrell79/30min" class="cta-btn primary">Check Availability</a>
-           <p class="path-micro">See start timelines and next steps.</p>
-        </div>
 
-        <div class="path-card path-later">
-          <h2 class="path-title">Not right now—but I will</h2>
-          <p class="path-text">
-            You’re not hiring today—but you know this is coming.<br />
-            Get clear on timing and what “ready” actually looks like.
-          </p>
-          <a href="/timing.html" class="btn btn-secondary"> When do I actually need this? →</a>
-          <p class="path-micro">2-minute read. Practical, not fluffy.</p>
-        </div>
+        <a href="https://calendly.com/mfackrell79/30min" class="path-card path-now clickable-card">
+          <div class="card-content">
+            <h2 class="path-title">I need this now</h2>
+            <p class="path-text">
+              You have a gap slowing your execution.<br />
+              You need an operator in the seat—not another plan.
+            </p>
+            <span class="cta-btn primary-button">See Available Operators →</span>
+            <p class="path-micro">Review capacity and start timelines.</p>
+          </div>
+        </a>
+
+        <a href="/timing.html" class="path-card path-later clickable-card">
+          <div class="card-content">
+            <h2 class="path-title">Not now—Help me plan</h2>
+            <p class="path-text">
+              You’re not hiring today, but the gap is coming.<br />
+              Get clear on timing and what “ready” actually looks like.
+            </p>
+            <span class="cta-btn secondary-ghost">Get the Transition Roadmap →</span>
+            <p class="path-micro">2-minute read. Practical, not fluffy.</p>
+          </div>
+        </a>
+
       </div>
 
       <p class="hero-trigger">
