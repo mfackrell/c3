@@ -93,12 +93,13 @@
         }
 
         .hero-left {
-          flex: 2;
+          flex: 1.3;
           min-width: 0;
         }
-       
+
         .hero-right {
-          flex: 1; /* Sidebar takes up about 1/3 */
+          flex: 1;
+          max-width: 480px;
           position: sticky;
           top: 120px;
           margin-top: 40px;
@@ -133,88 +134,63 @@
 
         /* Comparison Box */
         .comparison-box {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 12px;
-          padding: 24px;
-          box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
         }
-      
-        .comparison-title {
-          font-size: 1.25rem;
-          font-weight: 800;
-          margin-bottom: 20px;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: #0f172a;
-          border-bottom: 2px solid #e2e8f0;
-          padding-bottom: 10px;
-        }
-      
-        .comparison-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-      
-        .comparison-list li {
-          margin-bottom: 20px;
-        }
-      
-        .vs-label {
-          display: block;
-          font-size: 0.75rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          color: #94a3b8;
-          margin-bottom: 4px;
-        }
-      
-        .c3-advantage .vs-label {
-          color: var(--gold);
-        }
-               
-         .comparison-grid {
-             display: flex;
-             flex-direction: column;
-             gap: 16px;
-         }
-       
-       .comparison-row {
-             display: grid;
-             grid-template-columns: 1fr 1fr;
-             gap: 20px;
-         }
 
-         .comparison-col {
-             display: flex;
-             flex-direction: column;
-             gap: 16px;
-         }
-         
-         .col-title {
-             font-size: 0.75rem;
-             font-weight: 700;
-             text-transform: uppercase;
-             margin-bottom: 8px;
-         }
-         
-         .col-title.muted {
-             color: #94a3b8;
-         }
-         
-         .col-title.accent {
-             color: var(--gold);
-         }
-         
-         .item-title {
-             font-weight: 700;
-             margin-bottom: 4px;
-         }
-      
-        .c3-advantage p {
-          color: #0f172a;
-          font-weight: 500;
+        .comparison-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .comparison-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .comparison-item {
+            padding: 12px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .comparison-row .comparison-item:first-child {
+            background: #f1f5f9;
+        }
+
+        .comparison-row .comparison-item:last-child {
+            background: #0f172a;
+            color: #ffffff;
+            border: 1px solid #0f172a;
+        }
+
+        .comparison-row .comparison-item:last-child p {
+            color: #cbd5f5;
+        }
+
+        .item-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .comparison-item p {
+            font-size: 0.8rem;
+            margin: 0;
         }
       
         /* Stack on mobile */
