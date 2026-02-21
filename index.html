@@ -174,12 +174,13 @@
           color: var(--gold);
         }
       
-        .comparison-list p {
-          font-size: 0.95rem;
-          line-height: 1.5;
-          margin: 0;
-          color: #475569;
-        }
+         .comparison-grid {
+             align-items: stretch;
+         }
+
+          .comparison-col:first-child .comparison-item {
+             opacity: 0.85;
+         }
       
         .c3-advantage p {
           color: #0f172a;
@@ -778,24 +779,58 @@
       <div class="hero-right">
         <div class="comparison-box">
           <h3 class="comparison-title">Operators vs. Consultants</h3>
-          <ul class="comparison-list">
-            <li>
-              <span class="vs-label">Ivory Tower Firms</span>
-              <p>100-page slide decks and junior analysts learning your business on your dime.</p>
-            </li>
-            <li class="c3-advantage">
-              <span class="vs-label">C³ Executive Suite</span>
-              <p>Veteran operators who integrate on <strong>Day 1</strong> to own the results.</p>
-            </li>
-            <li>
-              <span class="vs-label">Ivory Tower Firms</span>
-              <p>Focused on "Strategic Alignment" while the implementation stalls.</p>
-            </li>
-            <li class="c3-advantage">
-              <span class="vs-label">C³ Executive Suite</span>
-              <p>Focused on <strong>Operating Rhythm</strong> and fixing the engine. Temporary by design.</p>
-            </li>
-          </ul>
+
+            <div class="comparison-grid">
+            
+              <div class="comparison-col">
+                <div class="col-title muted">Typical Firms</div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Analysis Over Action</div>
+                  <p>Long decks, delayed decisions, and no ownership of outcomes.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Junior Leverage Model</div>
+                  <p>Senior people sell. Junior teams execute—on your dime.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Advisory Distance</div>
+                  <p>Recommendations without accountability for execution.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Temporary Insight</div>
+                  <p>Knowledge walks out when the engagement ends.</p>
+                </div>
+              </div>
+            
+              <div class="comparison-col">
+                <div class="col-title accent">C³ Operators</div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Execution Ownership</div>
+                  <p>We step into the seat and own results from Day 1.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Senior-Only Model</div>
+                  <p>No layers. The operator you meet is the one doing the work.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Embedded Leadership</div>
+                  <p>Integrated into your team, driving decisions and cadence.</p>
+                </div>
+            
+                <div class="comparison-item">
+                  <div class="item-title">Transferable System</div>
+                  <p>We build the function so it runs after we leave.</p>
+                </div>
+              </div>
+            
+            </div>
         </div>
       </div>
     </div>
