@@ -73,20 +73,7 @@
         .nav-cta { color: var(--gold) !important; font-weight: 700; border: 1px solid var(--gold); padding: 8px 16px; border-radius: 4px; }
         .nav-cta:hover { background: var(--gold); color: white !important; }
 
-                       /* --- DECISION HERO STYLES (WHITE THEME) --- */
-                /* Base Resets & Typography */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #0f172a;
-            background-color: #ffffff;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* Decision Hero */
 
         .hero-wrap { 
             padding: 80px 0 60px; 
@@ -95,22 +82,20 @@
             min-height: 80vh;
         }
 
-      .hero-container {
-          display: flex;
-          gap: 50px;
-          align-items: flex-start;
-          justify-content: space-between;
-          max-width: 1200px; /* Increased slightly to give the sidebar breathing room */
+        .hero-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            justify-content: space-between;
+            max-width: 1200px;
         }
 
-      .hero-left { 
-          flex: 2; /* Takes up more space */
-          min-width: 0; /* Prevents children from pushing width */
+        .hero-left {
+          flex: 2;
+          min-width: 0;
         }
        
-      /* Layout: Pushing content to the side */
-       
-      .hero-right {
+        .hero-right {
           flex: 1; /* Sidebar takes up about 1/3 */
           position: sticky;
           top: 120px;
@@ -118,84 +103,33 @@
           min-width: 300px;
         }
 
-       .hero-operator-logic {
-    margin: 25px 0 35px;
-    padding-left: 20px;
-    border-left: 3px solid #0f172a; /* The "Operator" anchor line */
-  }
+        .hero-operator-logic {
+            margin: 25px 0 35px;
+            padding-left: 20px;
+            border-left: 3px solid #0f172a;
+        }
 
-  .hero-pivot {
-    font-size: 1.4rem !important;
-    font-weight: 800 !important;
-    color: #0f172a !important;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 8px !important;
-  }
+        .hero-pivot {
+            font-size: 1.4rem !important;
+            font-weight: 800 !important;
+            color: #0f172a !important;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 8px !important;
+        }
 
-  .hero-sub {
-    font-size: 1.1rem !important;
-    color: #475569 !important;
-    line-height: 1.6;
-    max-width: 650px;
-  }
+        .hero-sub {
+            font-size: 1.1rem !important;
+            color: #475569 !important;
+            line-height: 1.6;
+            max-width: 650px;
+        }
 
-  /* --- COMPARISON BOX STYLING --- */
-  .comparison-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  }
+        #scorecard {
+            max-width: 100% !important;
+        }
 
-  .comparison-title {
-    font-size: 1rem !important;
-    font-weight: 850 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 18px !important;
-    color: #0f172a;
-  }
-
-  .vs-item { margin-bottom: 20px; }
-  .vs-item:last-child { margin-bottom: 0; }
-
-  .vs-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #94a3b8;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-  }
-
-  .c3-advantage .vs-label { color: #c5a022; } /* Using your gold brand color */
-
-  .vs-text {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #475569;
-    margin: 0;
-  }
-
-  .c3-advantage .vs-text { 
-    color: #0f172a; 
-    font-weight: 600; 
-  }
-
-  /* Ensure the scorecard doesn't break the two-column layout */
-  #scorecard {
-    max-width: 100% !important; /* Allow it to fit the hero-left container */
-  }
-
-  /* Mobile: Stack them back up */
-  @media (max-width: 1024px) {
-    .hero-container { flex-direction: column; }
-    .hero-right { width: 100%; position: static; margin-top: 40px; }
-  }
-      
-        /* Comparison Box Styling */
+        /* Comparison Box */
         .comparison-box {
           background: #f8fafc;
           border: 1px solid #e2e8f0;
@@ -235,7 +169,7 @@
         }
       
         .c3-advantage .vs-label {
-          color: #3b82f6; /* Accent color for your brand */
+          color: var(--gold);
         }
       
         .comparison-list p {
@@ -253,7 +187,7 @@
         /* Stack on mobile */
         @media (max-width: 1024px) {
           .hero-container { flex-direction: column; }
-          .hero-right { width: 100%; margin-top: 20px; }
+          .hero-right { width: 100%; position: static; margin-top: 20px; }
         }
         .hero-kicker { 
             letter-spacing: .14em; 
