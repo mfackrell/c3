@@ -663,42 +663,42 @@
         </div>
       </div>
     </section>
-   
-     <section class="container narrow" id="scorecard" style="margin-top: 40px;">
-       <div class="low-ask-box audit-engine" id="audit-wrapper" style="background: var(--navy); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.2);">
-           
-           <div class="step active" id="step-0">
-               <span class="eyebrow" style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700;">60-Second Audit</span>
-               <h3 style="color: #fff; margin: 15px 0;">Are you the CEO, or the Chief Everything Officer?</h3>
-               <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">Identify exactly which "Ownership Gap" is stalling your growth. Answer 5 questions to see if your team is actually built to scale.</p>
-               <button type="button" class="btn-primary" onclick="audit.start()" style="background: var(--gold); color: var(--navy); border: none; padding: 16px 32px; cursor: pointer; font-weight: 800; border-radius: 6px; text-transform: uppercase;">
-                   Start the Audit →
-               </button>
-           </div>
-   
-           <div id="question-container"></div>
-   
-           <div class="step" id="step-final" style="display:none;">
-               <span class="eyebrow" style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700;">Audit Complete</span>
-               <h3 style="color: #fff; margin: 15px 0;">We've identified your primary bottleneck.</h3>
-               <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">Enter your details to receive your custom 1-page Gap Report and suggested next steps.</p>
-               
-               <form id="interactive-scorecard-form" style="display: flex; flex-direction: column; gap: 12px;">
-                   <input type="text" id="lead-name" name="name" placeholder="Name" required style="padding: 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff;">
-                   <input type="email" id="lead-email" name="email" placeholder="Work Email" required style="padding: 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff;">
-                   
-                   <button type="submit" id="submit-audit" style="background: var(--gold); color: var(--navy); border: none; padding: 16px; cursor: pointer; font-weight: 800; border-radius: 6px; text-transform: uppercase; margin-top: 10px;">
-                       See My Results →
-                   </button>
-               </form>
-           </div>
-   
-           <div id="audit-success" style="display:none; text-align: center; padding: 20px 0;">
-               <h3 style="color: var(--gold);">Diagnosis Sent.</h3>
-               <p style="color: #fff;">Check your inbox. Your custom audit results are on the way.</p>
-           </div>
-       </div>
-   </section>
+         
+      <section class="container narrow" id="scorecard" style="margin-top: 40px;">
+          <div class="low-ask-box audit-engine" id="audit-wrapper" style="background: var(--navy); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.2); position: relative; overflow: hidden;">
+              
+              <div class="step active" id="step-0">
+                  <span class="eyebrow" style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700;">60-Second Audit</span>
+                  <h3 style="color: #fff; margin: 15px 0;">Are you the CEO, or the Chief Everything Officer?</h3>
+                  <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">Identify exactly which "Ownership Gap" is stalling your growth. Answer 5 questions to see if your team is actually built to scale.</p>
+                  <button type="button" class="btn-primary" onclick="audit.start()" style="background: var(--gold); color: var(--navy); border: none; padding: 16px 32px; cursor: pointer; font-weight: 800; border-radius: 6px; text-transform: uppercase;">
+                      Start the Audit →
+                  </button>
+              </div>
+      
+              <div id="question-container"></div>
+      
+              <div class="step" id="step-final" style="display:none;">
+                  <span class="eyebrow" style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700;">Audit Complete</span>
+                  <h3 style="color: #fff; margin: 15px 0;">We've identified your primary bottleneck.</h3>
+                  <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">Enter your details to receive your custom 1-page Gap Report and suggested next steps.</p>
+                  
+                  <form id="interactive-scorecard-form" style="display: flex; flex-direction: column; gap: 12px;">
+                      <input type="text" id="lead-name" name="name" placeholder="Name" required style="padding: 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff;">
+                      <input type="email" id="lead-email" name="email" placeholder="Work Email" required style="padding: 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff;">
+                      
+                      <button type="submit" id="submit-audit" style="background: var(--gold); color: var(--navy); border: none; padding: 16px; cursor: pointer; font-weight: 800; border-radius: 6px; text-transform: uppercase; margin-top: 10px;">
+                          See My Results →
+                      </button>
+                  </form>
+              </div>
+      
+              <div id="audit-success" style="display:none; text-align: center; padding: 20px 0;">
+                  <h3 style="color: var(--gold);">Diagnosis Sent.</h3>
+                  <p style="color: #fff;">Check your inbox. Your custom audit results are on the way.</p>
+              </div>
+          </div>
+      </section>
 
     <section id="consequences" style="background: var(--bg-light); padding: 100px 0;">
       <div class="container">
