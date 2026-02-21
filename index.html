@@ -104,7 +104,83 @@
         .hero-left { 
             max-width: 900px; 
         }
-
+      /* Layout: Pushing content to the side */
+        .hero-container {
+          display: flex;
+          gap: 40px;
+          align-items: flex-start;
+          justify-content: space-between;
+        }
+      
+        .hero-left { flex: 1.5; }
+      
+        .hero-right {
+          flex: 1;
+          position: sticky;
+          top: 100px;
+          margin-top: 60px;
+        }
+      
+        /* Comparison Box Styling */
+        .comparison-box {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 24px;
+          box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+      
+        .comparison-title {
+          font-size: 1.25rem;
+          font-weight: 800;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #0f172a;
+          border-bottom: 2px solid #e2e8f0;
+          padding-bottom: 10px;
+        }
+      
+        .comparison-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      
+        .comparison-list li {
+          margin-bottom: 20px;
+        }
+      
+        .vs-label {
+          display: block;
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: #94a3b8;
+          margin-bottom: 4px;
+        }
+      
+        .c3-advantage .vs-label {
+          color: #3b82f6; /* Accent color for your brand */
+        }
+      
+        .comparison-list p {
+          font-size: 0.95rem;
+          line-height: 1.5;
+          margin: 0;
+          color: #475569;
+        }
+      
+        .c3-advantage p {
+          color: #0f172a;
+          font-weight: 500;
+        }
+      
+        /* Stack on mobile */
+        @media (max-width: 1024px) {
+          .hero-container { flex-direction: column; }
+          .hero-right { width: 100%; margin-top: 20px; }
+        }
         .hero-kicker { 
             letter-spacing: .14em; 
             font-weight: 700; 
@@ -610,7 +686,7 @@
    
    <div class="hero-operator-logic">
      <h2 class="hero-pivot">You don’t need a consultant. You need an operator.</h2>
-     
+     </b>
      <p class="hero-sub">
        We don't sit in an ivory tower handing out slide decks. We are experienced C Suite Executives 
        who <strong>integrate into your leadership team on Day 1</strong> to fill the gaps 
@@ -688,7 +764,29 @@
           <p class="path-micro" style="margin-top: 0;">We'll follow up using the email you provided.</p>
         </div>
       </div>
-
+      <div class="hero-right">
+        <div class="comparison-box">
+          <h3 class="comparison-title">Operators vs. Consultants</h3>
+          <ul class="comparison-list">
+            <li>
+              <span class="vs-label">Ivory Tower Firms</span>
+              <p>100-page slide decks and junior analysts learning your business on your dime.</p>
+            </li>
+            <li class="c3-advantage">
+              <span class="vs-label">C³ Executive Suite</span>
+              <p>Veteran operators who integrate on <strong>Day 1</strong> to own the results.</p>
+            </li>
+            <li>
+              <span class="vs-label">Ivory Tower Firms</span>
+              <p>Focused on "Strategic Alignment" while the implementation stalls.</p>
+            </li>
+            <li class="c3-advantage">
+              <span class="vs-label">C³ Executive Suite</span>
+              <p>Focused on <strong>Operating Rhythm</strong> and fixing the engine. Temporary by design.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
