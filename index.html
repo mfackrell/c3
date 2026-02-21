@@ -173,13 +173,43 @@
         .c3-advantage .vs-label {
           color: var(--gold);
         }
-      
+               
          .comparison-grid {
-             align-items: stretch;
+             display: flex;
+             flex-direction: column;
+             gap: 16px;
+         }
+       
+       .comparison-row {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 20px;
          }
 
-          .comparison-col:first-child .comparison-item {
-             opacity: 0.85;
+         .comparison-col {
+             display: flex;
+             flex-direction: column;
+             gap: 16px;
+         }
+         
+         .col-title {
+             font-size: 0.75rem;
+             font-weight: 700;
+             text-transform: uppercase;
+             margin-bottom: 8px;
+         }
+         
+         .col-title.muted {
+             color: #94a3b8;
+         }
+         
+         .col-title.accent {
+             color: var(--gold);
+         }
+         
+         .item-title {
+             font-weight: 700;
+             margin-bottom: 4px;
          }
       
         .c3-advantage p {
@@ -777,61 +807,68 @@
 
       </div>
       <div class="hero-right">
-        <div class="comparison-box">
-          <h3 class="comparison-title">Operators vs. Consultants</h3>
-
-            <div class="comparison-grid">
-            
-              <div class="comparison-col">
-                <div class="col-title muted">Typical Firms</div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Analysis Over Action</div>
-                  <p>Long decks, delayed decisions, and no ownership of outcomes.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Junior Leverage Model</div>
-                  <p>Senior people sell. Junior teams execute—on your dime.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Advisory Distance</div>
-                  <p>Recommendations without accountability for execution.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Temporary Insight</div>
-                  <p>Knowledge walks out when the engagement ends.</p>
-                </div>
-              </div>
-            
-              <div class="comparison-col">
-                <div class="col-title accent">C³ Operators</div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Execution Ownership</div>
-                  <p>We step into the seat and own results from Day 1.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Senior-Only Model</div>
-                  <p>No layers. The operator you meet is the one doing the work.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Embedded Leadership</div>
-                  <p>Integrated into your team, driving decisions and cadence.</p>
-                </div>
-            
-                <div class="comparison-item">
-                  <div class="item-title">Transferable System</div>
-                  <p>We build the function so it runs after we leave.</p>
-                </div>
-              </div>
-            
-            </div>
-        </div>
+         <div class="comparison-box">
+           <h3 class="comparison-title">Operators vs. Consultants</h3>
+         
+           <div class="comparison-grid">
+         
+             <div class="comparison-row">
+               <div class="comparison-item">
+                 <div class="item-title">Analysis Over Action</div>
+                 <p>Long decks, delayed decisions, and no ownership of outcomes.</p>
+               </div>
+               <div class="comparison-item">
+                 <div class="item-title">Execution Ownership</div>
+                 <p>We step into the seat and own results from Day 1.</p>
+               </div>
+             </div>
+         
+             <div class="comparison-row">
+               <div class="comparison-item">
+                 <div class="item-title">Junior Leverage Model</div>
+                 <p>Senior people sell. Junior teams execute—on your dime.</p>
+               </div>
+               <div class="comparison-item">
+                 <div class="item-title">Senior-Only Model</div>
+                 <p>No layers. The operator you meet is the one doing the work.</p>
+               </div>
+             </div>
+         
+             <div class="comparison-row">
+               <div class="comparison-item">
+                 <div class="item-title">Advisory Distance</div>
+                 <p>Recommendations without accountability for execution.</p>
+               </div>
+               <div class="comparison-item">
+                 <div class="item-title">Embedded Leadership</div>
+                 <p>Integrated into your team, driving decisions and operating cadence.</p>
+               </div>
+             </div>
+         
+             <div class="comparison-row">
+               <div class="comparison-item">
+                 <div class="item-title">Temporary Insight</div>
+                 <p>Knowledge walks out when the engagement ends.</p>
+               </div>
+               <div class="comparison-item">
+                 <div class="item-title">Transferable System</div>
+                 <p>We build the function so it runs after we leave.</p>
+               </div>
+             </div>
+         
+             <div class="comparison-row">
+               <div class="comparison-item">
+                 <div class="item-title">Slide Deck Outputs</div>
+                 <p>Polished recommendations that often stall at implementation.</p>
+               </div>
+               <div class="comparison-item">
+                 <div class="item-title">Operational Results</div>
+                 <p>Decisions executed, systems installed, and outcomes delivered.</p>
+               </div>
+             </div>
+         
+           </div>
+         </div>
       </div>
     </div>
 </section>
