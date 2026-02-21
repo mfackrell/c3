@@ -776,6 +776,47 @@
       </div>
     </section>
 
+    <section id="scorecard" style="padding: 100px 0; background: var(--navy); color: #fff;">
+      <div class="container narrow">
+        <div class="section-header" style="margin-bottom: 24px;">
+          <span class="eyebrow">Executive gap audit</span>
+          <h2 style="color: #fff;">Take the 5-question Executive Gap Scorecard.</h2>
+          <p style="color: #cbd5e1; margin-top: 12px;">
+            Click start, answer 5 quick questions, then share your email to receive next steps.
+          </p>
+        </div>
+
+        <div id="audit-intro" class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
+          <p style="margin-bottom: 16px; color: #e2e8f0;">This takes about 60 seconds.</p>
+          <button id="start-audit-btn" type="button" class="btn btn-primary">Start Scorecard →</button>
+        </div>
+
+        <div id="question-container" style="margin-top: 20px;"></div>
+
+        <div id="step-final" class="card" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
+          <h3 style="color: #fff; margin-bottom: 15px;">Where should we send your result?</h3>
+          <form id="interactive-scorecard-form">
+            <div class="form-row" style="margin-bottom: 16px;">
+              <div class="form-group">
+                <label for="lead-name" style="color: #e2e8f0;">Name</label>
+                <input id="lead-name" name="name" type="text" placeholder="Jane Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-email" style="color: #e2e8f0;">Email</label>
+                <input id="lead-email" name="email" type="email" placeholder="jane@company.com" required />
+              </div>
+            </div>
+            <button id="submit-audit" type="submit" class="btn btn-primary">Send My Scorecard</button>
+          </form>
+        </div>
+
+        <div id="audit-success" class="card" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
+          <h3 style="color: #fff; margin-bottom: 8px;">Thanks — your responses were submitted.</h3>
+          <p style="color: #cbd5e1;">We'll follow up using the email you provided.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Team Section Re-inserted -->
     <section id="team" style="background: #f4f7f9;">
       <div class="container">
@@ -955,12 +996,8 @@
            contactForm.addEventListener('submit', (e) => handleFormSubmit(e, 'contact-form', 'form-success'));
        }
    
-       // Attach to Scorecard Form
-       const scorecardForm = document.getElementById('scorecard-form');
-       if (scorecardForm) {
-           scorecardForm.addEventListener('submit', (e) => handleFormSubmit(e, 'scorecard-form', 'scorecard-success'));
-       }
    </script>
+  <script src="./audit.js" defer></script>
   <!-- Tidio Script -->
   <script src="//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js" async></script>
 </body>
