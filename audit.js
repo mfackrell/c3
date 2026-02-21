@@ -48,16 +48,18 @@ const audit = {
           <span class="eyebrow" style="margin-bottom: 0;">Question ${n} of 5</span>
           <h3 style="margin: 12px 0 0; font-size: 22px;">${q.q}</h3>
           <div class="audit-options">
-            ${q.opts
-              .map(
-                (opt) =>
-                  `<button type="button" class="opt-btn" onclick="audit.answer(${JSON.stringify(q.id)}, ${JSON.stringify(opt)}, ${n + 1})">${opt}</button>`
-              )
-              .join('')}
+            ${q.opts.map((opt, idx) => `<button type="button" class="opt-btn" data-opt-index="${idx}">${opt}</button>`).join('')}
           </div>
         </div>
       `;
       questionContainer.innerHTML = html;
+
+      questionContainer.querySelectorAll('.opt-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const index = Number(btn.dataset.optIndex);
+          this.answer(q.id, q.opts[index], n + 1);
+        });
+      });
     } else {
       questionContainer.innerHTML = '';
       finalStep.style.display = 'block';
