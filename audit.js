@@ -23,7 +23,7 @@ const audit = {
     },
     {
       id: 'bottleneck',
-      q: 'What is the #1 thing holding back your next $5M in revenue?',
+      q: 'What is the #1 thing holding you back from your next revenue goal?',
       opts: ["I don't have enough time to manage everyone.", 'The people are there, but execution is sloppy.', 'We need a specific senior leader to own a seat.']
     }
   ],
