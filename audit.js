@@ -44,9 +44,9 @@ const audit = {
       finalStep.style.display = 'none';
       const q = this.questions[n - 1];
       const html = `
-        <div class="step active card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
-          <span style="color: var(--gold); font-size: 11px; font-weight: 700;">QUESTION ${n} OF 5</span>
-          <h3 style="color: #fff; margin: 15px 0; font-size: 22px;">${q.q}</h3>
+        <div class="step active card">
+          <span class="eyebrow" style="margin-bottom: 0;">Question ${n} of 5</span>
+          <h3 style="margin: 12px 0 0; font-size: 22px;">${q.q}</h3>
           <div class="audit-options">
             ${q.opts
               .map(

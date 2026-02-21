@@ -563,18 +563,18 @@
       }
 
       .audit-options { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-       .opt-btn { 
-           background: rgba(255,255,255,0.05); 
-           border: 1px solid rgba(255,255,255,0.2); 
-           color: #fff; 
-           padding: 16px 20px; 
-           border-radius: 8px; 
-           text-align: left; 
-           cursor: pointer; 
-           transition: 0.2s; 
-           font-size: 15px;
-       }
-       .opt-btn:hover { background: rgba(255,215,0,0.1); border-color: var(--gold); }
+      .opt-btn { 
+          background: #ffffff; 
+          border: 1px solid var(--border); 
+          color: var(--navy); 
+          padding: 16px 20px; 
+          border-radius: 8px; 
+          text-align: left; 
+          cursor: pointer; 
+          transition: 0.2s; 
+          font-size: 15px;
+      }
+      .opt-btn:hover { background: var(--bg-light); border-color: var(--gold); }
        .step { animation: fadeIn 0.4s ease-in-out; }
        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -637,6 +637,44 @@
           </div>
         </a>
 
+      </div>
+
+      <div id="scorecard" class="path-card" style="max-width: 900px; margin: 28px auto 0;">
+        <h2 class="path-title" style="margin-bottom: 8px; text-align: center;">Take the 5-question Executive Gap Scorecard.</h2>
+        <p class="path-text" style="text-align: center; margin-bottom: 16px;">
+          Click start, answer 5 quick questions, then share your email to receive next steps.
+        </p>
+
+        <div id="audit-intro" style="text-align: center;">
+          <p class="path-micro" style="margin-top: 0; margin-bottom: 14px;">This takes about 60 seconds.</p>
+          <button id="start-audit-btn" type="button" class="btn btn-primary">Start Scorecard →</button>
+        </div>
+
+        <div id="question-container" style="margin-top: 16px;"></div>
+
+        <div id="step-final" style="display: none; margin-top: 16px;">
+          <h3 style="margin-bottom: 15px; text-align: center;">Where should we send your result?</h3>
+          <form id="interactive-scorecard-form">
+            <div class="form-row" style="margin-bottom: 16px;">
+              <div class="form-group">
+                <label for="lead-name">Name</label>
+                <input id="lead-name" name="name" type="text" placeholder="Jane Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-email">Email</label>
+                <input id="lead-email" name="email" type="email" placeholder="jane@company.com" required />
+              </div>
+            </div>
+            <div style="text-align: center;">
+              <button id="submit-audit" type="submit" class="btn btn-primary">Send My Scorecard</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="audit-success" style="display: none; margin-top: 16px; text-align: center;">
+          <h3 style="margin-bottom: 8px;">Thanks — your responses were submitted.</h3>
+          <p class="path-micro" style="margin-top: 0;">We'll follow up using the email you provided.</p>
+        </div>
       </div>
 
       <p class="hero-trigger">
@@ -776,46 +814,6 @@
       </div>
     </section>
 
-    <section id="scorecard" style="padding: 100px 0; background: var(--navy); color: #fff;">
-      <div class="container narrow">
-        <div class="section-header" style="margin-bottom: 24px;">
-          <span class="eyebrow">Executive gap audit</span>
-          <h2 style="color: #fff;">Take the 5-question Executive Gap Scorecard.</h2>
-          <p style="color: #cbd5e1; margin-top: 12px;">
-            Click start, answer 5 quick questions, then share your email to receive next steps.
-          </p>
-        </div>
-
-        <div id="audit-intro" class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
-          <p style="margin-bottom: 16px; color: #e2e8f0;">This takes about 60 seconds.</p>
-          <button id="start-audit-btn" type="button" class="btn btn-primary">Start Scorecard →</button>
-        </div>
-
-        <div id="question-container" style="margin-top: 20px;"></div>
-
-        <div id="step-final" class="card" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
-          <h3 style="color: #fff; margin-bottom: 15px;">Where should we send your result?</h3>
-          <form id="interactive-scorecard-form">
-            <div class="form-row" style="margin-bottom: 16px;">
-              <div class="form-group">
-                <label for="lead-name" style="color: #e2e8f0;">Name</label>
-                <input id="lead-name" name="name" type="text" placeholder="Jane Doe" required />
-              </div>
-              <div class="form-group">
-                <label for="lead-email" style="color: #e2e8f0;">Email</label>
-                <input id="lead-email" name="email" type="email" placeholder="jane@company.com" required />
-              </div>
-            </div>
-            <button id="submit-audit" type="submit" class="btn btn-primary">Send My Scorecard</button>
-          </form>
-        </div>
-
-        <div id="audit-success" class="card" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
-          <h3 style="color: #fff; margin-bottom: 8px;">Thanks — your responses were submitted.</h3>
-          <p style="color: #cbd5e1;">We'll follow up using the email you provided.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Team Section Re-inserted -->
     <section id="team" style="background: #f4f7f9;">
