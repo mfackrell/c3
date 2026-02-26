@@ -68,6 +68,19 @@ const audit = {
 
   answer(key, val, next) {
     this.data[key] = val;
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'audit_answer', {
+        event_category: 'engagement',
+        event_label: key,
+        value: val
+      });
+    }
+
+    if (typeof clarity === 'function') {
+      clarity('set', 'last_question', key);
+    }
+
     this.showStep(next);
   }
 };
@@ -79,7 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('interactive-scorecard-form');
 
   if (startBtn) {
-    startBtn.addEventListener('click', () => audit.start());
+    startBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'audit_start', {
+          event_category: 'engagement',
+          event_label: 'scorecard_start'
+        });
+      }
+
+      if (typeof clarity === 'function') {
+        clarity('set', 'audit_started', 'true');
+      }
+
+      audit.start();
+    });
   }
 
   if (form) {
@@ -97,6 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
         source: 'CEO Bottleneck Audit',
         ...audit.data
       };
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'audit_submit', {
+          event_category: 'conversion',
+          event_label: 'scorecard_completed'
+        });
+      }
+
+      if (typeof clarity === 'function') {
+        clarity('set', 'audit_completed', 'true');
+      }
 
       try {
         const response = await fetch('/api/contact', {
