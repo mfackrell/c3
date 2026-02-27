@@ -25,10 +25,10 @@ export default async function handler(req, res) {
       '',
       'Return EXACTLY this structure (plain text):',
       'TITLE: <8 words>',
-      'DIAGNOSIS: <1-2 sentences>',
-      'WHAT THIS COSTS YOU: <2 bullets>',
-      'THE COMPOUNDING FIX: <1-2 sentences>',
-      'NEXT STEP: <1 sentence CTA to book a 30-minute gap review>',
+      'DIAGNOSIS: <max 25 words>',
+      'WHAT THIS COSTS YOU: <exactly 2 bullets, max 12 words each>',
+      'THE COMPOUNDING FIX: <max 25 words>',
+      'NEXT STEP: <max 12 words CTA>',
       '',
       'Inputs:',
       `Source: ${source}`,
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           generationConfig: {
             temperature: 0.4,
-            maxOutputTokens: 900
+            maxOutputTokens: 2048
           }
         })
       });
