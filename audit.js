@@ -90,6 +90,10 @@ window.audit = audit;
 document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.getElementById('start-audit-btn');
   const form = document.getElementById('interactive-scorecard-form');
+  const auditDebug = new URLSearchParams(window.location.search).get('auditDebug') === '1';
+  const debugLog = (...args) => {
+    if (auditDebug) console.log('[audit.js]', ...args);
+  };
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
@@ -123,6 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
         source: 'CEO Bottleneck Audit',
         ...audit.data
       };
+      debugLog('submitting audit payload', {
+        hasName: Boolean(payload.name),
+        hasEmail: Boolean(payload.email),
+        answerKeys: Object.keys(audit.data)
+      });
   
       if (typeof gtag === 'function') {
         gtag('event', 'audit_submit', {
@@ -177,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
+          debugLog('api response', { status: response.status, ok: response.ok });
 
           if (!response.ok) {
             const err = await response.json().catch(() => ({}));
@@ -184,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const data = await response.json();
+          debugLog('api success payload', { model: data?.model, resultLength: String(data?.result || '').length });
 
           clearTimeout(t1);
           clearTimeout(t2);
@@ -203,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
+          debugLog('api response', { status: response.status, ok: response.ok });
 
           if (!response.ok) {
             const err = await response.json().catch(() => ({}));
@@ -216,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error(err);
+        debugLog('submit failed', String(err?.message || err));
         const resultEl = document.getElementById('audit-result');
         if (resultEl) {
           resultEl.innerHTML = `<div style="color:#b91c1c;font-weight:600;">Unable to generate your scorecard right now. ${String(err?.message || '')}</div>`;
