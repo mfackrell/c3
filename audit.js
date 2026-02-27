@@ -90,6 +90,7 @@ const audit = {
 window.audit = audit;
 
 document.addEventListener('DOMContentLoaded', () => {
+  let latestResultText = '';
   const startBtn = document.getElementById('start-audit-btn');
   const auditDebug = new URLSearchParams(window.location.search).get('auditDebug') === '1';
   const debugLog = (...args) => {
@@ -99,6 +100,61 @@ document.addEventListener('DOMContentLoaded', () => {
   const ensureAuditDiagnostics = () => null;
 
   const writeDiag = () => {};
+
+  const openModal = () => {
+    const emailModal = document.getElementById('email-modal');
+    if (emailModal) emailModal.style.display = 'flex';
+  };
+
+  const closeModal = () => {
+    const emailModal = document.getElementById('email-modal');
+    if (emailModal) emailModal.style.display = 'none';
+  };
+
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'email-results-btn') {
+      openModal();
+    }
+
+    if (e.target.id === 'close-email-modal') {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('click', async (e) => {
+    if (e.target.id === 'send-email-btn') {
+      const emailInput = document.getElementById('email-input');
+      const status = document.getElementById('email-status');
+      const email = String(emailInput?.value || '').trim();
+
+      if (!status) return;
+
+      if (!email) {
+        status.innerText = 'Please enter a valid email.';
+        return;
+      }
+
+      status.innerText = 'Sending...';
+
+      try {
+        await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            result: latestResultText,
+            answers: audit.data,
+            source: 'CEO Bottleneck Audit'
+          })
+        });
+
+        status.innerText = 'Sent. Check your inbox.';
+        setTimeout(closeModal, 1500);
+      } catch (err) {
+        status.innerText = 'Something went wrong. Try again.';
+      }
+    }
+  });
 
   const escapeHtml = (value) => String(value || '')
     .replaceAll('&', '&amp;')
@@ -262,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = await response.json();
       const resultText = String(data?.result || '');
+      latestResultText = resultText;
       debugLog('api success payload', {
         model: data?.model,
         finishReason: data?.finishReason,
@@ -288,6 +345,12 @@ document.addEventListener('DOMContentLoaded', () => {
         resultEl.innerHTML = `
           ${formatAuditResponse(resultText)}
           ${incompleteNote}
+
+          <div style="margin-top:20px;">
+            <button id="email-results-btn" class="btn-primary">
+              Email Me My Results
+            </button>
+          </div>
         `;
       }
     } catch (err) {
