@@ -96,29 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (auditDebug) console.log('[audit.js]', ...args);
   };
 
-  const ensureAuditDiagnostics = () => {
-    let el = document.getElementById('audit-diagnostics');
-    if (!el) {
-      el = document.createElement('pre');
-      el.id = 'audit-diagnostics';
-      el.style.whiteSpace = 'pre-wrap';
-      el.style.fontSize = '12px';
-      el.style.padding = '10px';
-      el.style.border = '1px dashed #cbd5e1';
-      el.style.borderRadius = '8px';
-      el.style.marginTop = '10px';
-      el.style.background = '#f8fafc';
-      const finalStep = document.getElementById('step-final');
-      if (finalStep) finalStep.appendChild(el);
-    }
-    return el;
-  };
+  const ensureAuditDiagnostics = () => null;
 
-  const writeDiag = (msg, data) => {
-    const el = ensureAuditDiagnostics();
-    const line = `[${new Date().toISOString()}] ${msg}${data ? ` ${JSON.stringify(data)}` : ''}`;
-    el.textContent += (el.textContent ? '\n' : '') + line;
-  };
+  const writeDiag = () => {};
 
   const escapeHtml = (value) => String(value || '')
     .replaceAll('&', '&amp;')
