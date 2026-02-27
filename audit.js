@@ -136,26 +136,77 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       try {
-        const response = await fetch('/api/audit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-  
-        if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
-  
-        const data = await response.json();
-  
-        document.getElementById('step-final').style.display = 'none';
-        document.getElementById('audit-success').style.display = 'block';
-  
         const resultEl = document.getElementById('audit-result');
+        let t1;
+        let t2;
+
         if (resultEl) {
+          resultEl.innerHTML = `
+            <div class="audit-loading">
+              <div class="audit-spinner-row">
+                <div class="audit-spinner"></div>
+                <div style="font-weight:700;">Building your scorecard…</div>
+              </div>
+
+              <div class="audit-progress">
+                <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
+                <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
+                <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
+              </div>
+
+              <div class="text-muted" style="font-size:13px;">Usually takes 3–8 seconds.</div>
+            </div>
+          `;
+
+          const setStep = (n) => {
+            const steps = resultEl.querySelectorAll('.audit-step');
+            steps.forEach((el) => {
+              const s = Number(el.dataset.step);
+              el.classList.remove('active', 'done');
+              if (s < n) el.classList.add('done');
+              if (s === n) el.classList.add('active');
+            });
+          };
+
+          setStep(1);
+          t1 = setTimeout(() => setStep(2), 900);
+          t2 = setTimeout(() => setStep(3), 1800);
+
+          const response = await fetch('/api/audit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
+
+          const data = await response.json();
+
+          clearTimeout(t1);
+          clearTimeout(t2);
+          setStep(4);
+
+          document.getElementById('step-final').style.display = 'none';
+          document.getElementById('audit-success').style.display = 'block';
+
           resultEl.innerHTML = `
             <div style="white-space: pre-wrap; line-height: 1.6;">
               ${String(data.result || '').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
             </div>
           `;
+        } else {
+          const response = await fetch('/api/audit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
+
+          await response.json();
+
+          document.getElementById('step-final').style.display = 'none';
+          document.getElementById('audit-success').style.display = 'block';
         }
       } catch (err) {
         console.error(err);
