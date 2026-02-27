@@ -13,11 +13,9 @@ export default async function handler(req, res) {
   try {
     const startedAt = Date.now();
     const body = req.body || {};
-    const { name = '', email = '', source = '', ...answers } = body;
+    const { source = '', ...answers } = body;
     log('request received', {
       source,
-      hasName: Boolean(name),
-      hasEmail: Boolean(email),
       answerKeys: Object.keys(answers)
     });
 
@@ -33,8 +31,6 @@ export default async function handler(req, res) {
       'NEXT STEP: <1 sentence CTA to book a 30-minute gap review>',
       '',
       'Inputs:',
-      `Name: ${name}`,
-      `Email: ${email}`,
       `Source: ${source}`,
       'Answers:',
       JSON.stringify(answers, null, 2)
