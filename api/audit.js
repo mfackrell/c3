@@ -70,6 +70,7 @@ export default async function handler(req, res) {
           status: geminiResp.status,
           elapsedMs: Date.now() - modelStart
         });
+        log('FULL GEMINI RESPONSE', JSON.stringify(geminiJson, null, 2));
         break;
       }
 
