@@ -27,31 +27,51 @@ export default async function handler(req, res) {
       JSON.stringify(answers, null, 2)
     ].join('\n');
 
-    const url =
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${encodeURIComponent(apiKey)}`;
+    const requestedModel = process.env.GEMINI_MODEL || 'gemini-3.1-pro-preview';
+    const modelFallbacks = ['gemini-2.5-pro', 'gemini-1.5-pro'];
+    const modelsToTry = [requestedModel, ...modelFallbacks.filter((m) => m !== requestedModel)];
 
-    const geminiResp = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 400
-        }
-      })
-    });
+    let selectedModel = requestedModel;
+    let geminiJson = null;
+    let lastErrorText = '';
 
-    if (!geminiResp.ok) {
-      const errText = await geminiResp.text();
-      return res.status(500).json({ error: 'Gemini error', details: errText });
+    for (const model of modelsToTry) {
+      selectedModel = model;
+      const url =
+        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+
+      const geminiResp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 400
+          }
+        })
+      });
+
+      if (geminiResp.ok) {
+        geminiJson = await geminiResp.json();
+        break;
+      }
+
+      lastErrorText = await geminiResp.text();
     }
 
-    const geminiJson = await geminiResp.json();
-    const result =
-      geminiJson?.candidates?.[0]?.content?.parts?.map(p => p.text).join('')?.trim() || '';
+    if (!geminiJson) {
+      return res.status(500).json({
+        error: 'Gemini error',
+        details: lastErrorText,
+        modelTried: modelsToTry
+      });
+    }
 
-    return res.status(200).json({ result });
+    const result =
+      geminiJson?.candidates?.[0]?.content?.parts?.map((p) => p.text).join('')?.trim() || '';
+
+    return res.status(200).json({ result, model: selectedModel });
   } catch (e) {
     return res.status(500).json({ error: 'Server error', details: String(e?.message || e) });
   }
