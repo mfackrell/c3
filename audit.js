@@ -178,7 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(payload)
           });
 
-          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
+          if (!response.ok) {
+            const err = await response.json().catch(() => ({}));
+            throw new Error(err?.details || err?.error || `Submission failed with ${response.status}`);
+          }
 
           const data = await response.json();
 
@@ -201,7 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(payload)
           });
 
-          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
+          if (!response.ok) {
+            const err = await response.json().catch(() => ({}));
+            throw new Error(err?.details || err?.error || `Submission failed with ${response.status}`);
+          }
 
           await response.json();
 
@@ -210,6 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error(err);
+        const resultEl = document.getElementById('audit-result');
+        if (resultEl) {
+          resultEl.innerHTML = `<div style="color:#b91c1c;font-weight:600;">Unable to generate your scorecard right now. ${String(err?.message || '')}</div>`;
+        }
         btn.innerText = 'TRY AGAIN';
         btn.disabled = false;
       }
