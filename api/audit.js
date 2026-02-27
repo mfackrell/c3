@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     ].join('\n');
 
     const url =
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${encodeURIComponent(apiKey)}`;
 
     const geminiResp = await fetch(url, {
       method: 'POST',
