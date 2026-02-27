@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       'You do NOT hedge.',
       'You speak plainly, directly, and with authority.',
       'You are delivering a short executive diagnosis based on a leadership audit.',
-      'Write like you are speaking to a business owner in a closed room — not presenting to a board, not writing a slide deck.'<
+      'Write like you are speaking to a business owner in a closed room — not presenting to a board, not writing a slide deck.',
       'Be concise. Be sharp. Be real',
       'Return EXACTLY this structure (plain text):',
       'TITLE: <8 words>',
