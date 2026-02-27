@@ -944,29 +944,27 @@
         <div id="question-container" style="margin-top: 16px;"></div>
 
          <div id="step-final" style="display: none; margin-top: 16px;">
-           <h3 style="margin-bottom: 10px; text-align: center;">Your result</h3>
-         
-           <div id="audit-result" class="card" style="text-align: left;">
-             <div class="audit-loading">
-               <div class="audit-spinner-row">
-                 <div class="audit-spinner"></div>
-                 <div style="font-weight:700;">Building your scorecard…</div>
-               </div>
+           <h3 style="margin-bottom: 10px; text-align: center;">Enter your details to generate your result</h3>
 
-               <div class="audit-progress">
-                 <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
-                 <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
-                 <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
-               </div>
+           <form id="interactive-scorecard-form" class="card" style="text-align:left;">
+             <label for="lead-name" style="display:block;font-weight:600;margin-bottom:6px;">Name</label>
+             <input id="lead-name" name="name" type="text" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin-bottom:12px;">
 
-               <div class="text-muted" style="font-size:13px;">Usually takes 3–8 seconds.</div>
+             <label for="lead-email" style="display:block;font-weight:600;margin-bottom:6px;">Work Email</label>
+             <input id="lead-email" name="email" type="email" required style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin-bottom:14px;">
+
+             <button id="submit-audit" type="submit" class="btn btn-primary" style="width:100%;">Generate My Scorecard</button>
+           </form>
+
+           <div id="audit-success" style="display:none;">
+             <h3 style="margin: 14px 0 10px; text-align: center;">Your result</h3>
+             <div id="audit-result" class="card" style="text-align: left;"></div>
+
+             <div style="text-align: center; margin-top: 14px;">
+               <a href="https://calendly.com/mfackrell79/30min" class="btn btn-primary">
+                 Book a 30-Minute Gap Review →
+               </a>
              </div>
-           </div>
-         
-           <div style="text-align: center; margin-top: 14px;">
-             <a href="https://calendly.com/mfackrell79/30min" class="btn btn-primary">
-               Book a 30-Minute Gap Review →
-             </a>
            </div>
          </div>
       </div>

@@ -94,6 +94,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const debugLog = (...args) => {
     if (auditDebug) console.log('[audit.js]', ...args);
   };
+  const ensureAuditDiagnostics = () => {
+    let el = document.getElementById('audit-diagnostics');
+    if (!el) {
+      el = document.createElement('pre');
+      el.id = 'audit-diagnostics';
+      el.style.whiteSpace = 'pre-wrap';
+      el.style.fontSize = '12px';
+      el.style.padding = '10px';
+      el.style.border = '1px dashed #cbd5e1';
+      el.style.borderRadius = '8px';
+      el.style.marginTop = '10px';
+      el.style.background = '#f8fafc';
+      const finalStep = document.getElementById('step-final');
+      if (finalStep) finalStep.appendChild(el);
+    }
+    return el;
+  };
+
+  const writeDiag = (msg, data) => {
+    const el = ensureAuditDiagnostics();
+    const line = `[${new Date().toISOString()}] ${msg}${data ? ` ${JSON.stringify(data)}` : ''}`;
+    el.textContent += (el.textContent ? '\n' : '') + line;
+  };
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
@@ -132,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hasEmail: Boolean(payload.email),
         answerKeys: Object.keys(audit.data)
       });
+      writeDiag('submit', { hasName: Boolean(payload.name), hasEmail: Boolean(payload.email), answerCount: Object.keys(audit.data).length });
   
       if (typeof gtag === 'function') {
         gtag('event', 'audit_submit', {
@@ -187,20 +211,24 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(payload)
           });
           debugLog('api response', { status: response.status, ok: response.ok });
+          writeDiag('api response', { status: response.status, ok: response.ok });
 
           if (!response.ok) {
             const err = await response.json().catch(() => ({}));
+            writeDiag('api error body', err);
             throw new Error(err?.details || err?.error || `Submission failed with ${response.status}`);
           }
 
           const data = await response.json();
           debugLog('api success payload', { model: data?.model, resultLength: String(data?.result || '').length });
+          writeDiag('api success', { model: data?.model, resultLength: String(data?.result || '').length });
 
           clearTimeout(t1);
           clearTimeout(t2);
           setStep(4);
 
-          document.getElementById('step-final').style.display = 'none';
+          const finalForm = document.getElementById('interactive-scorecard-form');
+          if (finalForm) finalForm.style.display = 'none';
           document.getElementById('audit-success').style.display = 'block';
 
           resultEl.innerHTML = `
@@ -215,20 +243,24 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(payload)
           });
           debugLog('api response', { status: response.status, ok: response.ok });
+          writeDiag('api response', { status: response.status, ok: response.ok });
 
           if (!response.ok) {
             const err = await response.json().catch(() => ({}));
+            writeDiag('api error body', err);
             throw new Error(err?.details || err?.error || `Submission failed with ${response.status}`);
           }
 
           await response.json();
 
-          document.getElementById('step-final').style.display = 'none';
+          const finalForm = document.getElementById('interactive-scorecard-form');
+          if (finalForm) finalForm.style.display = 'none';
           document.getElementById('audit-success').style.display = 'block';
         }
       } catch (err) {
         console.error(err);
         debugLog('submit failed', String(err?.message || err));
+        writeDiag('submit failed', { message: String(err?.message || err) });
         const resultEl = document.getElementById('audit-result');
         if (resultEl) {
           resultEl.innerHTML = `<div style="color:#b91c1c;font-weight:600;">Unable to generate your scorecard right now. ${String(err?.message || '')}</div>`;
