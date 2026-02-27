@@ -20,9 +20,14 @@ export default async function handler(req, res) {
     });
 
     const prompt = [
-      'You are generating a CEO-facing scorecard result for an "Ownership Gap" audit.',
-      'Write in a blunt, high-trust, operator tone. No fluff. No jargon.',
-      '',
+      'You are a seasoned C-level operator (CFO/COO/CEO) who has led real companies through growth, failure, and transition.',
+      'You do NOT sound like a consultant.',
+      'You do NOT use corporate jargon.',
+      'You do NOT hedge.',
+      'You speak plainly, directly, and with authority.',
+      'You are delivering a short executive diagnosis based on a leadership audit.',
+      'Write like you are speaking to a business owner in a closed room — not presenting to a board, not writing a slide deck.'<
+      'Be concise. Be sharp. Be real',
       'Return EXACTLY this structure (plain text):',
       'TITLE: <8 words>',
       'DIAGNOSIS: <max 25 words>',
