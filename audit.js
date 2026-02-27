@@ -113,39 +113,50 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const btn = document.getElementById('submit-audit');
       if (!btn) return;
-
+  
       btn.innerText = 'ANALYZING...';
       btn.disabled = true;
-
+  
       const payload = {
         name: document.getElementById('lead-name')?.value || '',
         email: document.getElementById('lead-email')?.value || '',
         source: 'CEO Bottleneck Audit',
         ...audit.data
       };
-
+  
       if (typeof gtag === 'function') {
         gtag('event', 'audit_submit', {
           event_category: 'conversion',
           event_label: 'scorecard_completed'
         });
       }
-
+  
       if (typeof clarity === 'function') {
         clarity('set', 'audit_completed', 'true');
       }
-
+  
       try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('/api/audit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-
+  
         if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
-
+  
+        const data = await response.json();
+  
         document.getElementById('step-final').style.display = 'none';
         document.getElementById('audit-success').style.display = 'block';
+  
+        const resultEl = document.getElementById('audit-result');
+        if (resultEl) {
+          resultEl.innerHTML = `
+            <div style="white-space: pre-wrap; line-height: 1.6;">
+              ${String(data.result || '').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
+            </div>
+          `;
+        }
       } catch (err) {
         console.error(err);
         btn.innerText = 'TRY AGAIN';
