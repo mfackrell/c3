@@ -197,8 +197,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const data = await response.json();
-      debugLog('api success payload', { model: data?.model, resultLength: String(data?.result || '').length });
-      writeDiag('api success', { model: data?.model, resultLength: String(data?.result || '').length });
+      const resultText = String(data?.result || '');
+      debugLog('api success payload', {
+        model: data?.model,
+        finishReason: data?.finishReason,
+        complete: data?.complete,
+        resultLength: resultText.length
+      });
+      writeDiag('api success', {
+        model: data?.model,
+        finishReason: data?.finishReason,
+        complete: data?.complete,
+        resultLength: resultText.length
+      });
 
       clearTimeout(t1);
       clearTimeout(t2);
@@ -206,10 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const resultEl = document.getElementById('audit-result');
       if (resultEl) {
+        const safeResult = resultText.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+        const incompleteNote = data?.complete
+          ? ''
+          : '<div style="margin-top:10px;color:#b45309;font-size:12px;">Note: response may be truncated. Please retry if this result looks incomplete.</div>';
+
         resultEl.innerHTML = `
-          <div style="white-space: pre-wrap; line-height: 1.6;">
-            ${String(data.result || '').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
-          </div>
+          <div style="white-space: pre-wrap; line-height: 1.6;">${safeResult}</div>
+          ${incompleteNote}
         `;
       }
     } catch (err) {

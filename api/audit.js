@@ -58,7 +58,7 @@ export default async function handler(req, res) {
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           generationConfig: {
             temperature: 0.4,
-            maxOutputTokens: 400
+            maxOutputTokens: 900
           }
         })
       });
@@ -94,15 +94,50 @@ export default async function handler(req, res) {
       });
     }
 
+    const firstCandidate = geminiJson?.candidates?.[0];
+    const finishReason = firstCandidate?.finishReason || 'UNKNOWN';
     const result =
-      geminiJson?.candidates?.[0]?.content?.parts?.map((p) => p.text).join('')?.trim() || '';
+      firstCandidate?.content?.parts
+        ?.filter((p) => typeof p?.text === 'string')
+        .map((p) => p.text)
+        .join('')
+        ?.trim() || '';
+
+    const expectedSections = [
+      'TITLE:',
+      'DIAGNOSIS:',
+      'WHAT THIS COSTS YOU:',
+      'THE COMPOUNDING FIX:',
+      'NEXT STEP:'
+    ];
+    const hasAllSections = expectedSections.every((section) => result.includes(section));
+    const isLikelyTruncated = finishReason !== 'STOP' || !hasAllSections;
+
+    if (isLikelyTruncated) {
+      log('truncated_or_incomplete_response', {
+        selectedModel,
+        finishReason,
+        hasAllSections,
+        resultLength: result.length,
+        promptFeedback: geminiJson?.promptFeedback || null,
+        safetyRatings: firstCandidate?.safetyRatings || []
+      });
+    }
+
     log('request complete', {
       selectedModel,
+      finishReason,
+      hasAllSections,
       totalElapsedMs: Date.now() - startedAt,
       resultLength: result.length
     });
 
-    return res.status(200).json({ result, model: selectedModel });
+    return res.status(200).json({
+      result,
+      model: selectedModel,
+      finishReason,
+      complete: hasAllSections
+    });
   } catch (e) {
     log('handler exception', String(e?.message || e));
     return res.status(500).json({ error: 'Server error', details: String(e?.message || e) });
