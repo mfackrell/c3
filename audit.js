@@ -63,6 +63,7 @@ const audit = {
     } else {
       questionContainer.innerHTML = '';
       finalStep.style.display = 'block';
+      if (typeof this.submit === 'function') this.submit();
     }
   },
 
@@ -85,11 +86,144 @@ const audit = {
   }
 };
 
+
 window.audit = audit;
 
 document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.getElementById('start-audit-btn');
-  const form = document.getElementById('interactive-scorecard-form');
+  const auditDebug = new URLSearchParams(window.location.search).get('auditDebug') === '1';
+  const debugLog = (...args) => {
+    if (auditDebug) console.log('[audit.js]', ...args);
+  };
+
+  const ensureAuditDiagnostics = () => {
+    let el = document.getElementById('audit-diagnostics');
+    if (!el) {
+      el = document.createElement('pre');
+      el.id = 'audit-diagnostics';
+      el.style.whiteSpace = 'pre-wrap';
+      el.style.fontSize = '12px';
+      el.style.padding = '10px';
+      el.style.border = '1px dashed #cbd5e1';
+      el.style.borderRadius = '8px';
+      el.style.marginTop = '10px';
+      el.style.background = '#f8fafc';
+      const finalStep = document.getElementById('step-final');
+      if (finalStep) finalStep.appendChild(el);
+    }
+    return el;
+  };
+
+  const writeDiag = (msg, data) => {
+    const el = ensureAuditDiagnostics();
+    const line = `[${new Date().toISOString()}] ${msg}${data ? ` ${JSON.stringify(data)}` : ''}`;
+    el.textContent += (el.textContent ? '\n' : '') + line;
+  };
+
+  const renderLoading = () => {
+    const resultEl = document.getElementById('audit-result');
+    if (!resultEl) return;
+    resultEl.innerHTML = `
+      <div class="audit-loading">
+        <div class="audit-spinner-row">
+          <div class="audit-spinner"></div>
+          <div style="font-weight:700;">Building your scorecard…</div>
+        </div>
+        <div class="audit-progress">
+          <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
+          <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
+          <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
+        </div>
+        <div class="text-muted" style="font-size:13px;">Usually takes 3–8 seconds.</div>
+      </div>
+    `;
+  };
+
+  const setStep = (n) => {
+    const resultEl = document.getElementById('audit-result');
+    if (!resultEl) return;
+    const steps = resultEl.querySelectorAll('.audit-step');
+    steps.forEach((el) => {
+      const s = Number(el.dataset.step);
+      el.classList.remove('active', 'done');
+      if (s < n) el.classList.add('done');
+      if (s === n) el.classList.add('active');
+    });
+  };
+
+  audit.submit = async () => {
+    const finalStep = document.getElementById('step-final');
+    if (!finalStep) return;
+    if (finalStep.dataset.busy === '1') return;
+    finalStep.dataset.busy = '1';
+
+    const payload = {
+      source: 'CEO Bottleneck Audit',
+      ...audit.data
+    };
+
+    debugLog('submitting audit payload', { answerKeys: Object.keys(audit.data) });
+    writeDiag('submit', { answerCount: Object.keys(audit.data).length });
+
+    renderLoading();
+    setStep(1);
+    const t1 = setTimeout(() => setStep(2), 900);
+    const t2 = setTimeout(() => setStep(3), 1800);
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'audit_submit', {
+        event_category: 'conversion',
+        event_label: 'scorecard_completed'
+      });
+    }
+
+    if (typeof clarity === 'function') {
+      clarity('set', 'audit_completed', 'true');
+    }
+
+    try {
+      const response = await fetch('/api/audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      debugLog('api response', { status: response.status, ok: response.ok });
+      writeDiag('api response', { status: response.status, ok: response.ok });
+
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        writeDiag('api error body', err);
+        throw new Error(err?.details || err?.error || `Submission failed with ${response.status}`);
+      }
+
+      const data = await response.json();
+      debugLog('api success payload', { model: data?.model, resultLength: String(data?.result || '').length });
+      writeDiag('api success', { model: data?.model, resultLength: String(data?.result || '').length });
+
+      clearTimeout(t1);
+      clearTimeout(t2);
+      setStep(4);
+
+      const resultEl = document.getElementById('audit-result');
+      if (resultEl) {
+        resultEl.innerHTML = `
+          <div style="white-space: pre-wrap; line-height: 1.6;">
+            ${String(data.result || '').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
+          </div>
+        `;
+      }
+    } catch (err) {
+      console.error(err);
+      debugLog('submit failed', String(err?.message || err));
+      writeDiag('submit failed', { message: String(err?.message || err) });
+      const resultEl = document.getElementById('audit-result');
+      if (resultEl) {
+        resultEl.innerHTML = `<div style="color:#b91c1c;font-weight:600;">Unable to generate your scorecard right now. ${String(err?.message || '')}</div>`;
+      }
+    } finally {
+      finalStep.dataset.busy = '0';
+    }
+  };
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
@@ -105,114 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       audit.start();
-    });
-  }
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('submit-audit');
-      if (!btn) return;
-  
-      btn.innerText = 'ANALYZING...';
-      btn.disabled = true;
-  
-      const payload = {
-        name: document.getElementById('lead-name')?.value || '',
-        email: document.getElementById('lead-email')?.value || '',
-        source: 'CEO Bottleneck Audit',
-        ...audit.data
-      };
-  
-      if (typeof gtag === 'function') {
-        gtag('event', 'audit_submit', {
-          event_category: 'conversion',
-          event_label: 'scorecard_completed'
-        });
-      }
-  
-      if (typeof clarity === 'function') {
-        clarity('set', 'audit_completed', 'true');
-      }
-  
-      try {
-        const resultEl = document.getElementById('audit-result');
-        let t1;
-        let t2;
-
-        if (resultEl) {
-          resultEl.innerHTML = `
-            <div class="audit-loading">
-              <div class="audit-spinner-row">
-                <div class="audit-spinner"></div>
-                <div style="font-weight:700;">Building your scorecard…</div>
-              </div>
-
-              <div class="audit-progress">
-                <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
-                <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
-                <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
-              </div>
-
-              <div class="text-muted" style="font-size:13px;">Usually takes 3–8 seconds.</div>
-            </div>
-          `;
-
-          const setStep = (n) => {
-            const steps = resultEl.querySelectorAll('.audit-step');
-            steps.forEach((el) => {
-              const s = Number(el.dataset.step);
-              el.classList.remove('active', 'done');
-              if (s < n) el.classList.add('done');
-              if (s === n) el.classList.add('active');
-            });
-          };
-
-          setStep(1);
-          t1 = setTimeout(() => setStep(2), 900);
-          t2 = setTimeout(() => setStep(3), 1800);
-
-          const response = await fetch('/api/audit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-
-          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
-
-          const data = await response.json();
-
-          clearTimeout(t1);
-          clearTimeout(t2);
-          setStep(4);
-
-          document.getElementById('step-final').style.display = 'none';
-          document.getElementById('audit-success').style.display = 'block';
-
-          resultEl.innerHTML = `
-            <div style="white-space: pre-wrap; line-height: 1.6;">
-              ${String(data.result || '').replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
-            </div>
-          `;
-        } else {
-          const response = await fetch('/api/audit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-
-          if (!response.ok) throw new Error(`Submission failed with ${response.status}`);
-
-          await response.json();
-
-          document.getElementById('step-final').style.display = 'none';
-          document.getElementById('audit-success').style.display = 'block';
-        }
-      } catch (err) {
-        console.error(err);
-        btn.innerText = 'TRY AGAIN';
-        btn.disabled = false;
-      }
     });
   }
 });
