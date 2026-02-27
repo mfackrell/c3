@@ -120,6 +120,90 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent += (el.textContent ? '\n' : '') + line;
   };
 
+  const escapeHtml = (value) => String(value || '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  const formatAuditResponse = (text) => {
+    const sections = {
+      title: '',
+      diagnosis: '',
+      costs: [],
+      fix: '',
+      next: ''
+    };
+
+    const lines = String(text || '').split('\n').map((line) => line.trim()).filter(Boolean);
+    let current = '';
+
+    lines.forEach((line) => {
+      if (line.startsWith('TITLE:')) {
+        sections.title = line.replace('TITLE:', '').trim();
+        current = 'title';
+      } else if (line.startsWith('DIAGNOSIS:')) {
+        sections.diagnosis = line.replace('DIAGNOSIS:', '').trim();
+        current = 'diagnosis';
+      } else if (line.startsWith('WHAT THIS COSTS YOU')) {
+        current = 'costs';
+      } else if (line.startsWith('THE COMPOUNDING FIX:')) {
+        sections.fix = line.replace('THE COMPOUNDING FIX:', '').trim();
+        current = 'fix';
+      } else if (line.startsWith('NEXT STEP:')) {
+        sections.next = line.replace('NEXT STEP:', '').trim();
+        current = 'next';
+      } else if (current === 'costs' && line.startsWith('-')) {
+        sections.costs.push(line.replace('-', '').trim());
+      } else if (current === 'diagnosis') {
+        sections.diagnosis = `${sections.diagnosis} ${line}`.trim();
+      } else if (current === 'fix') {
+        sections.fix = `${sections.fix} ${line}`.trim();
+      } else if (current === 'next') {
+        sections.next = `${sections.next} ${line}`.trim();
+      }
+    });
+
+    if (!sections.title && !sections.diagnosis && !sections.costs.length && !sections.fix && !sections.next) {
+      return `<div style="white-space: pre-wrap; line-height: 1.6;">${escapeHtml(text)}</div>`;
+    }
+
+    const title = escapeHtml(sections.title || 'Your Ownership Gap Diagnostic');
+    const diagnosis = escapeHtml(sections.diagnosis || 'No diagnosis was returned.');
+    const costs = sections.costs.length
+      ? sections.costs.map((cost) => `<li>${escapeHtml(cost)}</li>`).join('')
+      : '<li>No specific costs were provided.</li>';
+    const fix = escapeHtml(sections.fix || 'No fix was returned.');
+    const next = escapeHtml(sections.next || 'No next step was returned.');
+
+    return `
+      <div class="audit-report">
+        <div class="audit-title">${title}</div>
+
+        <div class="audit-section">
+          <h4>Diagnosis</h4>
+          <p>${diagnosis}</p>
+        </div>
+
+        <div class="audit-section">
+          <h4>What this costs you</h4>
+          <ul class="audit-list">${costs}</ul>
+        </div>
+
+        <div class="audit-section audit-highlight">
+          <h4>The fix</h4>
+          <p>${fix}</p>
+        </div>
+
+        <div class="audit-section">
+          <h4>Next step</h4>
+          <p>${next}</p>
+        </div>
+      </div>
+    `;
+  };
+
   const renderLoading = () => {
     const resultEl = document.getElementById('audit-result');
     if (!resultEl) return;
@@ -217,13 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const resultEl = document.getElementById('audit-result');
       if (resultEl) {
-        const safeResult = resultText.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
         const incompleteNote = data?.complete
           ? ''
           : '<div style="margin-top:10px;color:#b45309;font-size:12px;">Note: response may be truncated. Please retry if this result looks incomplete.</div>';
 
         resultEl.innerHTML = `
-          <div style="white-space: pre-wrap; line-height: 1.6;">${safeResult}</div>
+          ${formatAuditResponse(resultText)}
           ${incompleteNote}
         `;
       }
