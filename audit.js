@@ -103,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const openModal = () => {
     const emailModal = document.getElementById('email-modal');
+    const status = document.getElementById('email-status');
+    if (status) status.innerText = '';
     if (emailModal) emailModal.style.display = 'flex';
   };
 
@@ -136,14 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       status.innerText = 'Sending...';
 
+      if (!latestResultText) {
+        status.innerText = 'Your result is still loading. Please try again in a moment.';
+        return;
+      }
+
       try {
         await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
           method: 'POST',
+          mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email,
             result: latestResultText,
-            answers: audit.data,
             source: 'CEO Bottleneck Audit'
           })
         });
