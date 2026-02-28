@@ -1354,6 +1354,27 @@
     </div>
   </footer>
    
+  <div id="email-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:24px; border-radius:10px; width:100%; max-width:400px;">
+      <h3 style="margin-top:0;">Send your results</h3>
+
+      <input
+        id="email-input"
+        type="email"
+        placeholder="Enter your email"
+        style="width:100%; padding:10px; margin-top:10px; border:1px solid #ccc; border-radius:6px;"
+      />
+
+      <div style="margin-top:16px; display:flex; gap:10px;">
+        <button id="send-email-btn" class="btn-primary">Send</button>
+        <button id="close-email-modal" class="btn-secondary">Cancel</button>
+      </div>
+
+      <div id="email-status" style="margin-top:10px; font-size:13px;"></div>
+    </div>
+  </div>
+
+
    <script>
        document.getElementById('year').textContent = new Date().getFullYear();
    
