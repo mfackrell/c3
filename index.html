@@ -723,6 +723,8 @@
             margin-top: 30px;
         }
 
+        .mobile-sticky-cta { display: none; }
+
       /* Fixed Client Outcomes Grid */
       #cases {
           background: var(--bg-light); /* Adds subtle separation from the white sections */
@@ -795,6 +797,24 @@
       @media (max-width: 768px) {
           .cases-grid { grid-template-columns: 1fr; }
           .case-card { padding: 30px; }
+          .hero-wrap { padding: 42px 0 24px; }
+          .hero-sub { font-size: 1rem !important; }
+          .btn-primary, .btn-secondary { min-height: 44px; width: 100%; justify-content: center; }
+          .form-actions { flex-direction: column; }
+          .mobile-sticky-cta {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.98);
+            border-top: 1px solid var(--border);
+            padding: 10px;
+            z-index: 250;
+          }
+          body { padding-bottom: 86px; }
       }
 
       .low-ask-box {
@@ -980,7 +1000,7 @@
         </div>
       </div>
       <nav aria-label="Primary">
-        <a href="#recognition">What You're Seeing</a>
+        <a href="#fit">Who It's For</a>
         <a href="#model">How It Works</a>
         <a href="#team">Leadership Team</a>
         <a href="https://calendly.com/mfackrell79/30min" class="nav-cta">30-Minute Gap Review</a>
@@ -992,11 +1012,16 @@
     <section class="hero-wrap" aria-label="Hero">
       <div class="hero-container">
         <div class="hero-left">
-          <h1 class="hero-title">Some executive seats look filled. They aren’t.</h1>
+          <h1 class="hero-title">Interim executive leadership for companies with a critical ownership gap.</h1>
           <div class="hero-operator-logic">
-            <h2 class="hero-pivot">A consultant won’t fix this. An experienced executive will.</h2>
-            <p class="hero-sub">The person you meet is the person in the seat. No delegated delivery teams and no handoffs.</p>
-            <p class="hero-sub">Our operators step into the function, stabilize operating cadence, and transition to permanent ownership when the seat is ready.</p>
+            <h2 class="hero-pivot">Your business doesn’t have a people problem. It has an executive ownership gap.</h2>
+            <p class="hero-sub">C³ places experienced operators into finance, operations, growth, and transformation seats when the business has outgrown the person in role—or the seat is open entirely.</p>
+            <ul class="recognition-list" style="margin: 0 0 16px;">
+              <li>Stabilize execution fast</li>
+              <li>Restore true ownership in a critical function</li>
+              <li>Transition cleanly to permanent leadership</li>
+            </ul>
+            <p class="path-micro" style="font-size:14px; margin:0 0 14px;">Built for founder-led, investor-backed, and lower middle-market businesses navigating growth, transition, restructuring, or leadership change.</p>
 
             <div class="proof-strip" aria-label="Firm credentials">
               <div class="proof-item"><strong>Operating depth</strong>25+ years leading finance and operations teams inside live companies</div>
@@ -1015,14 +1040,27 @@
             Every month without true seat ownership adds execution drag, decision bottlenecks, and avoidable risk.
           </p>
 
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px;">
+            <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">Book a 30-Minute Gap Review</a>
+            <a href="#contact" class="btn-secondary">Send a Confidential Inquiry</a>
+          </div>
+
 
         </div>
 
         <div class="hero-right">
           <div id="scorecard" class="path-card" style="margin-top: 28px;">
-            <h2 class="path-title" style="margin-bottom: 8px; text-align: center;">Do you have someone in the wrong seat?</h2>
+            <h2 class="path-title" style="margin-bottom: 8px; text-align: center;">Request a confidential gap review</h2>
+            <form id="hero-form" style="display:grid; gap:10px; margin-bottom:16px;">
+              <input type="text" name="name" placeholder="Name" required>
+              <input type="email" name="email" placeholder="Work email" required>
+              <input type="text" name="company" placeholder="Company">
+              <input type="text" name="seat" placeholder="Seat/function needed">
+              <button type="submit" class="btn-primary">Request My Gap Review</button>
+              <p class="helper-text" style="text-align:center; margin:0;">Confidential • No obligation • Response within 1 business day</p>
+            </form>
             <p class="path-text" style="text-align: center; margin-bottom: 16px;">
-              Answer 5 diagnostic questions to pinpoint seat mismatch, execution drag, and immediate leadership risk.
+              Or run the 5-question ownership diagnostic.
             </p>
 
             <div id="audit-intro" style="text-align: center;">
@@ -1033,7 +1071,12 @@
             <div id="question-container" style="margin-top: 16px;"></div>
 
             <div id="step-final" style="display: none; margin-top: 16px;">
-              <h3 style="margin-bottom: 10px; text-align: center;">Your result</h3>
+              <h3 style="margin-bottom: 10px; text-align: center;">Get your diagnosis</h3>
+              <div id="audit-gate" style="text-align:center; margin-bottom:14px;">
+                <p class="path-micro" style="margin-bottom:10px;">Enter your email to receive your ownership gap diagnosis.</p>
+                <input id="audit-email" type="email" placeholder="Work email" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:10px; margin-bottom:10px;">
+                <button id="unlock-audit-btn" type="button" class="btn-primary" style="width:100%;">Unlock My Diagnosis</button>
+              </div>
 
               <div id="audit-result" class="card" style="text-align: left;">
                 <div class="audit-loading">
@@ -1060,6 +1103,35 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="fit" style="padding:60px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:#fff;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom:24px;">
+          <span class="eyebrow">Who this is for</span>
+          <h2 style="font-size:2rem;">Best fit for companies in transition that need immediate executive ownership.</h2>
+        </div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>This is for you if…</h3>
+            <ul class="recognition-list">
+              <li>The seat is filled, but not truly owned</li>
+              <li>Execution slows after decisions are made</li>
+              <li>The business has outgrown a once-strong operator</li>
+              <li>You need a bridge before making a permanent hire</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Typical engagement contexts</h3>
+            <ul class="recognition-list">
+              <li>Founder-led businesses outgrowing internal leaders</li>
+              <li>PE-backed companies in transition</li>
+              <li>Transaction, turnaround, and restructuring preparation</li>
+              <li>Interim ownership needed before a full-time hire</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -1095,10 +1167,32 @@
             </div>
             <div style="margin-top: auto;">
               <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">
-                See How This Works →
+                Book a 30-Minute Gap Review →
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:70px 0; background:#0f172a;">
+      <div class="container" style="text-align:center;">
+        <h2 style="color:#fff; margin-bottom:12px;">If the person in the seat cannot carry executive ownership, waiting usually costs another quarter of drag.</h2>
+        <p style="color:#cbd5e1; margin-bottom:18px;">Book a confidential 30-minute gap review to assess risk, ownership, and stabilization timeline.</p>
+        <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background:#fff; color:#0f172a; border-color:#fff;">Book a 30-Minute Gap Review</a>
+      </div>
+    </section>
+
+    <section id="delay" style="padding:80px 0; background:var(--bg-light);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">What delay actually costs</span>
+          <h2>Leadership gaps compound operational drag.</h2>
+        </div>
+        <div class="grid cols-3">
+          <div class="card"><h3>Slower decisions</h3><p>Critical calls sit unresolved because no one owns the function with executive authority.</p></div>
+          <div class="card"><h3>Recurring fire drills</h3><p>Teams work hard but keep revisiting the same failures each quarter.</p></div>
+          <div class="card"><h3>Forecasting confidence drops</h3><p>Investors and boards lose trust when reporting cadence and accountability drift.</p></div>
         </div>
       </div>
     </section>
@@ -1110,8 +1204,8 @@
     <section id="comparison" class="comparison-section">
       <div class="container">
         <div class="section-header" style="margin-bottom: 30px;">
-          <span class="eyebrow">Engagement fit</span>
-          <h2>Executive ownership vs. advisory-only support.</h2>
+          <span class="eyebrow">Why not consultants, recruiters, or advisory-only support?</span>
+          <h2>Not consultants. Not recruiters. Operators who own the seat.</h2>
           <p class="text-muted" style="max-width: 760px;">Use this as a fit check when deciding between advisory input and direct operating ownership.</p>
         </div>
         <div class="comparison-grid">
@@ -1215,30 +1309,10 @@
 
     <section style="padding: 36px 0 0; background: white;">
       <div class="container">
-        <div class="hero-split" role="group" aria-label="Choose your path">
-          <a href="https://calendly.com/mfackrell79/30min" class="path-card path-now clickable-card">
-            <div class="card-content">
-              <h2 class="path-title">I need this now</h2>
-              <p class="path-text">
-                The seat is open, or it’s filled by a "doer" who isn't scaling.<br />
-                You need an owner, not just a manager.
-              </p>
-              <span class="cta-btn primary-button">See Available Operators →</span>
-              <p class="path-micro">Review capacity and start timelines.</p>
-            </div>
-          </a>
-
-          <a href="/timing.html" class="path-card path-later clickable-card">
-            <div class="card-content">
-              <h2 class="path-title">Not now—Help me plan</h2>
-              <p class="path-text">
-                You have good people, but the business is outgrowing them.<br />
-                Learn how to tell if they can make the jump.
-              </p>
-              <span class="cta-btn secondary-ghost">Is it the position or the person? →</span>
-              <p class="path-micro">2-minute read on the "Execution Gap".</p>
-            </div>
-          </a>
+        <div class="low-ask-box">
+          <h3>Think you have the wrong person in a critical seat?</h3>
+          <p>Book a confidential 30-minute gap review. We’ll assess ownership risk and recommend the fastest stabilization path.</p>
+          <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background:#fff; color:#0f172a; border-color:#fff;">Book a 30-Minute Gap Review</a>
         </div>
       </div>
     </section>
@@ -1312,34 +1386,35 @@
             <input id="company" name="company" type="text" placeholder="Company Name" />
           </div>
 
-          <label>Reason for reaching out</label>
-          <div class="reason-grid">
-            <label class="reason-option"><input type="checkbox" name="reason" value="transaction" /> Transaction (M&A)</label>
-            <label class="reason-option"><input type="checkbox" name="reason" value="transformation" /> Transformation</label>
-            <label class="reason-option"><input type="checkbox" name="reason" value="role-gap" /> Interim Role</label>
-            <label class="reason-option"><input type="checkbox" name="reason" value="growth" /> Growth/GTM</label>
-            <label class="reason-option"><input type="checkbox" name="reason" value="people" /> People/HR</label>
-            <label class="reason-option"><input type="checkbox" name="reason" value="other" /> Other</label>
+          <div class="form-group">
+            <label for="reason">What leadership gap are you dealing with?</label>
+            <textarea id="reason" name="reason" placeholder="Example: Finance seat is filled but not truly owned; forecasting and accountability are slipping."></textarea>
           </div>
 
           <div class="form-group">
-            <label for="context">Anything else we should know?</label>
-            <textarea id="context" name="context" placeholder="Sector, revenue range, or upcoming deadlines..."></textarea>
+            <label for="context">Preferred next step (optional)</label>
+            <input id="context" name="context" type="text" placeholder="Call or email" />
           </div>
 
           <div class="form-actions">
             <button type="submit" class="btn-primary" id="submit-btn">
-              <span>Send Inquiry</span>
+              <span>Send a Confidential Inquiry</span>
               <span class="arrow">→</span>
             </button>
 
             <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary">
-              <span>Book Call</span>
+              <span>Book a 30-Minute Gap Review</span>
             </a>
           </div>
+          <p class="helper-text">Confidential • No obligation • Response within 1 business day</p>
         </form>
       </div>
     </section>
+
+    <div class="mobile-sticky-cta">
+      <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">Book Gap Review</a>
+      <a href="#contact" class="btn-secondary">Contact C³</a>
+    </div>
 
 
   </main>
@@ -1393,12 +1468,14 @@
            const formData = new FormData(form);
            const reasons = [];
            form.querySelectorAll('input[name="reason"]:checked').forEach(cb => reasons.push(cb.value));
+           const freeformReason = formData.get('reason') || '';
+           const seatRequest = formData.get('seat') || '';
 
            const data = {
                name: formData.get('name') || '',
                email: formData.get('email') || '',
                company: formData.get('company') || '',
-               reason: reasons.join(', '),
+               reason: reasons.join(', ') || freeformReason || seatRequest,
                context: formData.get('context') || ''
            };
 
@@ -1442,6 +1519,10 @@
        const contactForm = document.getElementById('contact-form');
        if (contactForm) {
            contactForm.addEventListener('submit', (e) => handleFormSubmit(e, 'contact-form', 'form-success'));
+       }
+       const heroForm = document.getElementById('hero-form');
+       if (heroForm) {
+           heroForm.addEventListener('submit', (e) => handleFormSubmit(e, 'hero-form', 'form-success'));
        }
 
    </script>
