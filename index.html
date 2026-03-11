@@ -986,6 +986,75 @@
       .comparison-grid { gap: 20px; }
       .comparison-row { gap: 20px; }
       .comparison-item { padding: 20px; border-radius: 12px; }
+
+      .hero-list-tight { margin: 0 0 16px; }
+      .hero-fit-note { font-size: 14px; margin: 0 0 14px; }
+      .hero-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
+      .scorecard-card { margin-top: 28px; }
+      .center-text { text-align: center; }
+      .hero-form { display: grid; gap: 10px; margin-bottom: 16px; }
+      .helper-text-compact { margin: 0; }
+      .audit-link-block { margin-bottom: 16px; }
+      .question-container { margin-top: 16px; }
+      .step-final { display: none; margin-top: 16px; }
+      .step-final-title { margin-bottom: 10px; text-align: center; }
+      .audit-gate { text-align: center; margin-bottom: 14px; }
+      .audit-gate-note { margin-bottom: 10px; }
+      .audit-email-input { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; }
+      .btn-block { width: 100%; }
+      .audit-result-card { text-align: left; }
+      .audit-loading-title { font-weight: 700; }
+      .audit-loading-note { font-size: 13px; }
+      .audit-cta-wrap { text-align: center; margin-top: 14px; }
+
+      .fit-section,
+      .delay-section,
+      .model-section,
+      .team-section,
+      .contact-section {
+        border-top: 1px solid var(--border);
+      }
+
+      .fit-section { padding: 72px 0; background: #fff; }
+      .fit-header { margin-bottom: 24px; }
+      .fit-title { font-size: 2rem; }
+      .recognition-proof-card { background: var(--bg-light); border: 1px solid var(--border); }
+      .recognition-fix-actions { margin-top: auto; }
+
+      .dark-cta-band { padding: 76px 0; background: #0f172a; }
+      .dark-cta-inner { text-align: center; }
+      .dark-cta-title { color: #fff; margin-bottom: 12px; }
+      .dark-cta-copy { color: #cbd5e1; margin-bottom: 18px; }
+      .dark-cta-button { background: #fff; color: #0f172a; border-color: #fff; }
+
+      .delay-section { padding: 72px 0; background: var(--bg-light); }
+      .comparison-header { margin-bottom: 30px; }
+      .comparison-intro { max-width: 760px; }
+      .cases-intro { max-width: 700px; }
+
+      .diagnostic-section { padding: 72px 0; background: #fff; }
+      .diagnostic-card { max-width: 720px; margin: 0 auto; }
+
+      .model-section { padding: 100px 0; background: white; }
+      .team-section { background: #f4f7f9; }
+      .contact-section { background: var(--bg-light); }
+      .contact-title { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; }
+      .contact-lead { font-size: 1.1rem; margin-bottom: 20px; color: var(--navy); }
+
+      .email-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+      .email-modal-panel { background: #fff; padding: 24px; border-radius: 10px; width: 100%; max-width: 400px; }
+      .email-modal-title { margin-top: 0; }
+      .email-modal-input { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 6px; }
+      .email-modal-actions { margin-top: 16px; display: flex; gap: 10px; }
+      .email-status { margin-top: 10px; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -1016,12 +1085,12 @@
           <div class="hero-operator-logic">
             <h2 class="hero-pivot">Your business doesn’t have a people problem. It has an executive ownership gap.</h2>
             <p class="hero-sub">C³ places experienced operators into finance, operations, growth, and transformation seats when the business has outgrown the person in role—or the seat is open entirely.</p>
-            <ul class="recognition-list" style="margin: 0 0 16px;">
+            <ul class="recognition-list hero-list-tight">
               <li>Stabilize execution fast</li>
               <li>Restore true ownership in a critical function</li>
               <li>Transition cleanly to permanent leadership</li>
             </ul>
-            <p class="path-micro" style="font-size:14px; margin:0 0 14px;">Built for founder-led, investor-backed, and lower middle-market businesses navigating growth, transition, restructuring, or leadership change.</p>
+            <p class="path-micro hero-fit-note">Built for founder-led, investor-backed, and lower middle-market businesses navigating growth, transition, restructuring, or leadership change.</p>
 
             <div class="proof-strip" aria-label="Firm credentials">
               <div class="proof-item"><strong>Operating depth</strong>25+ years leading finance and operations teams inside live companies</div>
@@ -1036,11 +1105,8 @@
               <span class="evidence-pill">Permanent-hire transition support</span>
             </div>
           </div>
-          <p class="hero-trigger">
-            Every month without true seat ownership adds execution drag, decision bottlenecks, and avoidable risk.
-          </p>
 
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px;">
+          <div class="hero-actions">
             <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">Book a 30-Minute Gap Review</a>
             <a href="#contact" class="btn-secondary">Send a Confidential Inquiry</a>
           </div>
@@ -1049,69 +1115,28 @@
         </div>
 
         <div class="hero-right">
-          <div id="scorecard" class="path-card" style="margin-top: 28px;">
-            <h2 class="path-title" style="margin-bottom: 8px; text-align: center;">Request a confidential gap review</h2>
-            <form id="hero-form" style="display:grid; gap:10px; margin-bottom:16px;">
+          <div id="scorecard" class="path-card scorecard-card">
+            <h2 class="path-title center-text">Request a confidential gap review</h2>
+            <form id="hero-form" class="hero-form">
               <input type="text" name="name" placeholder="Name" required>
               <input type="email" name="email" placeholder="Work email" required>
               <input type="text" name="company" placeholder="Company">
               <input type="text" name="seat" placeholder="Seat/function needed">
               <button type="submit" class="btn-primary">Request My Gap Review</button>
-              <p class="helper-text" style="text-align:center; margin:0;">Confidential • No obligation • Response within 1 business day</p>
+              <p class="helper-text center-text helper-text-compact">Confidential • No obligation • Response within 1 business day</p>
             </form>
-            <p class="path-text" style="text-align: center; margin-bottom: 16px;">
-              Or run the 5-question ownership diagnostic.
-            </p>
-
-            <div id="audit-intro" style="text-align: center;">
-              <p class="path-micro" style="margin-top: 0; margin-bottom: 14px;">This takes about 60 seconds.</p>
-              <button id="start-audit-btn" type="button" class="btn btn-primary">Start the Diagnostic →</button>
-            </div>
-
-            <div id="question-container" style="margin-top: 16px;"></div>
-
-            <div id="step-final" style="display: none; margin-top: 16px;">
-              <h3 style="margin-bottom: 10px; text-align: center;">Get your diagnosis</h3>
-              <div id="audit-gate" style="text-align:center; margin-bottom:14px;">
-                <p class="path-micro" style="margin-bottom:10px;">Enter your email to receive your ownership gap diagnosis.</p>
-                <input id="audit-email" type="email" placeholder="Work email" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:10px; margin-bottom:10px;">
-                <button id="unlock-audit-btn" type="button" class="btn-primary" style="width:100%;">Unlock My Diagnosis</button>
-              </div>
-
-              <div id="audit-result" class="card" style="text-align: left;">
-                <div class="audit-loading">
-                  <div class="audit-spinner-row">
-                    <div class="audit-spinner"></div>
-                    <div style="font-weight:700;">Building your scorecard…</div>
-                  </div>
-
-                  <div class="audit-progress">
-                    <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
-                    <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
-                    <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
-                  </div>
-
-                  <div class="text-muted" style="font-size:13px;">Usually less than 60 seconds.</div>
-                </div>
-              </div>
-
-              <div style="text-align: center; margin-top: 14px;">
-                <a href="https://calendly.com/mfackrell79/30min" class="btn btn-primary">
-                  Book a 30-Minute Gap Review →
-                </a>
-              </div>
-            </div>
+            <p class="path-text center-text audit-link-block">Need a quick self-check first? <a href="#diagnostic">Run the 5-question ownership diagnostic.</a></p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <section id="fit" style="padding:60px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:#fff;">
+    <section id="fit" class="fit-section">
       <div class="container">
-        <div class="section-header" style="margin-bottom:24px;">
+        <div class="section-header fit-header">
           <span class="eyebrow">Who this is for</span>
-          <h2 style="font-size:2rem;">Best fit for companies in transition that need immediate executive ownership.</h2>
+          <h2 class="fit-title">Best fit for companies in transition that need immediate executive ownership.</h2>
         </div>
         <div class="grid cols-2">
           <div class="card">
@@ -1141,20 +1166,19 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Reality Check</span>
-          <h2>You don’t have a bad team.<br>You have a seat mismatch.</h2>
+          <h2>Proof of the ownership gap</h2>
           <p class="text-muted recognition-intro">
-            These are often strong people promoted too early or asked to run seats beyond their current scope. When seat fit breaks, decisions and execution slow quickly.
+            Strong teams still stall when a critical seat lacks true executive ownership. This is the pattern we resolve first.
           </p>
         </div>
 
         <div class="grid cols-2 recognition-grid">
-          <div class="card recognition-card" style="background: var(--bg-light); border: 1px solid var(--border);">
+          <div class="card recognition-card recognition-proof-card">
             <h3>What you're seeing</h3>
             <ul class="recognition-list">
-              <li>Your “CFO” is great with numbers… but not running the business.</li>
-              <li>Your operations lead used to be a top performer… now they’re stuck managing complexity they weren’t trained for.</li>
-              <li>Execution breaks down once the plan is set.</li>
-              <li>You’re solving the same fires every quarter.</li>
+              <li>Plans are clear, but execution ownership is diffuse.</li>
+              <li>Leadership meetings end with decisions, not accountable follow-through.</li>
+              <li>The same operational fires return each quarter.</li>
             </ul>
           </div>
 
@@ -1165,25 +1189,20 @@
               <p><strong>It’s about putting the right operator in the right seat—and letting them carry the weight.</strong></p>
               <p>Sometimes that means upgrading a role. Sometimes it means bridging a gap. Sometimes it means stepping in until the right hire is clear.</p>
             </div>
-            <div style="margin-top: auto;">
-              <a href="https://calendly.com/mfackrell79/30min" class="btn-primary">
-                Book a 30-Minute Gap Review →
-              </a>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section style="padding:70px 0; background:#0f172a;">
-      <div class="container" style="text-align:center;">
-        <h2 style="color:#fff; margin-bottom:12px;">If the person in the seat cannot carry executive ownership, waiting usually costs another quarter of drag.</h2>
-        <p style="color:#cbd5e1; margin-bottom:18px;">Book a confidential 30-minute gap review to assess risk, ownership, and stabilization timeline.</p>
-        <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background:#fff; color:#0f172a; border-color:#fff;">Book a 30-Minute Gap Review</a>
+    <section class="dark-cta-band">
+      <div class="container dark-cta-inner">
+        <h2 class="dark-cta-title">If the person in the seat cannot carry executive ownership, waiting usually costs another quarter of drag.</h2>
+        <p class="dark-cta-copy">Book a confidential 30-minute gap review to assess risk, ownership, and stabilization timeline.</p>
+        <a href="https://calendly.com/mfackrell79/30min" class="btn-primary dark-cta-button">Book a 30-Minute Gap Review</a>
       </div>
     </section>
 
-    <section id="delay" style="padding:80px 0; background:var(--bg-light);">
+    <section id="delay" class="delay-section">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">What delay actually costs</span>
@@ -1203,10 +1222,10 @@
 
     <section id="comparison" class="comparison-section">
       <div class="container">
-        <div class="section-header" style="margin-bottom: 30px;">
+        <div class="section-header comparison-header">
           <span class="eyebrow">Why not consultants, recruiters, or advisory-only support?</span>
-          <h2>Not consultants. Not recruiters. Operators who own the seat.</h2>
-          <p class="text-muted" style="max-width: 760px;">Use this as a fit check when deciding between advisory input and direct operating ownership.</p>
+          <h2>Executive ownership vs. advisory-only support</h2>
+          <p class="text-muted comparison-intro">Use this as a fit check when deciding between advisory input and direct operating ownership.</p>
         </div>
         <div class="comparison-grid">
           <div class="comparison-row">
@@ -1230,7 +1249,7 @@
           <div class="section-header">
               <span class="eyebrow">Client outcomes</span>
               <h2>Measured outcomes from interim executive ownership.</h2>
-              <p class="text-muted" style="max-width: 700px;">
+              <p class="text-muted cases-intro">
                 Representative engagements structured by situation, constraint, action, and measurable outcome.
               </p>
           </div>
@@ -1293,7 +1312,54 @@
         </div>
       </section>
 
-    <section id="model" style="padding: 100px 0; background: white;">
+
+    <section id="diagnostic" class="diagnostic-section">
+      <div class="container">
+        <div id="scorecard-diagnostic" class="path-card diagnostic-card">
+          <h2 class="path-title center-text">Run the 5-question ownership diagnostic</h2>
+          <div id="audit-intro" class="center-text">
+            <p class="path-micro">This takes about 60 seconds.</p>
+            <button id="start-audit-btn" type="button" class="btn btn-primary">Start the Diagnostic →</button>
+          </div>
+
+          <div id="question-container" class="question-container"></div>
+
+          <div id="step-final" class="step-final">
+            <h3 class="step-final-title">Get your diagnosis</h3>
+            <div id="audit-gate" class="audit-gate">
+              <p class="path-micro audit-gate-note">Enter your email to receive your ownership gap diagnosis.</p>
+              <input id="audit-email" type="email" placeholder="Work email" class="audit-email-input">
+              <button id="unlock-audit-btn" type="button" class="btn-primary btn-block">Unlock My Diagnosis</button>
+            </div>
+
+            <div id="audit-result" class="card audit-result-card">
+              <div class="audit-loading">
+                <div class="audit-spinner-row">
+                  <div class="audit-spinner"></div>
+                  <div class="audit-loading-title">Building your scorecard…</div>
+                </div>
+
+                <div class="audit-progress">
+                  <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
+                  <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
+                  <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
+                </div>
+
+                <div class="text-muted audit-loading-note">Usually less than 60 seconds.</div>
+              </div>
+            </div>
+
+            <div class="audit-cta-wrap">
+              <a href="https://calendly.com/mfackrell79/30min" class="btn btn-primary">
+                Book a 30-Minute Gap Review →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="model" class="model-section">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">How it works</span>
@@ -1307,19 +1373,8 @@
       </div>
     </section>
 
-    <section style="padding: 36px 0 0; background: white;">
-      <div class="container">
-        <div class="low-ask-box">
-          <h3>Think you have the wrong person in a critical seat?</h3>
-          <p>Book a confidential 30-minute gap review. We’ll assess ownership risk and recommend the fastest stabilization path.</p>
-          <a href="https://calendly.com/mfackrell79/30min" class="btn-primary" style="background:#fff; color:#0f172a; border-color:#fff;">Book a 30-Minute Gap Review</a>
-        </div>
-      </div>
-    </section>
-
-
     <!-- Team Section Re-inserted -->
-    <section id="team" style="background: #f4f7f9;">
+    <section id="team" class="team-section">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Leadership team</span>
@@ -1356,12 +1411,12 @@
     </section>
 
     <!-- Contact Section Re-inserted -->
-    <section id="contact" style="background: var(--bg-light); border-top: 1px solid var(--border);">
+    <section id="contact" class="contact-section">
       <div class="container contact-layout">
         <div class="cta-section">
           <span class="eyebrow">Next step</span>
-          <h2 style="font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px;">Determine whether there is a true ownership gap.</h2>
-          <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--navy);">
+          <h2 class="contact-title">Determine whether there is a true ownership gap.</h2>
+          <p class="contact-lead">
             This conversation is a working diagnostic of seat mismatch, operating risk, and near-term leadership requirements.
           </p>
           <p class="text-muted">
@@ -1431,23 +1486,23 @@
     </div>
   </footer>
 
-  <div id="email-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:#fff; padding:24px; border-radius:10px; width:100%; max-width:400px;">
-      <h3 style="margin-top:0;">Send your results</h3>
+  <div id="email-modal" class="email-modal">
+    <div class="email-modal-panel">
+      <h3 class="email-modal-title">Send your results</h3>
 
       <input
         id="email-input"
         type="email"
         placeholder="Enter your email"
-        style="width:100%; padding:10px; margin-top:10px; border:1px solid #ccc; border-radius:6px;"
+        class="email-modal-input"
       />
 
-      <div style="margin-top:16px; display:flex; gap:10px;">
+      <div class="email-modal-actions">
         <button id="send-email-btn" class="btn-primary">Send</button>
         <button id="close-email-modal" class="btn-secondary">Cancel</button>
       </div>
 
-      <div id="email-status" style="margin-top:10px; font-size:13px;"></div>
+      <div id="email-status" class="email-status"></div>
     </div>
   </div>
 
