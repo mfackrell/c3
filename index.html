@@ -244,7 +244,7 @@
                 <a href="#diagnostic">Diagnostic</a>
                 <a href="#cases">Outcomes</a>
                 <a href="#team">Leadership Team</a>
-                <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="nav-cta">30-Minute Gap Review</a>
+                <a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">30-Minute Gap Review</a>
             </nav>
         </div>
     </header>
@@ -273,7 +273,7 @@
 
                     <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
                         <a href="#diagnostic" class="btn-primary">Take Ownership Diagnostic</a>
-                        <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary">Book a 30-Minute Gap Review</a>
+                        <a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 30-Minute Gap Review</a>
                     </div>
                 </div>
 
@@ -303,16 +303,7 @@
                         <button id="start-audit-btn" type="button" class="btn-primary">Start the Diagnostic →</button>
                     </div>
 
-                    <div id="question-container" style="margin-top: 16px; display: none;">
-                        <div class="question-box">
-                            <p id="question-text" style="font-weight: 700; font-size: 18px;"></p>
-                            <div class="options-grid">
-                                <button class="option-btn" onclick="nextQuestion(true)">Yes / Often</button>
-                                <button class="option-btn" onclick="nextQuestion(false)">No / Rarely</button>
-                            </div>
-                            <p id="progress-text" style="margin-top: 15px; font-size: 12px; color: var(--muted); text-align: center;"></p>
-                        </div>
-                    </div>
+                    <div id="question-container" style="margin-top: 16px; display: none;"></div>
 
                     <div id="step-final" style="display: none; margin-top: 16px;">
                         <h3 class="center-text" style="margin-bottom: 20px;">Your Diagnosis</h3>
@@ -343,7 +334,7 @@
                             </div>
 
                             <div style="text-align: center; margin-top: 20px; display: grid; gap: 10px;">
-                                <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary btn-block">Book a 30-Minute Gap Review →</a>
+                                <a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-block">Book a 30-Minute Gap Review →</a>
                             </div>
                         </div>
                     </div>
@@ -454,7 +445,7 @@
                         <strong>Direct Contact</strong>
                         mark.fackrell@c3execs.com
                     </div>
-                    <a href="https://calendly.com/mfackrell79/30min" target="_blank" class="btn-secondary">Book a 30-Minute Gap Review</a>
+                    <a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 30-Minute Gap Review</a>
                 </div>
                 <form id="contact-form">
                     <div class="form-row">
@@ -530,95 +521,21 @@
         document.getElementById('contact-form')?.addEventListener('submit', (e) => handleFormSubmit(e, 'contact-form'));
         document.getElementById('hero-form')?.addEventListener('submit', (e) => handleFormSubmit(e, 'hero-form'));
 
-        const questions = [
-            "Does your executive team spend >20% of their time doing 'the work' instead of managing?",
-            "Is there a critical function where the 'How' is a mystery to anyone but the person in charge?",
-            "Does progress stall the moment you stop personally checking in on it?",
-            "Have you outgrown your current leadership team's ability to scale?",
-            "Is your data/financial reporting reactive rather than predictive?"
-        ];
-
-        let currentQuestionIndex = 0;
-        let yesCount = 0;
-
-        const startBtn = document.getElementById('start-audit-btn');
-        const intro = document.getElementById('audit-intro');
-        const qContainer = document.getElementById('question-container');
-        const qText = document.getElementById('question-text');
-        const progText = document.getElementById('progress-text');
-        const finalStep = document.getElementById('step-final');
-
-        startBtn.addEventListener('click', () => {
-            intro.style.display = 'none';
-            qContainer.style.display = 'block';
-            showQuestion();
-        });
-
-        function showQuestion() {
-            qText.innerText = questions[currentQuestionIndex];
-            progText.innerText = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
-        }
-
-        function nextQuestion(isYes) {
-            if (isYes) yesCount++;
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResult();
-            }
-        }
-
-        function showResult() {
-            qContainer.style.display = 'none';
-            finalStep.style.display = 'block';
-
-            const steps = document.querySelectorAll('.audit-step');
-            setTimeout(() => {
-                steps[0].classList.add('done');
-                steps[1].classList.add('active');
-            }, 800);
-            setTimeout(() => {
-                steps[1].classList.add('done');
-                steps[2].classList.add('active');
-            }, 1800);
-
-            setTimeout(() => {
-                document.querySelector('.audit-loading').style.display = 'none';
-                const content = document.getElementById('audit-content');
-                const gate = document.getElementById('audit-gate-post');
-                content.style.display = 'block';
-                gate.style.display = 'block';
-
-                const heading = document.getElementById('audit-heading');
-                const desc = document.getElementById('audit-description');
-
-                if (yesCount >= 4) {
-                    heading.innerText = "Critical Ownership Gap Detected";
-                    desc.innerText = "Your business is currently hitting a 'Leadership Ceiling'. Your operations are fragile because they rely on individual heroics rather than executive systems.";
-                } else if (yesCount >= 2) {
-                    heading.innerText = "Moderate Execution Friction";
-                    desc.innerText = "You have the right ideas but the wrong execution rhythm. Some functions are owned, but others are merely being managed reactively.";
-                } else {
-                    heading.innerText = "Optimized for Current Scale";
-                    desc.innerText = "Your leadership structure is stable, but you should keep an eye on bandwidth as you approach your next 2x growth milestone.";
-                }
-            }, 2800);
-        }
-
-        document.getElementById('unlock-audit-btn').addEventListener('click', () => {
-            const email = document.getElementById('audit-email').value;
-            if (!email || !email.includes('@')) {
-                return;
-            }
-            document.getElementById('audit-gate').innerHTML = `
-                <div style="padding: 10px; background: #ecfdf5; color: #065f46; border-radius: 8px;">
-                    Success! Check your inbox for your detailed action plan.
-                </div>
-            `;
-        });
     </script>
+    <script src="./audit.js" defer></script>
     <script src="//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js" async></script>
+
+    <div id="email-modal" style="position: fixed; inset: 0; background: rgba(2, 6, 23, 0.75); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 200;">
+        <div style="background: white; border-radius: 12px; width: min(100%, 460px); padding: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.25);">
+            <h3 style="margin-bottom: 8px;">Email your results</h3>
+            <p style="color: var(--muted); margin-bottom: 14px;">Enter your email to receive your ownership gap diagnosis.</p>
+            <input id="email-input" type="email" placeholder="Work email" class="audit-email-input">
+            <div style="display: flex; gap: 10px; margin-top: 12px;">
+                <button id="send-email-btn" type="button" class="btn-primary" style="flex: 1;">Send Results</button>
+                <button id="close-email-modal" type="button" class="btn-secondary" style="flex: 1;">Close</button>
+            </div>
+            <p id="email-status" style="margin-top: 12px; font-size: 13px; color: var(--muted);"></p>
+        </div>
+    </div>
 </body>
 </html>
