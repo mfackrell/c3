@@ -184,27 +184,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lines = String(text || '').split('\n').map((line) => line.trim()).filter(Boolean);
     let current = '';
-    const extractHeaderValue = (line, header) => {
-      const matcher = new RegExp(`^[*\\s]*${header}[*\\s]*:[*\\s]*(.*)$`, 'i');
-      return line.replace(matcher, '$1').trim();
+
+    const getHeaderValue = (line) => {
+      const idx = line.indexOf(':');
+      if (idx === -1) return '';
+      return line.slice(idx + 1).trim();
     };
 
     lines.forEach((line) => {
       const cleanLine = line.replace(/\*/g, '').toUpperCase();
 
-      if (cleanLine.startsWith('TITLE:')) {
-        sections.title = extractHeaderValue(line, 'TITLE');
+      if (cleanLine.includes('TITLE:')) {
+        sections.title = getHeaderValue(line);
         current = 'title';
-      } else if (cleanLine.startsWith('DIAGNOSIS:')) {
-        sections.diagnosis = extractHeaderValue(line, 'DIAGNOSIS');
+      } else if (cleanLine.includes('DIAGNOSIS:')) {
+        sections.diagnosis = getHeaderValue(line);
         current = 'diagnosis';
-      } else if (cleanLine.includes('WHAT THIS COSTS YOU')) {
+      } else if (cleanLine.includes('COSTS')) {
         current = 'costs';
-      } else if (cleanLine.startsWith('THE COMPOUNDING FIX:')) {
-        sections.fix = extractHeaderValue(line, 'THE COMPOUNDING FIX');
+      } else if (cleanLine.includes('FIX:')) {
+        sections.fix = getHeaderValue(line);
         current = 'fix';
-      } else if (cleanLine.startsWith('NEXT STEP:')) {
-        sections.next = extractHeaderValue(line, 'NEXT STEP');
+      } else if (cleanLine.includes('NEXT STEP:')) {
+        sections.next = getHeaderValue(line);
         current = 'next';
       } else if (current === 'costs' && (line.startsWith('-') || line.startsWith('•'))) {
         sections.costs.push(line.replace(/^[-•]/, '').trim());
@@ -221,36 +223,43 @@ document.addEventListener('DOMContentLoaded', () => {
       return `<div style="white-space: pre-wrap; line-height: 1.6;">${escapeHtml(text)}</div>`;
     }
 
-    const title = escapeHtml(sections.title || 'Your Ownership Gap Diagnostic');
-    const diagnosis = escapeHtml(sections.diagnosis || 'No diagnosis was returned.');
+    const title = escapeHtml(sections.title || 'Audit Complete');
+    const diagnosis = escapeHtml(sections.diagnosis || 'Diagnosis pending...');
     const costs = sections.costs.length
       ? sections.costs.map((cost) => `<li>${escapeHtml(cost)}</li>`).join('')
-      : '<li>No specific costs were provided.</li>';
-    const fix = escapeHtml(sections.fix || 'No fix was returned.');
+      : '<li>Operational impact estimates pending.</li>';
+    const fix = escapeHtml(sections.fix || 'Strategic plan required.');
     const next = escapeHtml(sections.next || 'No next step was returned.');
 
     return `
-      <div class="audit-report">
-        <div class="audit-title">${title}</div>
-
-        <div class="audit-section">
-          <h4>Diagnosis</h4>
-          <p>${diagnosis}</p>
+      <div class="audit-report"> 
+        <div class="report-header">
+          <span class="report-eyebrow">Executive Diagnosis</span>
+          <h2 class="report-title">${title}</h2>
         </div>
 
-        <div class="audit-section">
-          <h4>What this costs you</h4>
-          <ul class="audit-list">${costs}</ul>
+        <div class="report-section">
+          <label>Analysis</label>
+          <p class="report-text">${diagnosis}</p>
         </div>
 
-        <div class="audit-section audit-highlight">
-          <h4>The fix</h4>
-          <p>${fix}</p>
+        <div class="report-section">
+          <label>Operational Friction</label>
+          <ul class="report-list">${costs}</ul>
         </div>
 
-        <div class="audit-section">
-          <h4>Next step</h4>
-          <p>${next}</p>
+        <div class="report-stabilization">
+          <label>Recommended Fix</label>
+          <p class="report-text">${fix}</p>
+        </div>
+
+        <div class="report-section">
+          <label>Next Step</label>
+          <p class="report-text">${next}</p>
+        </div>
+
+        <div class="report-action">
+          <button id="email-results-btn" class="btn-primary">Email Strategic Plan</button>
         </div>
       </div>
     `;
