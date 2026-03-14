@@ -169,6 +169,41 @@
         .btn-block { width: 100%; }
 
         .question-box { background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 15px; }
+        .audit-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+            text-align: left;
+        }
+        .opt-btn {
+            width: 100%;
+            padding: 16px 20px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            line-height: 1.4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+        .opt-btn:hover {
+            border-color: var(--gold);
+            background: #fdfaf0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(197, 160, 34, 0.1);
+        }
+        .opt-btn:active {
+            background: var(--navy);
+            color: white;
+            border-color: var(--navy);
+            transform: translateY(0);
+        }
         .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
         .option-btn {
             padding: 10px; border: 1px solid var(--border); border-radius: 8px;
