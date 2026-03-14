@@ -31,7 +31,9 @@ const audit = {
   start() {
     this.data = {};
     const intro = document.getElementById('audit-intro');
+    const qContainer = document.getElementById('question-container');
     if (intro) intro.style.display = 'none';
+    if (qContainer) qContainer.style.display = 'block';
     this.showStep(1);
   },
 
@@ -182,24 +184,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lines = String(text || '').split('\n').map((line) => line.trim()).filter(Boolean);
     let current = '';
+    const extractHeaderValue = (line, header) => {
+      const matcher = new RegExp(`^[*\\s]*${header}[*\\s]*:[*\\s]*(.*)$`, 'i');
+      return line.replace(matcher, '$1').trim();
+    };
 
     lines.forEach((line) => {
-      if (line.startsWith('TITLE:')) {
-        sections.title = line.replace('TITLE:', '').trim();
+      const cleanLine = line.replace(/\*/g, '').toUpperCase();
+
+      if (cleanLine.startsWith('TITLE:')) {
+        sections.title = extractHeaderValue(line, 'TITLE');
         current = 'title';
-      } else if (line.startsWith('DIAGNOSIS:')) {
-        sections.diagnosis = line.replace('DIAGNOSIS:', '').trim();
+      } else if (cleanLine.startsWith('DIAGNOSIS:')) {
+        sections.diagnosis = extractHeaderValue(line, 'DIAGNOSIS');
         current = 'diagnosis';
-      } else if (line.startsWith('WHAT THIS COSTS YOU')) {
+      } else if (cleanLine.includes('WHAT THIS COSTS YOU')) {
         current = 'costs';
-      } else if (line.startsWith('THE COMPOUNDING FIX:')) {
-        sections.fix = line.replace('THE COMPOUNDING FIX:', '').trim();
+      } else if (cleanLine.startsWith('THE COMPOUNDING FIX:')) {
+        sections.fix = extractHeaderValue(line, 'THE COMPOUNDING FIX');
         current = 'fix';
-      } else if (line.startsWith('NEXT STEP:')) {
-        sections.next = line.replace('NEXT STEP:', '').trim();
+      } else if (cleanLine.startsWith('NEXT STEP:')) {
+        sections.next = extractHeaderValue(line, 'NEXT STEP');
         current = 'next';
-      } else if (current === 'costs' && line.startsWith('-')) {
-        sections.costs.push(line.replace('-', '').trim());
+      } else if (current === 'costs' && (line.startsWith('-') || line.startsWith('•'))) {
+        sections.costs.push(line.replace(/^[-•]/, '').trim());
       } else if (current === 'diagnosis') {
         sections.diagnosis = `${sections.diagnosis} ${line}`.trim();
       } else if (current === 'fix') {
@@ -287,7 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const payload = {
       source: 'CEO Bottleneck Audit',
-      email: latestAuditEmail,
       ...audit.data
     };
 
@@ -377,7 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   audit.submit = async () => {
     const gate = document.getElementById('audit-gate');
+    const gatePost = document.getElementById('audit-gate-post');
     const resultEl = document.getElementById('audit-result');
+    if (gatePost) gatePost.style.display = 'block';
     if (gate) gate.style.display = 'block';
     if (resultEl) {
       resultEl.innerHTML = '<div class="text-muted" style="font-size:14px;">Submit your email above to unlock your ownership gap diagnosis.</div>';
