@@ -295,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const payload = {
       source: 'CEO Bottleneck Audit',
+      email: latestAuditEmail || 'Anonymous',
       ...audit.data
     };
 
@@ -383,31 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   audit.submit = async () => {
-    const gate = document.getElementById('audit-gate');
-    const gatePost = document.getElementById('audit-gate-post');
     const resultEl = document.getElementById('audit-result');
-    if (gatePost) gatePost.style.display = 'block';
-    if (gate) gate.style.display = 'block';
-    if (resultEl) {
-      resultEl.innerHTML = '<div class="text-muted" style="font-size:14px;">Submit your email above to unlock your ownership gap diagnosis.</div>';
-    }
+    const gatePost = document.getElementById('audit-gate-post');
+    if (resultEl) resultEl.innerHTML = '';
+    if (gatePost) gatePost.style.display = 'none';
+    await runAuditGeneration();
   };
-
-  const unlockBtn = document.getElementById('unlock-audit-btn');
-  if (unlockBtn) {
-    unlockBtn.addEventListener('click', async () => {
-      const emailInput = document.getElementById('audit-email');
-      const email = String(emailInput?.value || '').trim();
-      if (!email || !email.includes('@')) {
-        if (emailInput) emailInput.focus();
-        return;
-      }
-      latestAuditEmail = email;
-      const gate = document.getElementById('audit-gate');
-      if (gate) gate.style.display = 'none';
-      await runAuditGeneration();
-    });
-  }
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
