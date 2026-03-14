@@ -29,6 +29,8 @@ export default async function handler(req, res) {
       'Write like you are speaking to a business owner in a closed room — not presenting to a board, not writing a slide deck.',
       'Be concise. Be sharp. Be real',
       'Return EXACTLY this structure (plain text):',
+      'Do NOT use Markdown formatting (no bolding, no italics).',
+      'Start every section exactly with the header name followed by a colon (e.g., TITLE:).',
       'TITLE: <8 words>',
       'DIAGNOSIS: <max 25 words>',
       'WHAT THIS COSTS YOU: <exactly 2 bullets, max 12 words each>',
