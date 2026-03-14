@@ -185,28 +185,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = String(text || '').split('\n').map((line) => line.trim()).filter(Boolean);
     let current = '';
 
-    const getHeaderValue = (line) => {
-      const idx = line.indexOf(':');
-      if (idx === -1) return '';
-      return line.slice(idx + 1).trim();
-    };
-
     lines.forEach((line) => {
       const cleanLine = line.replace(/\*/g, '').toUpperCase();
 
       if (cleanLine.includes('TITLE:')) {
-        sections.title = getHeaderValue(line);
+        sections.title = line.replace(/.*TITLE\s*:/i, '').trim();
         current = 'title';
       } else if (cleanLine.includes('DIAGNOSIS:')) {
-        sections.diagnosis = getHeaderValue(line);
+        sections.diagnosis = line.replace(/.*DIAGNOSIS\s*:/i, '').trim();
         current = 'diagnosis';
-      } else if (cleanLine.includes('COSTS')) {
+      } else if (cleanLine.includes('FRICTION')) {
         current = 'costs';
       } else if (cleanLine.includes('FIX:')) {
-        sections.fix = getHeaderValue(line);
+        sections.fix = line.replace(/.*FIX\s*:/i, '').trim();
         current = 'fix';
       } else if (cleanLine.includes('NEXT STEP:')) {
-        sections.next = getHeaderValue(line);
+        sections.next = line.replace(/.*NEXT STEP\s*:/i, '').trim();
         current = 'next';
       } else if (current === 'costs' && (line.startsWith('-') || line.startsWith('•'))) {
         sections.costs.push(line.replace(/^[-•]/, '').trim());
@@ -224,22 +218,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const title = escapeHtml(sections.title || 'Audit Complete');
-    const diagnosis = escapeHtml(sections.diagnosis || 'Diagnosis pending...');
+    const diagnosis = escapeHtml(sections.diagnosis || 'Analysis pending...');
     const costs = sections.costs.length
       ? sections.costs.map((cost) => `<li>${escapeHtml(cost)}</li>`).join('')
       : '<li>Operational impact estimates pending.</li>';
     const fix = escapeHtml(sections.fix || 'Strategic plan required.');
-    const next = escapeHtml(sections.next || 'No next step was returned.');
+    const next = escapeHtml(sections.next || 'Contact for next steps.');
 
     return `
-      <div class="audit-report"> 
+      <div class="audit-report">
         <div class="report-header">
-          <span class="report-eyebrow">Executive Diagnosis</span>
+          <span class="report-eyebrow">Executive Summary</span>
           <h2 class="report-title">${title}</h2>
         </div>
 
         <div class="report-section">
-          <label>Analysis</label>
+          <label>Strategic Diagnosis</label>
           <p class="report-text">${diagnosis}</p>
         </div>
 
@@ -249,17 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="report-stabilization">
-          <label>Recommended Fix</label>
+          <label>Stabilization Plan</label>
           <p class="report-text">${fix}</p>
         </div>
 
-        <div class="report-section">
-          <label>Next Step</label>
-          <p class="report-text">${next}</p>
-        </div>
-
-        <div class="report-action">
-          <button id="email-results-btn" class="btn-primary">Email Strategic Plan</button>
+        <div class="report-action-block">
+          <p class="report-next-step"><strong>Immediate Action:</strong> ${next}</p>
+          <button id="email-results-btn" class="btn-primary btn-block">Email Strategic Plan</button>
         </div>
       </div>
     `;
@@ -371,12 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
         resultEl.innerHTML = `
           ${formatAuditResponse(resultText)}
           ${incompleteNote}
-
-          <div style="margin-top:20px;">
-            <button id="email-results-btn" class="btn-primary">
-              Email Me My Results
-            </button>
-          </div>
         `;
       }
     } catch (err) {

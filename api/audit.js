@@ -20,20 +20,20 @@ export default async function handler(req, res) {
     });
 
     const prompt = [
-      'You are an elite executive advisor and interim COO/CFO.',
-      'Your tone is professional, sophisticated, and unflinchingly direct.',
-      'Avoid conversational filler. Use high-impact, executive-level vocabulary.',
-      'Analyze the following leadership audit data and provide a concise strategic diagnosis.',
-      'Return EXACTLY this structure (do not use Markdown or bolding):',
-      'TITLE: [Professional, high-impact headline]',
-      'DIAGNOSIS: [A sophisticated 1-2 sentence analysis of the operational gap]',
-      'WHAT THIS COSTS YOU: [Exactly 2 bullet points using high-level business metrics]',
-      'THE COMPOUNDING FIX: [A strategic recommendation for immediate stabilization]',
-      'NEXT STEP: [A clear, professional call to action]',
+      'Role: Elite Executive Advisor (Interim COO/CFO).',
+      'Tone: Direct, professional, sophisticated, high-stakes.',
+      'Task: Analyze leadership audit data and provide a concise strategic diagnosis.',
+      'Vocabulary: Use terms like "valuation discounting," "autonomous scaling," and "operational cadence."',
+      'Constraint: Do NOT use Markdown, bolding, or italics.',
+      'Structure (Strictly follow this):',
+      'TITLE: [8 words max]',
+      'DIAGNOSIS: [25 words max]',
+      'OPERATIONAL FRICTION: [2 bullets, 15 words each, start with "-"]',
+      'THE STABILIZATION FIX: [25 words max]',
+      'NEXT STEP: [12 words max]',
       '',
-      'Inputs:',
-      `Source: ${source}`,
       'Answers:',
+      `Source: ${source}`,
       JSON.stringify(answers, null, 2)
     ].join('\n');
 
@@ -105,14 +105,15 @@ export default async function handler(req, res) {
         .join('')
         ?.trim() || '';
 
+    const normalizedResult = result.toUpperCase();
     const expectedSections = [
-      'TITLE:',
-      'DIAGNOSIS:',
-      'WHAT THIS COSTS YOU:',
-      'THE COMPOUNDING FIX:',
-      'NEXT STEP:'
+      /TITLE\s*:/,
+      /DIAGNOSIS\s*:/,
+      /OPERATIONAL\s+FRICTION\s*:/,
+      /THE\s+STABILIZATION\s+FIX\s*:/,
+      /NEXT\s+STEP\s*:/
     ];
-    const hasAllSections = expectedSections.every((section) => result.includes(section));
+    const hasAllSections = expectedSections.every((section) => section.test(normalizedResult));
     const isLikelyTruncated = finishReason !== 'STOP' || !hasAllSections;
 
     if (isLikelyTruncated) {
