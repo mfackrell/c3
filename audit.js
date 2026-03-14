@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
           <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
         </div>
-        <div class="text-muted" style="font-size:13px;">Usually takes 3–8 seconds.</div>
+        <div class="text-muted" style="font-size:13px;">Usually less than 60 seconds.</div>
       </div>
     `;
   };
