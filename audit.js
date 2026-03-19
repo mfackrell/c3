@@ -74,9 +74,8 @@ const audit = {
 
     if (typeof gtag === 'function') {
       gtag('event', 'audit_answer', {
-        event_category: 'engagement',
-        event_label: key,
-        value: val
+        question_id: key,
+        answer_value: val
       });
     }
 
@@ -307,8 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const t2 = setTimeout(() => setStep(3), 1800);
 
     if (typeof gtag === 'function') {
-      gtag('event', 'audit_submit', {
-        event_category: 'conversion',
+      gtag('event', 'generate_lead', {
+        event_category: 'audit',
         event_label: 'scorecard_completed'
       });
     }
