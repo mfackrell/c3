@@ -8,9 +8,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const webhookUrl = process.env.AUDIT_ZAPIER_WEBHOOK_URL;
+  const webhookUrl = process.env.ZAPIER_WEBHOOK_URL;
   if (!webhookUrl) {
-    console.error('[api/email-audit] Missing AUDIT_ZAPIER_WEBHOOK_URL');
+    console.error('[api/email-audit] Missing ZAPIER_WEBHOOK_URL');
     return res.status(500).json({ message: 'Email delivery is not configured' });
   }
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   try {
     const parsedWebhook = new URL(webhookUrl);
     if (parsedWebhook.protocol !== 'https:' || parsedWebhook.hostname !== 'hooks.zapier.com') {
-      throw new Error('AUDIT_ZAPIER_WEBHOOK_URL must be a Zapier HTTPS URL');
+      throw new Error('ZAPIER_WEBHOOK_URL must be a Zapier HTTPS URL');
     }
   } catch (error) {
     console.error('[api/email-audit] Invalid webhook configuration:', error.message);
