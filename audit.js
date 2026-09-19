@@ -133,34 +133,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!status) return;
 
-      if (!email) {
+      if (!email || !emailInput?.checkValidity()) {
         status.innerText = 'Please enter a valid email.';
         return;
       }
-
-      status.innerText = 'Sending...';
 
       if (!latestResultText) {
         status.innerText = 'Your result is still loading. Please try again in a moment.';
         return;
       }
 
+      const sendButton = e.target;
+      sendButton.disabled = true;
+      status.innerText = 'Sending...';
+
       try {
-        await fetch('https://hooks.zapier.com/hooks/catch/19867794/ulikhom/', {
+        const response = await fetch('/api/email-audit', {
           method: 'POST',
-          mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email,
-            result: latestResultText,
-            source: 'CEO Bottleneck Audit'
+            result: latestResultText
           })
         });
+
+        if (!response.ok) {
+          const error = await response.json().catch(() => ({}));
+          throw new Error(error?.message || `Email delivery failed with ${response.status}`);
+        }
 
         status.innerText = 'Sent. Check your inbox.';
         setTimeout(closeModal, 1500);
       } catch (err) {
+        debugLog('email delivery failed', err?.message);
         status.innerText = 'Something went wrong. Try again.';
+      } finally {
+        sendButton.disabled = false;
       }
     }
   });
