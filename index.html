@@ -327,6 +327,9 @@
         .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 14px; }
         textarea { min-height: 100px; resize: vertical; }
+        .form-status { min-height: 20px; margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+        .form-status.error { color: #b42318; }
+        .form-status.success { color: #067647; }
 
         footer { padding: 60px 0; border-top: 1px solid var(--border); }
         .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }
@@ -391,11 +394,12 @@
                     <div id="scorecard-hero" class="path-card">
                         <h2 class="path-title center-text">Request a confidential gap review</h2>
                         <form id="hero-form" style="display: grid; gap: 12px;">
-                            <input type="text" name="name" placeholder="Name" required>
-                            <input type="email" name="email" placeholder="Work email" required>
-                            <input type="text" name="company" placeholder="Company">
-                            <input type="text" name="seat" placeholder="Seat needed">
+                            <input type="text" name="name" placeholder="Name" autocomplete="name" maxlength="100" required>
+                            <input type="email" name="email" placeholder="Work email" autocomplete="email" maxlength="254" required>
+                            <input type="text" name="company" placeholder="Company" autocomplete="organization" maxlength="200">
+                            <input type="text" name="seat" placeholder="Seat needed" maxlength="1000">
                             <button type="submit" class="btn-primary">Request My Gap Review</button>
+                            <p class="form-status center-text" role="status" aria-live="polite"></p>
                             <p class="center-text" style="font-size: 12px; color: var(--muted);">Response within 1 business day</p>
                         </form>
                     </div>
@@ -543,12 +547,13 @@
                 </div>
                 <form id="contact-form">
                     <div class="form-row">
-                        <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
-                        <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>Name</label><input type="text" name="name" autocomplete="name" maxlength="100" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" autocomplete="email" maxlength="254" required></div>
                     </div>
-                    <div class="form-group"><label>Company</label><input type="text" name="company"></div>
-                    <div class="form-group"><label>Gap Details</label><textarea name="reason" placeholder="What seat is missing ownership?"></textarea></div>
+                    <div class="form-group"><label>Company</label><input type="text" name="company" autocomplete="organization" maxlength="200"></div>
+                    <div class="form-group"><label>Gap Details</label><textarea name="reason" maxlength="5000" placeholder="What seat is missing ownership?"></textarea></div>
                     <button type="submit" class="btn-primary btn-block">Send a Confidential Inquiry</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
@@ -572,19 +577,35 @@
         async function handleFormSubmit(e, formId) {
             e.preventDefault();
             const form = document.getElementById(formId);
-            const submitBtn = form.querySelector('button');
+            if (!form || !form.checkValidity()) {
+                form?.reportValidity();
+                return;
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const status = form.querySelector('.form-status');
+            if (!submitBtn || submitBtn.disabled) return;
+
             const originalBtnText = submitBtn.innerHTML;
+            let submitted = false;
 
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span>Sending...</span>';
+            form.setAttribute('aria-busy', 'true');
+            if (status) {
+                status.textContent = '';
+                status.className = status.classList.contains('center-text')
+                    ? 'form-status center-text'
+                    : 'form-status';
+            }
 
             const formData = new FormData(form);
             const data = {
-                name: formData.get('name') || '',
-                email: formData.get('email') || '',
-                company: formData.get('company') || '',
-                reason: formData.get('reason') || formData.get('seat') || '',
-                context: formData.get('context') || ''
+                name: String(formData.get('name') || '').trim(),
+                email: String(formData.get('email') || '').trim(),
+                company: String(formData.get('company') || '').trim(),
+                reason: String(formData.get('reason') || formData.get('seat') || '').trim(),
+                context: String(formData.get('context') || '').trim()
             };
 
             try {
@@ -594,21 +615,31 @@
                     headers: { 'Content-Type': 'application/json' }
                 });
 
-                if (response.ok || response.status === 200) {
-                    form.innerHTML = `
-                        <div class="success-message">
-                            <h3>Inquiry Received</h3>
-                            <p style="color: var(--muted);">Thank you for reaching out. We will respond to your inquiry within 1 business day.</p>
-                        </div>
-                    `;
-                } else {
+                if (!response.ok) {
+                    const error = await response.json().catch(() => ({}));
+                    throw new Error(error?.message || `Submission failed with ${response.status}`);
+                }
+
+                submitted = true;
+                form.removeAttribute('aria-busy');
+                form.innerHTML = `
+                    <div class="success-message" role="status">
+                        <h3>Inquiry Received</h3>
+                        <p style="color: var(--muted);">Thank you for reaching out. We will respond to your inquiry within 1 business day.</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Submission error:', error?.message);
+                if (status) {
+                    status.textContent = "We couldn't send your inquiry. Please try again or email mark.fackrell@c3execs.com.";
+                    status.classList.add('error');
+                }
+            } finally {
+                if (!submitted) {
+                    form.removeAttribute('aria-busy');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnText;
                 }
-            } catch (error) {
-                console.error('Submission error:', error);
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
             }
         }
 
