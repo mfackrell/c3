@@ -2,7 +2,7 @@
 
 ## Rationale
 
-The site now shows why Mark, Eric and Ravi work together through specific career and project evidence. Full profiles establish each leader’s experience; capability links connect that experience to a buyer’s situation. The homepage states all seven C-suite seats, keeps Financial Services distinct, and puts the leadership suite ahead of PE-specific proof. The global financial recovery case, Chapter 11 cash governance and SaaS revenue case remain the selected homepage work. The design, team profiles, contact workflow and recent photographs remain intact.
+The site now shows why Mark, Eric and Ravi work together through specific career and project evidence. Full profiles establish each leader’s experience; capability links connect that experience to a buyer’s situation. The homepage states all seven C-suite seats, keeps Financial Services distinct, and puts the leadership suite ahead of PE-specific proof. The global financial recovery case, Chapter 11 cash governance and Eric’s cloud migration appear in the selected homepage work. The design, team profiles, contact workflow and recent photographs remain intact.
 
 ## Complete source files
 
@@ -34,9 +34,9 @@ All pages remain standalone HTML with the same inline stylesheet and no new runt
 | Defined seven C-suite seats with responsible-leader lines | Make full-suite coverage and accountability explicit |
 | Added proof links and “Where each leader steps in” to Executive Leadership | Connect capabilities to actual experience |
 | Added three explicitly illustrative combined-team scenarios | Explain collaboration without inventing client history |
-| Featured the full-width global recovery case, Chapter 11 cash governance and SaaS revenue on the homepage | Show leadership outcomes across finance, operations and growth |
+| Featured the full-width global recovery case, Chapter 11 cash governance and Eric’s cloud migration on the homepage | Show leadership outcomes across finance, operations and technology with direct team attribution |
 | Kept the education sale on Financial Services and the cloud migration and procurement examples on Our People | Preserve approved work with the right prominence and attribution |
-| Restored the existing unattributed SaaS case on the homepage | Follow the requested proof order without assigning it to an individual |
+| Replaced the smaller SaaS revenue card on the homepage with Eric’s migration case | Put broader team proof in front of buyers |
 | Added startup modeling and angel-fund analysis on Financial Services | Show financial experience on both sides of capital decisions |
 | Replaced compact bios with new roles and links to full profiles | Improve the homepage summary without duplicating the entire team page |
 | Used $25M–$100M+ and attributed the 50+ figure to Mark’s career | Follow the latest brief’s explicit correction |
