@@ -1143,6 +1143,41 @@
       .policy-body a {
         overflow-wrap: anywhere;
       }
+
+      /* Featured financial stabilization engagement */
+      .featured-case {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 64px;
+        padding: 40px 0;
+        margin-bottom: 48px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .featured-case .case-number {
+        font-size: 56px;
+        margin-bottom: 12px;
+      }
+      .featured-case h3 {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+      .featured-case .case-copy:last-child {
+        margin-bottom: 0;
+      }
+      @media (max-width: 768px) {
+        .featured-case {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 24px;
+          padding: 32px 0;
+        }
+        .featured-case .case-number {
+          font-size: 44px;
+        }
+        .featured-case h3 {
+          font-size: 28px;
+        }
+      }
     </style>
     <script>
       window.va =
@@ -1348,21 +1383,34 @@
               leadership engagements.
             </p>
           </div>
-          <div class="service-list">
-            <article class="case">
+          <article class="featured-case" aria-labelledby="cleanup-case-heading">
+            <div>
               <p class="case-category">Global professional services</p>
-              <h3>Bringing a complex close back under control.</h3>
+              <p class="case-number">10 weeks</p>
+              <p class="case-copy">Audit completed</p>
+            </div>
+            <div>
+              <h3 id="cleanup-case-heading">
+                Leading a global financial cleanup through audit and due
+                diligence.
+              </h3>
               <p class="case-copy">
-                Led year-end cleanup and catch-up close work across multiple
-                entities and currencies. Addressed intercompany balances,
-                rebuilt supporting schedules and coordinated financial support
-                for audit and due diligence.
+                Mark Fackrell led the entire financial cleanup for an
+                international professional services company with approximately
+                $100 million in revenue. He completed the audit in 10 weeks and
+                led the due diligence support.
               </p>
               <p class="case-copy">
-                <strong>Scope:</strong> Multi-entity accounting · Financial
-                cleanup · Audit support
+                He led the year-end cleanup and catch-up close, addressed
+                intercompany balances and cross-system receivables
+                discrepancies, rebuilt supporting schedules and resolved
+                historical accounting issues. The effort brought reporting
+                through the second quarter current and supported the audit and
+                subsequent due diligence.
               </p>
-            </article>
+            </div>
+          </article>
+          <div class="three">
             <article class="case">
               <p class="case-category">Private equity transaction</p>
               <h3>Financial leadership through a company sale.</h3>
