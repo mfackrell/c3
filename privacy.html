@@ -3,21 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy Draft | C³ Executive Suite</title>
+    <title>Privacy Policy | C³ Executive Suite</title>
     <meta
       name="description"
-      content="Privacy policy placeholder awaiting approval."
+      content="How C³ Executive Suite handles inquiries, website information, analytics and your privacy choices."
     />
     <meta name="theme-color" content="#0B1220" />
-    <meta name="robots" content="noindex" />
     <link rel="canonical" href="https://c3execs.com/privacy.html" />
-    <meta
-      property="og:title"
-      content="Privacy Policy Draft | C³ Executive Suite"
-    />
+    <meta property="og:title" content="Privacy Policy | C³ Executive Suite" />
     <meta
       property="og:description"
-      content="Privacy policy placeholder awaiting approval."
+      content="How C³ Executive Suite handles inquiries, website information, analytics and your privacy choices."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://c3execs.com/privacy.html" />
@@ -285,21 +281,8 @@
       .text-link:hover:after {
         transform: scaleX(1);
       }
-      .confirm {
-        display: block;
-        font: 400 14px/1.6 var(--sans);
-        color: var(--text-muted);
-        border-left: 2px solid var(--brass-text);
-        padding-left: 12px;
-        margin-top: 20px;
-        overflow-wrap: anywhere;
-      }
       .dark .confirm,
-      .site-footer .confirm {
-        color: var(--muted-dark);
-        border-color: var(--brass);
-      }
-      .actions {
+      .site-footer .actions {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
@@ -491,9 +474,7 @@
       .approach-note {
         margin-top: 48px;
       }
-      .approach-note .confirm {
-        max-width: 75ch;
-      }
+      .approach-note
 
       /* Outcomes and people */
       .case {
@@ -564,173 +545,6 @@
       .person-body {
         font-size: 16px;
         color: var(--text-muted);
-      }
-
-      /* Assessment and its existing audit.js hooks */
-      .assessment {
-        border-top: 1px solid var(--line);
-      }
-      .assessment-copy h2 {
-        margin-bottom: 24px;
-      }
-      .assessment-copy > p {
-        color: var(--text-muted);
-        margin-bottom: 24px;
-      }
-      .assessment-panel {
-        border-top: 1px solid var(--line);
-        padding-top: 32px;
-        min-width: 0;
-      }
-      .assessment-panel h3 {
-        margin-bottom: 24px;
-      }
-      .assessment-panel p {
-        font-size: 16px;
-      }
-      .audit-options,
-      .options-grid {
-        display: grid;
-        gap: 12px;
-        margin-top: 24px;
-      }
-      .opt-btn,
-      .option-btn {
-        display: block;
-        width: 100%;
-        min-height: 48px;
-        text-align: left;
-        padding: 16px 20px;
-        border: 1px solid #7c838d;
-        border-radius: 2px;
-        background: transparent;
-        color: var(--text);
-        font: 400 16px/1.6 var(--sans);
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .opt-btn:hover,
-      .option-btn:hover {
-        background: var(--stone);
-      }
-      .question-box,
-      .audit-result-card {
-        padding: 0;
-        border: 0;
-      }
-      .audit-loading {
-        display: grid;
-        gap: 24px;
-      }
-      .audit-spinner-row {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-      .audit-spinner {
-        width: 18px;
-        height: 18px;
-        border: 1px solid var(--line);
-        border-top-color: var(--text);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .audit-progress {
-        display: grid;
-        gap: 12px;
-      }
-      .audit-step {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        font-size: 14px;
-        color: var(--text-muted);
-      }
-      .audit-step.active {
-        color: var(--text);
-      }
-      .audit-dot {
-        width: 8px;
-        height: 8px;
-        border: 1px solid var(--text-muted);
-        border-radius: 50%;
-      }
-      .audit-step.done .audit-dot {
-        background: var(--text-muted);
-      }
-      .audit-gate-post {
-        display: none;
-      }
-      .report-eyebrow {
-        font: 400 12px/1.6 var(--sans);
-        color: var(--text-muted);
-      }
-      .report-title {
-        font-size: 30px;
-        margin: 16px 0 32px;
-      }
-      .report-section,
-      .report-stabilization {
-        margin-bottom: 24px;
-      }
-      .report-section label,
-      .report-stabilization label {
-        display: block;
-        font: 500 14px/1.6 var(--sans);
-        margin-bottom: 10px;
-      }
-      .report-text {
-        font-size: 16px;
-      }
-      .report-list {
-        padding-left: 20px;
-        font-size: 16px;
-      }
-      .report-list li {
-        margin-bottom: 8px;
-      }
-      .report-action-block {
-        border-top: 1px solid var(--line);
-        padding-top: 24px;
-      }
-      .report-next-step {
-        margin-bottom: 16px;
-      }
-      .report-action {
-        margin-top: 24px;
-      }
-      .report-action-block .text-link {
-        font-size: 14px;
-      }
-      .report-action-block .secondary {
-        font-size: 14px;
-        margin-top: 16px;
-      }
-      .assessment-invitation {
-        margin-top: 24px;
-        font-size: 16px;
-      }
-      .audit-email-input {
-        width: 100%;
-      }
-      .btn-primary,
-      .btn-secondary {
-        min-height: 48px;
-        border: 1px solid var(--ink);
-        border-radius: 2px;
-        background: transparent;
-        color: var(--ink);
-        font: 500 15px/1.5 var(--sans);
-        padding: 12px 20px;
-        cursor: pointer;
-      }
-      .btn-block {
-        width: 100%;
       }
 
       /* Frequently asked and contact */
@@ -905,62 +719,8 @@
       .footer-nav a:hover {
         text-decoration: underline;
       }
-      .site-footer .confirm {
-        font-size: 12px;
-        flex-basis: 100%;
-      }
-      .modal-shell {
-        position: fixed;
-        inset: 0;
-        z-index: 200;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        background: rgba(11, 18, 32, 0.8);
-        padding: 20px;
-      }
-      .modal-card {
-        background: var(--paper);
-        padding: 32px;
-        max-width: 480px;
-        width: 100%;
-        max-height: 90vh;
-        overflow: auto;
-      }
-      .modal-card h3 {
-        font-size: 30px;
-        margin-bottom: 16px;
-      }
-      .modal-card p {
-        font-size: 16px;
-        color: var(--text-muted);
-        margin-bottom: 24px;
-      }
-      .modal-card label {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
-      .modal-card input {
-        width: 100%;
-        padding: 12px;
-        min-height: 48px;
-        background: transparent;
-        border: 1px solid #7c838d;
-        color: var(--text);
-      }
-      .modal-actions {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-top: 24px;
-      }
-      .modal-card .form-status {
-        color: var(--text-muted);
-        margin: 16px 0 0;
-      }
-
-      /* Accounting page */
+      .site-footer
+/* Accounting page */
       .accounting-intro {
         max-width: 800px;
       }
@@ -1255,9 +1015,6 @@
         .privacy-copy h1 {
           font-size: 40px;
         }
-        .modal-card {
-          padding: 24px;
-        }
       }
 
       /* 8. Reduced motion */
@@ -1298,15 +1055,7 @@
         line-height: 1.2;
         padding: 8px 16px;
       }
-      .report-section .report-label,
-      .report-stabilization .report-label {
-        font: 500 14px/1.6 var(--sans);
-        margin-bottom: 10px;
-      }
-      .audit-error {
-        color: #963424;
-        font-size: 16px;
-      }
+
       .hero {
         background-image: linear-gradient(
           90deg,
@@ -1348,6 +1097,47 @@
         .site-nav .primary {
           font-size: 15px;
         }
+      }
+      .engagement-note {
+        margin-top: 24px;
+        font-size: 16px;
+        color: var(--text-muted);
+      }
+      .dark .engagement-note {
+        color: var(--muted-dark);
+      }
+      .site-footer .engagement-note {
+        font-size: 13px;
+        color: var(--muted-dark);
+        margin-top: 12px;
+      }
+      .contact-form .privacy-notice {
+        font-size: 13px;
+        color: var(--muted-dark);
+        margin: 0 0 24px;
+      }
+      .policy-body {
+        max-width: 864px;
+      }
+      .policy-body section + section {
+        margin-top: 48px;
+      }
+      .policy-body h2 {
+        font-size: 30px;
+        margin-bottom: 24px;
+      }
+      .policy-body p + p,
+      .policy-body ul {
+        margin-top: 16px;
+      }
+      .policy-body li + li {
+        margin-top: 16px;
+      }
+      .policy-body ul {
+        padding-left: 24px;
+      }
+      .policy-body a {
+        overflow-wrap: anywhere;
       }
     </style>
     <script>
@@ -1397,24 +1187,202 @@
     <main id="main">
       <section class="hero dark" aria-labelledby="privacy-heading">
         <div class="container privacy-copy">
-          <p class="eyebrow">Policy draft</p>
+          <p class="eyebrow">C³ Executive Suite</p>
           <h1 id="privacy-heading">Privacy policy</h1>
-          <p>
-            This page is a placeholder for the firm’s approved privacy policy.
-          </p>
-          <p class="confirm">
-            [CONFIRM: approved privacy policy covering contact messages,
-            assessment processing, AI providers, analytics, chat, cookies,
-            retention and applicable rights]
-          </p>
-          <p>
-            For questions, contact
-            <a href="mailto:mark.fackrell@c3execs.com"
-              >mark.fackrell@c3execs.com</a
-            >.
-          </p>
+          <p>Last updated September 29, 2026</p>
         </div>
       </section>
+      <div class="section">
+        <div class="container policy-body">
+          <section aria-labelledby="policy-scope">
+            <h2 id="policy-scope">About this policy</h2>
+            <p>
+              C³ Executive Suite (“C³,” “we” or “us”) provides executive
+              leadership, accounting and CFO services. This policy explains how
+              information is handled when you visit c3execs.com, contact us or
+              arrange a conversation. Any separate agreement for client work
+              also applies to information handled during that engagement.
+            </p>
+            <p>
+              For privacy questions or requests, contact
+              <a href="mailto:mark.fackrell@c3execs.com"
+                >mark.fackrell@c3execs.com</a
+              >.
+            </p>
+          </section>
+          <section aria-labelledby="policy-information">
+            <h2 id="policy-information">Information you provide</h2>
+            <p>
+              Our contact form collects your name, work email, company if
+              supplied, area of support and message. If you email us, use the
+              chat feature or book a meeting, we receive the information you
+              choose to share through those channels.
+            </p>
+            <p>
+              We use this information to respond, understand the work required,
+              arrange conversations and manage the resulting business
+              relationship. Please arrange an appropriate delivery method with
+              us before sending sensitive financial records, account credentials
+              or other confidential documents through the website.
+            </p>
+          </section>
+          <section aria-labelledby="policy-confidentiality">
+            <h2 id="policy-confidentiality">Confidentiality and sharing</h2>
+            <p>
+              We treat conversations, inquiries and client work as confidential.
+              We do not publish your confidential business information or
+              identify you as a client without permission.
+            </p>
+            <p>
+              Confidentiality does not mean that information never passes
+              through a service provider. The website relies on providers for
+              hosting, message delivery, scheduling, chat and analytics, as
+              described below. Information may also be disclosed when legally
+              required or as necessary to protect legal rights and address
+              misuse of the website.
+            </p>
+          </section>
+          <section aria-labelledby="policy-providers">
+            <h2 id="policy-providers">Services used by this website</h2>
+            <ul>
+              <li>
+                <strong>Vercel:</strong> hosts the website and processes
+                technical requests and operational logs. Vercel Web Analytics
+                provides website usage statistics. Its analytics service uses a
+                temporary identifier rather than analytics cookies. See
+                <a
+                  href="https://vercel.com/docs/analytics/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Vercel’s analytics privacy information</a
+                >.
+              </li>
+              <li>
+                <strong>Zapier:</strong> routes the information submitted
+                through our contact form to our inquiry workflow. The form sends
+                the name, email, company, area of support and message you
+                provide.
+              </li>
+              <li>
+                <strong>Calendly:</strong> handles scheduling when you follow
+                our booking link. Information you submit on Calendly is also
+                governed by the privacy notice shown on its service.
+              </li>
+              <li>
+                <strong>Tidio:</strong> provides the website chat feature. If
+                you use chat, Tidio processes and stores the messages and
+                contact information you share so we can respond. The widget also
+                uses browser storage and technical information to operate. See
+                <a
+                  href="https://www.tidio.com/privacy-policy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tidio’s privacy policy</a
+                >.
+              </li>
+              <li>
+                <strong>Google Analytics:</strong> helps us understand visits
+                and website use, including pages viewed, interactions, browser
+                and device details and approximate location. It can use cookies
+                to distinguish visits. See
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Google’s privacy policy</a
+                >.
+              </li>
+              <li>
+                <strong>Microsoft Clarity:</strong> helps us understand how
+                visitors use the website through interaction data, heatmaps and
+                session replays. Clarity uses cookies and related technologies.
+                Microsoft also processes this data under its own terms,
+                including uses related to its products and advertising. See the
+                <a
+                  href="https://www.microsoft.com/privacy/privacystatement"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Microsoft Privacy Statement</a
+                >.
+              </li>
+              <li>
+                <strong>Google Fonts:</strong> supplies the site’s typefaces.
+                Loading these fonts makes a request from your browser to
+                Google’s font service.
+              </li>
+            </ul>
+            <p>
+              Providers may process information in countries other than your
+              own. Their policies explain their own processing practices and
+              available controls.
+            </p>
+          </section>
+          <section aria-labelledby="policy-cookies">
+            <h2 id="policy-cookies">Cookies and your choices</h2>
+            <p>
+              The website includes analytics and chat technologies that can use
+              cookies or browser storage. You can block or clear cookies and
+              stored site data through your browser settings. Blocking these
+              technologies may affect chat or other features. Clearing cookies
+              does not delete information already held in provider systems.
+            </p>
+            <p>
+              You can contact us by email instead of using the form or chat. You
+              can also use
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google’s Analytics opt-out browser add-on</a
+              >
+              where supported. Provider privacy notices describe additional
+              controls.
+            </p>
+          </section>
+          <section aria-labelledby="policy-retention">
+            <h2 id="policy-retention">Retention and security</h2>
+            <p>
+              Retention depends on the information, the business relationship,
+              the systems involved and applicable recordkeeping requirements.
+              Inquiry records may remain with related correspondence and
+              business records; technical and analytics data follow the relevant
+              service settings and provider practices.
+            </p>
+            <p>
+              No website or electronic communication method can guarantee
+              absolute security. Contact us to discuss the appropriate way to
+              exchange confidential engagement materials.
+            </p>
+          </section>
+          <section aria-labelledby="policy-rights">
+            <h2 id="policy-rights">Privacy requests</h2>
+            <p>
+              You may contact us to ask about information we hold about you,
+              request correction or deletion, or object to a use of your
+              information. Depending on your location and applicable law, you
+              may have additional rights, including access, portability,
+              restriction or withdrawal of consent where processing relies on
+              consent.
+            </p>
+            <p>
+              Send requests to
+              <a href="mailto:mark.fackrell@c3execs.com"
+                >mark.fackrell@c3execs.com</a
+              >. We may need to verify your identity before acting. Legal
+              obligations and legitimate recordkeeping needs may limit deletion.
+              Where applicable, you may raise a concern with your local data
+              protection authority.
+            </p>
+          </section>
+          <section aria-labelledby="policy-changes">
+            <h2 id="policy-changes">Changes to this policy</h2>
+            <p>
+              We may update this policy as the website or our practices change.
+              The date above identifies the latest revision.
+            </p>
+          </section>
+        </div>
+      </div>
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
@@ -1423,8 +1391,8 @@
           <p class="footer-copy">
             © <span data-year>2026</span> C³ Executive Suite.
           </p>
-          <p class="confirm">
-            [CONFIRM: approved one-line confidentiality statement]
+          <p class="engagement-note">
+            Confidential conversations. Confidential client work.
           </p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
@@ -1432,7 +1400,6 @@
           ><a href="./accounting.html">Accounting &amp; CFO</a
           ><a href="./index.html#contact">Contact</a
           ><a href="./privacy.html">Privacy policy</a>
-          <p class="confirm">[CONFIRM: firm LinkedIn URL]</p>
         </nav>
       </div>
     </footer>
@@ -1515,43 +1482,6 @@
             }
           });
         }
-        // audit.js owns dialog visibility; this adds keyboard focus and background isolation.
-        const modal = document.getElementById("email-modal");
-        if (!modal) return;
-        let previousFocus,
-          wasOpen = false;
-        const surfaces = [
-          header,
-          document.querySelector("main"),
-          document.querySelector("footer"),
-        ];
-        new MutationObserver(() => {
-          const open = modal.style.display === "flex";
-          if (open === wasOpen) return;
-          surfaces.forEach((el) => (el.inert = open));
-          if (open) {
-            previousFocus = document.activeElement;
-            document.getElementById("email-input").focus();
-          } else previousFocus?.focus();
-          wasOpen = open;
-        }).observe(modal, { attributes: true, attributeFilter: ["style"] });
-        modal.addEventListener("keydown", (event) => {
-          if (event.key === "Escape")
-            document.getElementById("close-email-modal").click();
-          if (event.key !== "Tab") return;
-          const items = [...modal.querySelectorAll("input, button")].filter(
-            (el) => !el.disabled,
-          );
-          const first = items[0],
-            last = items[items.length - 1];
-          if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-          } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-          }
-        });
       })();
     </script>
   </body>

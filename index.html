@@ -287,21 +287,8 @@
       .text-link:hover:after {
         transform: scaleX(1);
       }
-      .confirm {
-        display: block;
-        font: 400 14px/1.6 var(--sans);
-        color: var(--text-muted);
-        border-left: 2px solid var(--brass-text);
-        padding-left: 12px;
-        margin-top: 20px;
-        overflow-wrap: anywhere;
-      }
       .dark .confirm,
-      .site-footer .confirm {
-        color: var(--muted-dark);
-        border-color: var(--brass);
-      }
-      .actions {
+      .site-footer .actions {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
@@ -493,9 +480,7 @@
       .approach-note {
         margin-top: 48px;
       }
-      .approach-note .confirm {
-        max-width: 75ch;
-      }
+      .approach-note
 
       /* Outcomes and people */
       .case {
@@ -566,173 +551,6 @@
       .person-body {
         font-size: 16px;
         color: var(--text-muted);
-      }
-
-      /* Assessment and its existing audit.js hooks */
-      .assessment {
-        border-top: 1px solid var(--line);
-      }
-      .assessment-copy h2 {
-        margin-bottom: 24px;
-      }
-      .assessment-copy > p {
-        color: var(--text-muted);
-        margin-bottom: 24px;
-      }
-      .assessment-panel {
-        border-top: 1px solid var(--line);
-        padding-top: 32px;
-        min-width: 0;
-      }
-      .assessment-panel h3 {
-        margin-bottom: 24px;
-      }
-      .assessment-panel p {
-        font-size: 16px;
-      }
-      .audit-options,
-      .options-grid {
-        display: grid;
-        gap: 12px;
-        margin-top: 24px;
-      }
-      .opt-btn,
-      .option-btn {
-        display: block;
-        width: 100%;
-        min-height: 48px;
-        text-align: left;
-        padding: 16px 20px;
-        border: 1px solid #7c838d;
-        border-radius: 2px;
-        background: transparent;
-        color: var(--text);
-        font: 400 16px/1.6 var(--sans);
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .opt-btn:hover,
-      .option-btn:hover {
-        background: var(--stone);
-      }
-      .question-box,
-      .audit-result-card {
-        padding: 0;
-        border: 0;
-      }
-      .audit-loading {
-        display: grid;
-        gap: 24px;
-      }
-      .audit-spinner-row {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-      .audit-spinner {
-        width: 18px;
-        height: 18px;
-        border: 1px solid var(--line);
-        border-top-color: var(--text);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .audit-progress {
-        display: grid;
-        gap: 12px;
-      }
-      .audit-step {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        font-size: 14px;
-        color: var(--text-muted);
-      }
-      .audit-step.active {
-        color: var(--text);
-      }
-      .audit-dot {
-        width: 8px;
-        height: 8px;
-        border: 1px solid var(--text-muted);
-        border-radius: 50%;
-      }
-      .audit-step.done .audit-dot {
-        background: var(--text-muted);
-      }
-      .audit-gate-post {
-        display: none;
-      }
-      .report-eyebrow {
-        font: 400 12px/1.6 var(--sans);
-        color: var(--text-muted);
-      }
-      .report-title {
-        font-size: 30px;
-        margin: 16px 0 32px;
-      }
-      .report-section,
-      .report-stabilization {
-        margin-bottom: 24px;
-      }
-      .report-section label,
-      .report-stabilization label {
-        display: block;
-        font: 500 14px/1.6 var(--sans);
-        margin-bottom: 10px;
-      }
-      .report-text {
-        font-size: 16px;
-      }
-      .report-list {
-        padding-left: 20px;
-        font-size: 16px;
-      }
-      .report-list li {
-        margin-bottom: 8px;
-      }
-      .report-action-block {
-        border-top: 1px solid var(--line);
-        padding-top: 24px;
-      }
-      .report-next-step {
-        margin-bottom: 16px;
-      }
-      .report-action {
-        margin-top: 24px;
-      }
-      .report-action-block .text-link {
-        font-size: 14px;
-      }
-      .report-action-block .secondary {
-        font-size: 14px;
-        margin-top: 16px;
-      }
-      .assessment-invitation {
-        margin-top: 24px;
-        font-size: 16px;
-      }
-      .audit-email-input {
-        width: 100%;
-      }
-      .btn-primary,
-      .btn-secondary {
-        min-height: 48px;
-        border: 1px solid var(--ink);
-        border-radius: 2px;
-        background: transparent;
-        color: var(--ink);
-        font: 500 15px/1.5 var(--sans);
-        padding: 12px 20px;
-        cursor: pointer;
-      }
-      .btn-block {
-        width: 100%;
       }
 
       /* Frequently asked and contact */
@@ -907,62 +725,8 @@
       .footer-nav a:hover {
         text-decoration: underline;
       }
-      .site-footer .confirm {
-        font-size: 12px;
-        flex-basis: 100%;
-      }
-      .modal-shell {
-        position: fixed;
-        inset: 0;
-        z-index: 200;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        background: rgba(11, 18, 32, 0.8);
-        padding: 20px;
-      }
-      .modal-card {
-        background: var(--paper);
-        padding: 32px;
-        max-width: 480px;
-        width: 100%;
-        max-height: 90vh;
-        overflow: auto;
-      }
-      .modal-card h3 {
-        font-size: 30px;
-        margin-bottom: 16px;
-      }
-      .modal-card p {
-        font-size: 16px;
-        color: var(--text-muted);
-        margin-bottom: 24px;
-      }
-      .modal-card label {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
-      .modal-card input {
-        width: 100%;
-        padding: 12px;
-        min-height: 48px;
-        background: transparent;
-        border: 1px solid #7c838d;
-        color: var(--text);
-      }
-      .modal-actions {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-top: 24px;
-      }
-      .modal-card .form-status {
-        color: var(--text-muted);
-        margin: 16px 0 0;
-      }
-
-      /* 6. Utilities */
+      .site-footer
+/* 6. Utilities */
       .sr-only {
         position: absolute;
         width: 1px;
@@ -1206,9 +970,6 @@
         .privacy-copy h1 {
           font-size: 40px;
         }
-        .modal-card {
-          padding: 24px;
-        }
       }
 
       /* 8. Reduced motion */
@@ -1249,15 +1010,7 @@
         line-height: 1.2;
         padding: 8px 16px;
       }
-      .report-section .report-label,
-      .report-stabilization .report-label {
-        font: 500 14px/1.6 var(--sans);
-        margin-bottom: 10px;
-      }
-      .audit-error {
-        color: #963424;
-        font-size: 16px;
-      }
+
       .hero {
         background-image: linear-gradient(
           90deg,
@@ -1299,6 +1052,47 @@
         .site-nav .primary {
           font-size: 15px;
         }
+      }
+      .engagement-note {
+        margin-top: 24px;
+        font-size: 16px;
+        color: var(--text-muted);
+      }
+      .dark .engagement-note {
+        color: var(--muted-dark);
+      }
+      .site-footer .engagement-note {
+        font-size: 13px;
+        color: var(--muted-dark);
+        margin-top: 12px;
+      }
+      .contact-form .privacy-notice {
+        font-size: 13px;
+        color: var(--muted-dark);
+        margin: 0 0 24px;
+      }
+      .policy-body {
+        max-width: 864px;
+      }
+      .policy-body section + section {
+        margin-top: 48px;
+      }
+      .policy-body h2 {
+        font-size: 30px;
+        margin-bottom: 24px;
+      }
+      .policy-body p + p,
+      .policy-body ul {
+        margin-top: 16px;
+      }
+      .policy-body li + li {
+        margin-top: 16px;
+      }
+      .policy-body ul {
+        padding-left: 24px;
+      }
+      .policy-body a {
+        overflow-wrap: anywhere;
       }
     </style>
     <script>
@@ -1478,13 +1272,11 @@
               <span class="step-number" aria-hidden="true">1</span>
               <h3>Conversation</h3>
               <p>
-                Thirty minutes to understand the immediate priorities, the
-                leadership gap and the work ahead.
+                We can meet within seven days for a confidential initial
+                assessment of your priorities, the leadership gap and the work
+                ahead.
               </p>
-              <p class="confirm">
-                [CONFIRM: confidentiality and NDA practice for initial
-                conversations]
-              </p>
+              <p class="engagement-note">Every conversation is confidential.</p>
             </article>
             <article class="approach-step">
               <span class="step-number" aria-hidden="true">2</span>
@@ -1493,17 +1285,16 @@
                 Define the responsibilities and match the experience to the work
                 the business needs.
               </p>
-              <p class="confirm">
-                [CONFIRM: typical timeline from initial conversation to
-                engagement start]
+              <p class="engagement-note">
+                We agree on the scope and timing around the work required.
               </p>
             </article>
             <article class="approach-step">
               <span class="step-number" aria-hidden="true">3</span>
               <h3>Embedded ownership</h3>
               <p>
-                Take responsibility for execution through the transition to
-                permanent leadership or steady state.
+                Fill the gap, take ownership of execution and help transition
+                responsibilities to your full-time employees.
               </p>
             </article>
           </div>
@@ -1515,9 +1306,9 @@
               rel="noopener noreferrer"
               >Schedule a Confidential Conversation</a
             >
-            <p class="confirm">
-              [CONFIRM: engagement length and pricing approach, such as fixed
-              scope or monthly retainer]
+            <p class="engagement-note">
+              No minimum commitment. Pricing is based on the scope of work
+              required.
             </p>
           </div>
         </div>
@@ -1609,7 +1400,6 @@
                   leadership, close and reconciliation work, cash forecasting,
                   reporting and due diligence.
                 </p>
-                <p class="confirm">[CONFIRM: Mark Fackrell LinkedIn URL]</p>
               </div>
             </article>
             <article class="person">
@@ -1630,7 +1420,6 @@
                   pricing discipline, pipeline accountability and operating
                   reviews that hold after handoff.
                 </p>
-                <p class="confirm">[CONFIRM: Eric Hughes LinkedIn URL]</p>
               </div>
             </article>
             <article class="person">
@@ -1653,70 +1442,8 @@
                   rise, tightening governance, decision rights and operating
                   controls for sustained execution.
                 </p>
-                <p class="confirm">[CONFIRM: Ravi VC LinkedIn URL]</p>
               </div>
             </article>
-          </div>
-        </div>
-      </section>
-      <!-- Optional ownership assessment; audit.js hooks retained -->
-      <section
-        id="diagnostic"
-        class="section assessment"
-        aria-labelledby="assessment-heading"
-      >
-        <div class="container split reveal">
-          <div class="assessment-copy">
-            <p class="eyebrow">Ownership assessment</p>
-            <h2 id="assessment-heading">A way to think it through.</h2>
-            <p>
-              Five questions to help you identify where ownership may be
-              breaking down.
-            </p>
-            <p class="note">
-              Responses are sent for analysis and recorded in analytics.
-              Emailing the result is optional.
-            </p>
-            <p class="confirm">
-              [CONFIRM: assessment data-use and retention notice, including AI
-              analysis and analytics]
-            </p>
-          </div>
-          <div class="assessment-panel">
-            <div id="audit-intro">
-              <h3>Start with the situation.</h3>
-              <p>
-                Consider where decisions, responsibility and execution meet in
-                your business.
-              </p>
-              <div class="actions" style="margin-top: 24px">
-                <button id="start-audit-btn" class="secondary" type="button">
-                  Begin the assessment
-                </button>
-              </div>
-            </div>
-            <div
-              id="question-container"
-              class="question-box"
-              style="display: none"
-            ></div>
-            <div id="step-final" style="display: none">
-              <div
-                id="audit-result"
-                class="audit-result-card"
-                aria-live="polite"
-              >
-                <div id="audit-content">
-                  <h3 id="audit-heading">Your assessment</h3>
-                  <p id="audit-description"></p>
-                </div>
-              </div>
-              <div
-                id="audit-gate-post"
-                class="audit-gate-post"
-                style="display: none"
-              ></div>
-            </div>
           </div>
         </div>
       </section>
@@ -1726,9 +1453,11 @@
           <h2 id="faq-heading">Before we begin.</h2>
           <div class="faq-list">
             <details>
-              <summary>How quickly can you start?</summary>
-              <p class="confirm">
-                [CONFIRM: typical start time and factors affecting availability]
+              <summary>How soon can we meet?</summary>
+              <p class="engagement-note">
+                We can meet within seven days for an initial assessment. We
+                agree on the engagement start date as part of defining the
+                scope.
               </p>
             </details>
             <details>
@@ -1738,8 +1467,9 @@
                 embedded executive, a complete accounting function, an extension
                 of your team or a defined financial project.
               </p>
-              <p class="confirm">
-                [CONFIRM: typical engagement length and working cadence]
+              <p class="engagement-note">
+                There is no minimum commitment. We shape the engagement around
+                the work you need.
               </p>
             </details>
             <details>
@@ -1749,8 +1479,9 @@
                 leadership. Accounting and CFO support can cover ongoing needs
                 or a specific task.
               </p>
-              <p class="confirm">
-                [CONFIRM: handoff process to permanent leadership]
+              <p class="engagement-note">
+                Our primary goal is to fill the gap and help transition
+                responsibilities to your full-time employees.
               </p>
             </details>
             <details>
@@ -1764,14 +1495,16 @@
             </details>
             <details>
               <summary>How is the work priced?</summary>
-              <p class="confirm">
-                [CONFIRM: pricing approach and how fees are agreed]
+              <p class="engagement-note">
+                Pricing is based on the scope of work required. There is no
+                minimum commitment.
               </p>
             </details>
             <details>
               <summary>Is our conversation confidential?</summary>
-              <p class="confirm">
-                [CONFIRM: confidentiality policy and when an NDA is available]
+              <p class="engagement-note">
+                Yes. We treat all conversations, inquiries and client work as
+                confidential.
               </p>
             </details>
           </div>
@@ -1800,9 +1533,8 @@
               >Schedule a Confidential Conversation</a
             >
             <p class="response">We respond within one business day.</p>
-            <p class="confirm">
-              [CONFIRM: approved confidentiality statement for contact
-              inquiries]
+            <p class="engagement-note">
+              All conversations and client work are confidential.
             </p>
           </div>
           <form id="contact-form" class="contact-form">
@@ -1863,6 +1595,10 @@
                 </option>
               </select>
             </div>
+            <p class="privacy-notice">
+              How we handle your information:
+              <a href="./privacy.html">Privacy policy</a>.
+            </p>
             <button class="send-button" type="submit">Send Message</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -1876,8 +1612,8 @@
           <p class="footer-copy">
             © <span data-year>2026</span> C³ Executive Suite.
           </p>
-          <p class="confirm">
-            [CONFIRM: approved one-line confidentiality statement]
+          <p class="engagement-note">
+            Confidential conversations. Confidential client work.
           </p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
@@ -1885,38 +1621,9 @@
           ><a href="./accounting.html">Accounting &amp; CFO</a
           ><a href="./index.html#contact">Contact</a
           ><a href="./privacy.html">Privacy policy</a>
-          <p class="confirm">[CONFIRM: firm LinkedIn URL]</p>
         </nav>
       </div>
     </footer>
-    <!-- Optional delivery of the completed assessment -->
-    <div
-      id="email-modal"
-      class="modal-shell"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="email-modal-title"
-    >
-      <div class="modal-card">
-        <h2 id="email-modal-title">Email this assessment</h2>
-        <p>Send a copy of the result to your inbox.</p>
-        <label for="email-input">Work email</label
-        ><input id="email-input" type="email" autocomplete="email" />
-        <div class="modal-actions">
-          <button id="send-email-btn" class="btn-primary" type="button">
-            Email assessment</button
-          ><button id="close-email-modal" class="btn-secondary" type="button">
-            Close
-          </button>
-        </div>
-        <p
-          id="email-status"
-          class="form-status"
-          role="status"
-          aria-live="polite"
-        ></p>
-      </div>
-    </div>
     <script>
       // Navigation, header state and progressive enhancement.
       (() => {
@@ -1996,43 +1703,6 @@
             }
           });
         }
-        // audit.js owns dialog visibility; this adds keyboard focus and background isolation.
-        const modal = document.getElementById("email-modal");
-        if (!modal) return;
-        let previousFocus,
-          wasOpen = false;
-        const surfaces = [
-          header,
-          document.querySelector("main"),
-          document.querySelector("footer"),
-        ];
-        new MutationObserver(() => {
-          const open = modal.style.display === "flex";
-          if (open === wasOpen) return;
-          surfaces.forEach((el) => (el.inert = open));
-          if (open) {
-            previousFocus = document.activeElement;
-            document.getElementById("email-input").focus();
-          } else previousFocus?.focus();
-          wasOpen = open;
-        }).observe(modal, { attributes: true, attributeFilter: ["style"] });
-        modal.addEventListener("keydown", (event) => {
-          if (event.key === "Escape")
-            document.getElementById("close-email-modal").click();
-          if (event.key !== "Tab") return;
-          const items = [...modal.querySelectorAll("input, button")].filter(
-            (el) => !el.disabled,
-          );
-          const first = items[0],
-            last = items[items.length - 1];
-          if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-          } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-          }
-        });
       })();
     </script>
     <script>
@@ -2125,7 +1795,7 @@
           handleFormSubmit(e, "contact-form"),
         );
     </script>
-    <script src="./audit.js" defer></script>
+
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] =
