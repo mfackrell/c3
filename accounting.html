@@ -1,53 +1,397 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounting & CFO Services | C³ Executive Suite</title>
-    <meta name="description" content="C³ provides bookkeeping, controllership, financial cleanup and CFO advisory. Engage us for your full accounting function, extra expertise for your team or a specific financial project.">
-    <meta name="theme-color" content="#0A192F">
-    <meta property="og:title" content="Accounting & CFO Services | C³ Executive Suite">
-    <meta property="og:description" content="From the daily books to the decisions ahead. Flexible accounting and financial leadership for your business.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A192F'/%3E%3Ctext x='13' y='47' font-family='Arial' font-size='42' font-weight='bold' fill='white'%3EC%3C/text%3E%3Ctext x='43' y='25' font-family='Arial' font-size='21' fill='%23C5A022'%3E3%3C/text%3E%3C/svg%3E">
-    <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accounting &amp; CFO Services | C³ Executive Suite</title>
+    <meta
+      name="description"
+      content="Bookkeeping, controllership, financial cleanup and CFO advisory. Get a complete accounting function, support for your team or help with a specific task."
+    />
+    <meta name="theme-color" content="#0B1220" />
+    <meta
+      property="og:title"
+      content="Accounting &amp; CFO Services | C³ Executive Suite"
+    />
+    <meta
+      property="og:description"
+      content="Bookkeeping, controllership, financial cleanup and CFO advisory. Get a complete accounting function, support for your team or help with a specific task."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%230B1220'/%3E%3Ctext x='11' y='47' font-family='Georgia' font-size='44' fill='%23F7F5F0'%3EC%3C/text%3E%3Ctext x='44' y='23' font-family='Arial' font-size='19' fill='%23B98A3E'%3E3%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./design.css" />
+    <script defer src="./site.js"></script>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
     <script defer src="/_vercel/insights/script.js"></script>
-    <style>
-        :root{--navy:#0A192F;--gold:#C5A022;--text:#475569;--line:#E2E8F0;--light:#F8FAFC}
-        *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:110px}body{font-family:Inter,-apple-system,system-ui,sans-serif;font-size:16px;line-height:1.65;color:var(--navy);background:white;-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible{outline:3px solid #967a18;outline-offset:5px}.container{max-width:1100px;margin:0 auto;padding:0 20px}.skip{position:absolute;top:-100px;left:20px;padding:12px;background:white;z-index:200}.skip:focus{top:10px}
-        header{position:sticky;top:0;z-index:100;background:white;border-bottom:1px solid var(--line);padding:15px 0}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:15px;text-decoration:none}.brand-logo{height:50px;width:50px;flex-shrink:0;background:var(--navy);color:white;display:grid;place-items:center;font-weight:800;border-radius:8px}.brand-line-1{font-weight:800;font-size:1.2rem;line-height:1.1}.brand-line-2{font-size:.75rem;color:#806510;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:4px}nav{display:flex;align-items:center;gap:24px}nav a{font-size:.9rem;text-decoration:none}nav a:hover{text-decoration:underline;text-underline-offset:5px}.nav-cta{border:1px solid #967a18;color:#806510;padding:8px 16px;border-radius:12px;font-weight:600}
-        .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#806510;margin-bottom:16px}.hero{background:var(--navy);color:white;padding:75px 0 0}.hero .eyebrow{color:#e6c569}.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:75px;align-items:center;padding-bottom:60px}h1{font-size:clamp(38px,4.7vw,56px);line-height:1.12;letter-spacing:-.035em;font-weight:800;margin-bottom:26px}h1 span{color:#e6c569}.hero-copy{font-size:19px;color:#d6deea;max-width:580px;margin-bottom:28px}.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}.button{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:14px 23px;border-radius:12px;text-decoration:none;font-size:15px;font-weight:600;background:var(--navy);color:white;border:1px solid var(--navy)}.button.gold{color:var(--navy);background:#e6c569;border-color:#e6c569}.button.outline{color:var(--navy);background:white}.button:hover{filter:brightness(1.12)}.hero-link{color:white;text-underline-offset:5px;padding:12px 0}.hero-aside{border-top:1px solid #ffffff40}.level{padding:24px 0;border-bottom:1px solid #ffffff40;display:grid;grid-template-columns:28px 1fr;gap:15px}.level-number{font-size:12px;color:#e6c569;padding-top:6px}.level h2{font-size:23px;line-height:1.3;margin-bottom:8px}.level p{color:#b8c5d6;font-size:15px}.proof{border-top:1px solid #ffffff30;padding:22px 0;display:flex;justify-content:space-between;gap:25px;color:#d6deea;font-size:14px}.proof strong{color:#e6c569}
-        section{padding:80px 0}.section-heading{max-width:730px;margin-bottom:38px}.section-heading h2{font-size:clamp(30px,3.3vw,40px);line-height:1.2;letter-spacing:-.025em;margin-bottom:18px}.section-heading p{font-size:18px;color:var(--text)}.services{display:grid;grid-template-columns:1fr 1fr;gap:24px}.service{padding:32px;border:1px solid var(--line);border-radius:12px}.service h3{font-size:23px;line-height:1.3;margin-bottom:12px}.service>p{color:var(--text);margin-bottom:22px}.service ul{list-style:none;display:grid;gap:10px}.service li{position:relative;padding-left:18px}.service li:before{content:'•';position:absolute;left:0;color:#806510}.service-number{display:block;font-size:12px;font-weight:800;color:#806510;margin-bottom:20px;letter-spacing:.1em}.light{background:var(--light)}.engagements{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.engagement{border-top:3px solid var(--gold);padding-top:23px}.engagement h3{font-size:20px;line-height:1.35;margin-bottom:14px}.engagement p{color:var(--text)}.cases{display:grid;grid-template-columns:1fr 1fr;gap:24px}.case{padding:32px;border:1px solid var(--line);border-radius:12px}.case h3{font-size:23px;line-height:1.3;margin-bottom:18px}.case p{color:var(--text)}.case .eyebrow{font-size:12px;color:#806510;margin-bottom:16px}.case .scope{font-size:14px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}.confidential{font-size:14px;color:var(--text);margin-top:20px}.leader{display:grid;grid-template-columns:230px 1fr;gap:55px;align-items:center}.leader img{width:100%;height:285px;object-fit:cover;border-radius:12px}.leader h2{font-size:34px;line-height:1.2;margin-bottom:20px}.leader p{color:var(--text);margin-bottom:16px}.leader a{font-weight:600;text-underline-offset:5px}.cta{background:var(--navy);color:white}.cta-inner{display:grid;grid-template-columns:1fr .9fr;gap:60px;align-items:center}.cta h2{font-size:36px;line-height:1.2;margin-bottom:20px}.cta p{color:#d6deea}.cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:20px}.email{color:white;overflow-wrap:anywhere;text-underline-offset:5px}footer{padding:35px 0;border-top:1px solid var(--line);font-size:14px;color:var(--text)}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}.footer-links{display:flex;flex-wrap:wrap;gap:20px}
-        @media(max-width:1000px){.header-inner{flex-wrap:wrap}nav{gap:20px;flex-wrap:wrap}.hero-grid{gap:40px}.hero{padding-top:55px}.proof{flex-wrap:wrap}.cta-inner{gap:35px}.engagements{gap:20px}}
-        @media(max-width:740px){header{position:static}.brand{gap:12px}.brand-line-1{font-size:1.1rem}.brand-line-2{font-size:.75rem;letter-spacing:0}.header-inner{gap:18px}nav{gap:12px 20px}nav a{font-size:14px}.nav-cta{padding:6px 12px}.hero{padding-top:40px}.hero-grid,.services,.cases,.engagements,.cta-inner{grid-template-columns:1fr}.hero-grid{gap:35px;padding-bottom:36px}h1{font-size:39px}.hero-copy{font-size:17px}.proof{display:grid;gap:9px;font-size:14px}section{padding:55px 0}.service,.case{padding:26px}.section-heading p{font-size:17px}.engagements{gap:32px}.leader{grid-template-columns:1fr;gap:28px}.leader img{max-width:200px;height:250px}.leader h2{font-size:30px}.cta h2{font-size:30px}.footer-inner{display:block}.footer-links{margin-top:20px}}
-        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-    </style>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header><div class="container header-inner"><a class="brand" href="./index.html" aria-label="C³ Executive Suite home"><span class="brand-logo" aria-hidden="true">C³</span><span><span class="brand-line-1">C³ Executive Suite</span><span class="brand-line-2" style="display:block">Leadership &amp; Financial Services</span></span></a><nav aria-label="Primary"><a href="#services">Services</a><a href="#experience">Experience</a><a href="./index.html#team">Leadership Team</a><a class="nav-cta" href="./index.html?service=accounting#contact">Discuss Your Needs</a></nav></div></header>
-<main id="main">
-<section class="hero"><div class="container"><div class="hero-grid"><div><p class="eyebrow">C³ Accounting &amp; CFO Services</p><h1>Your finances.<br><span>Handled.</span></h1><p class="hero-copy">From the daily books to the decisions ahead. Get the accounting expertise and financial leadership your business needs, at the level you need it.</p><div class="actions"><a class="button gold" href="./index.html?service=accounting#contact">Discuss Your Accounting Needs</a><a class="hero-link" href="#services">Explore services</a></div></div><div class="hero-aside"><div class="level"><span class="level-number">01</span><div><h2>Bookkeeping</h2><p>The details handled. The books kept current.</p></div></div><div class="level"><span class="level-number">02</span><div><h2>Controllership</h2><p>A disciplined close. Numbers you can trust.</p></div></div><div class="level"><span class="level-number">03</span><div><h2>CFO &amp; advisory</h2><p>A clearer view of cash, growth and what comes next.</p></div></div></div></div><div class="proof"><span><strong>25 years</strong> of finance &amp; accounting experience</span><span><strong>50+ companies</strong> supported by Mark Fackrell</span><span><strong>Flexible scope.</strong> Full support or specific tasks.</span></div></div></section>
-<section id="services"><div class="container"><div class="section-heading"><p class="eyebrow">Our services</p><h2>One accounting task.<br>Or the whole financial picture.</h2><p>Keep your business moving with accurate books, reliable reporting and practical financial guidance. Choose the services you need today and adjust the scope as your business changes.</p></div><div class="services">
-<article class="service"><span class="service-number">01 / DAILY ACCOUNTING</span><h3>Bookkeeping &amp; back-office support</h3><p>Consistent execution of the work that keeps your financial records current.</p><ul><li>Transaction recording and classification</li><li>Accounts payable and vendor accounting</li><li>Accounts receivable and billing support</li><li>Bank and credit card reconciliations</li><li>Expense tracking and general ledger maintenance</li><li>Balance sheet supporting schedules</li></ul></article>
-<article class="service"><span class="service-number">02 / FINANCIAL CONTROL</span><h3>Controllership &amp; reporting</h3><p>Discipline in your close and confidence in the information you rely on.</p><ul><li>Month-end and year-end close</li><li>Financial statement preparation</li><li>Accruals, prepaids and fixed assets</li><li>Multi-entity and intercompany accounting</li><li>Consolidations and foreign currencies</li><li>Accounting processes and internal controls</li></ul></article>
-<article class="service"><span class="service-number">03 / FINANCIAL LEADERSHIP</span><h3>CFO &amp; strategic advisory</h3><p>Connect financial performance to the decisions that matter.</p><ul><li>Cash flow forecasting and management</li><li>Budgets and financial models</li><li>Performance and variance analysis</li><li>Cost structure and profitability analysis</li><li>Financing and capital raise support</li><li>Acquisition and sale due diligence</li></ul></article>
-<article class="service"><span class="service-number">04 / SPECIAL PROJECTS</span><h3>Cleanup &amp; complex accounting</h3><p>Resolve the issues holding your financials back.</p><ul><li>Historical reconciliations and financial cleanup</li><li>Accounting system implementation</li><li>Lease and acquisition accounting</li><li>Audit preparation and auditor coordination</li><li>Reporting and ledger discrepancies</li><li>Accounting policies and close procedures</li></ul></article>
-</div></div></section>
-<section class="light" id="engagements"><div class="container"><div class="section-heading"><p class="eyebrow">How we work</p><h2>The right level of involvement.</h2><p>You do not need to hand over everything to get meaningful support.</p></div><div class="engagements"><article class="engagement"><h3>Your complete accounting function</h3><p>Bring bookkeeping, close, reporting and financial leadership together under one coordinated scope.</p></article><article class="engagement"><h3>An extension of your team</h3><p>Keep your existing staff and add the controller or CFO expertise, oversight or execution capacity you need.</p></article><article class="engagement"><h3>A specific task or project</h3><p>Resolve a reconciliation, rebuild a forecast, prepare for due diligence or get a delayed close back on track.</p></article></div></div></section>
-<section id="experience"><div class="container"><div class="section-heading"><p class="eyebrow">Selected experience</p><h2>Real work. Complex situations.</h2><p>Examples from Mark Fackrell’s prior accounting and financial leadership engagements.</p></div><div class="cases">
-<article class="case"><p class="eyebrow">Global professional services</p><h3>Bringing a complex close back under control.</h3><p>Led year-end cleanup and catch-up close work across multiple entities and currencies. Addressed intercompany balances, rebuilt supporting schedules and coordinated financial support for audit and due diligence.</p><p class="scope"><strong>Scope:</strong> Multi-entity accounting · Financial cleanup · Audit support</p></article>
-<article class="case"><p class="eyebrow">Private equity transaction</p><h3>Financial leadership through a company sale.</h3><p>Served as interim CFO through a sale to private equity involving a business valued at approximately $100 million. Led financial preparation and supported the due diligence process through the transaction.</p><p class="scope"><strong>Scope:</strong> Interim CFO · Transaction preparation · Due diligence</p></article>
-<article class="case"><p class="eyebrow">Nonprofit financial reporting</p><h3>Making the financial picture clear and usable.</h3><p>Prepared organization-wide budget-to-actual reports, income statements and balance sheets for grant reporting. Aligned reporting categories to approved budgets and tied reports to the underlying accounting records.</p><p class="scope"><strong>Scope:</strong> Financial statements · Budget reporting · Grant support</p></article>
-<article class="case"><p class="eyebrow">Accounting systems &amp; reconciliation</p><h3>Getting two systems to tell the same story.</h3><p>Performed invoice-level reconciliations between accounting and billing systems. Isolated unmatched items, duplicate records, credit issues and amount differences to identify the causes of receivables discrepancies.</p><p class="scope"><strong>Scope:</strong> Accounts receivable · System reconciliation · Issue resolution</p></article>
-</div><p class="confidential">Representative experience from prior engagements. Client identities are kept confidential.</p></div></section>
-<section class="light"><div class="container leader"><img src="https://storage.googleapis.com/permanent-assets/Mark.png" alt="Mark Fackrell" width="230" height="285" loading="lazy" decoding="async"><div><p class="eyebrow">Finance &amp; accounting leadership</p><h2>Mark Fackrell, MBA</h2><p>Mark brings 25 years of finance and accounting experience across more than 50 companies, from pre-revenue businesses through approximately $100 million in valuation.</p><p>His work spans professional services, education, SaaS, construction, e-commerce, manufacturing and nonprofit organizations. He combines executive perspective with hands-on accounting: understanding the detail, resolving the underlying issues and giving business owners information they can use.</p><a href="./index.html#team">Meet the C³ leadership team →</a></div></div></section>
-<section class="cta"><div class="container cta-inner"><div><h2>Let's put your finances<br>on firmer ground.</h2><p>Tell us what is working, what is not and where you need support. We will start there.</p></div><div class="cta-actions"><a class="button gold" href="./index.html?service=accounting#contact">Discuss Your Accounting Needs</a><a class="email" href="mailto:mark.fackrell@c3execs.com?subject=Accounting%20%26%20CFO%20Services">mark.fackrell@c3execs.com</a><a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer">Book a 30-minute conversation</a></div></div></section>
-</main>
-<footer><div class="container footer-inner"><span>© <span id="year">2026</span> C³ Executive Suite.</span><div class="footer-links"><a href="./index.html">Executive Leadership</a><a href="#services">Accounting Services</a><a href="./index.html?service=accounting#contact">Contact</a></div></div></footer>
-<script>document.getElementById('year').textContent=String(new Date().getFullYear());</script>
-</body>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="./index.html"
+          aria-label="C³ Executive Suite home"
+          ><span class="brand-logo" aria-hidden="true">C³</span
+          ><span class="brand-copy"
+            ><span class="brand-line-1">EXECUTIVE SUITE</span
+            ><span class="brand-line-2"
+              >Leadership &amp; Financial Services</span
+            ></span
+          ></a
+        ><button
+          type="button"
+          class="menu-toggle"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          Menu
+        </button>
+        <nav id="primary-navigation" class="site-nav" aria-label="Primary">
+          <a href="./index.html#services">Services</a
+          ><a href="./index.html#cases">Results</a
+          ><a href="./index.html#team">Team</a
+          ><a href="./index.html#insights">Insights</a
+          ><a href="./index.html#contact">Contact</a
+          ><a
+            class="nav-cta"
+            href="https://calendly.com/mfackrell79/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book a Gap Review <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">C³ Accounting &amp; CFO Services</p>
+              <h1>Your finances.<br /><span>Handled.</span></h1>
+              <p class="hero-copy">
+                From the daily books to the decisions ahead. Get the accounting
+                expertise and financial leadership your business needs, at the
+                level you need it.
+              </p>
+              <div class="actions">
+                <a
+                  class="button gold"
+                  href="./index.html?service=accounting#contact"
+                  >Discuss Your Accounting Needs</a
+                ><a class="hero-link" href="#services">Explore services</a>
+              </div>
+            </div>
+            <div class="hero-aside">
+              <div class="level">
+                <span class="level-number">01</span>
+                <div>
+                  <h2>Bookkeeping</h2>
+                  <p>The details handled. The books kept current.</p>
+                </div>
+              </div>
+              <div class="level">
+                <span class="level-number">02</span>
+                <div>
+                  <h2>Controllership</h2>
+                  <p>A disciplined close. Numbers you can trust.</p>
+                </div>
+              </div>
+              <div class="level">
+                <span class="level-number">03</span>
+                <div>
+                  <h2>CFO &amp; advisory</h2>
+                  <p>A clearer view of cash, growth and what comes next.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proof">
+            <span
+              ><strong>25 years</strong> of finance &amp; accounting
+              experience</span
+            ><span
+              ><strong>50+ companies</strong> supported by Mark Fackrell</span
+            ><span
+              ><strong>Flexible scope.</strong> Full support or specific
+              tasks.</span
+            >
+          </div>
+        </div>
+      </section>
+      <section id="services">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Our services</p>
+            <h2>One accounting task.<br />Or the whole financial picture.</h2>
+            <p>
+              Keep your business moving with accurate books, reliable reporting
+              and practical financial guidance. Choose the services you need
+              today and adjust the scope as your business changes.
+            </p>
+          </div>
+          <div class="services">
+            <article class="service">
+              <span class="service-number">01 / DAILY ACCOUNTING</span>
+              <h3>Bookkeeping &amp; back-office support</h3>
+              <p>
+                Consistent execution of the work that keeps your financial
+                records current.
+              </p>
+              <ul>
+                <li>Transaction recording and classification</li>
+                <li>Accounts payable and vendor accounting</li>
+                <li>Accounts receivable and billing support</li>
+                <li>Bank and credit card reconciliations</li>
+                <li>Expense tracking and general ledger maintenance</li>
+                <li>Balance sheet supporting schedules</li>
+              </ul>
+            </article>
+            <article class="service">
+              <span class="service-number">02 / FINANCIAL CONTROL</span>
+              <h3>Controllership &amp; reporting</h3>
+              <p>
+                Discipline in your close and confidence in the information you
+                rely on.
+              </p>
+              <ul>
+                <li>Month-end and year-end close</li>
+                <li>Financial statement preparation</li>
+                <li>Accruals, prepaids and fixed assets</li>
+                <li>Multi-entity and intercompany accounting</li>
+                <li>Consolidations and foreign currencies</li>
+                <li>Accounting processes and internal controls</li>
+              </ul>
+            </article>
+            <article class="service">
+              <span class="service-number">03 / FINANCIAL LEADERSHIP</span>
+              <h3>CFO &amp; strategic advisory</h3>
+              <p>Connect financial performance to the decisions that matter.</p>
+              <ul>
+                <li>Cash flow forecasting and management</li>
+                <li>Budgets and financial models</li>
+                <li>Performance and variance analysis</li>
+                <li>Cost structure and profitability analysis</li>
+                <li>Financing and capital raise support</li>
+                <li>Acquisition and sale due diligence</li>
+              </ul>
+            </article>
+            <article class="service">
+              <span class="service-number">04 / SPECIAL PROJECTS</span>
+              <h3>Cleanup &amp; complex accounting</h3>
+              <p>Resolve the issues holding your financials back.</p>
+              <ul>
+                <li>Historical reconciliations and financial cleanup</li>
+                <li>Accounting system implementation</li>
+                <li>Lease and acquisition accounting</li>
+                <li>Audit preparation and auditor coordination</li>
+                <li>Reporting and ledger discrepancies</li>
+                <li>Accounting policies and close procedures</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="light" id="engagements">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">How we work</p>
+            <h2>The right level of involvement.</h2>
+            <p>
+              You do not need to hand over everything to get meaningful support.
+            </p>
+          </div>
+          <div class="engagements">
+            <article class="engagement">
+              <h3>Your complete accounting function</h3>
+              <p>
+                Bring bookkeeping, close, reporting and financial leadership
+                together under one coordinated scope.
+              </p>
+            </article>
+            <article class="engagement">
+              <h3>An extension of your team</h3>
+              <p>
+                Keep your existing staff and add the controller or CFO
+                expertise, oversight or execution capacity you need.
+              </p>
+            </article>
+            <article class="engagement">
+              <h3>A specific task or project</h3>
+              <p>
+                Resolve a reconciliation, rebuild a forecast, prepare for due
+                diligence or get a delayed close back on track.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Selected experience</p>
+            <h2>Real work. Complex situations.</h2>
+            <p>
+              Examples from Mark Fackrell’s prior accounting and financial
+              leadership engagements.
+            </p>
+          </div>
+          <div class="cases">
+            <article class="case">
+              <p class="eyebrow">Global professional services</p>
+              <h3>Bringing a complex close back under control.</h3>
+              <p>
+                Led year-end cleanup and catch-up close work across multiple
+                entities and currencies. Addressed intercompany balances,
+                rebuilt supporting schedules and coordinated financial support
+                for audit and due diligence.
+              </p>
+              <p class="scope">
+                <strong>Scope:</strong> Multi-entity accounting · Financial
+                cleanup · Audit support
+              </p>
+            </article>
+            <article class="case">
+              <p class="eyebrow">Private equity transaction</p>
+              <h3>Financial leadership through a company sale.</h3>
+              <p>
+                Served as interim CFO through a sale to private equity involving
+                a business valued at approximately $100 million. Led financial
+                preparation and supported the due diligence process through the
+                transaction.
+              </p>
+              <p class="scope">
+                <strong>Scope:</strong> Interim CFO · Transaction preparation ·
+                Due diligence
+              </p>
+            </article>
+            <article class="case">
+              <p class="eyebrow">Nonprofit financial reporting</p>
+              <h3>Making the financial picture clear and usable.</h3>
+              <p>
+                Prepared organization-wide budget-to-actual reports, income
+                statements and balance sheets for grant reporting. Aligned
+                reporting categories to approved budgets and tied reports to the
+                underlying accounting records.
+              </p>
+              <p class="scope">
+                <strong>Scope:</strong> Financial statements · Budget reporting
+                · Grant support
+              </p>
+            </article>
+            <article class="case">
+              <p class="eyebrow">Accounting systems &amp; reconciliation</p>
+              <h3>Getting two systems to tell the same story.</h3>
+              <p>
+                Performed invoice-level reconciliations between accounting and
+                billing systems. Isolated unmatched items, duplicate records,
+                credit issues and amount differences to identify the causes of
+                receivables discrepancies.
+              </p>
+              <p class="scope">
+                <strong>Scope:</strong> Accounts receivable · System
+                reconciliation · Issue resolution
+              </p>
+            </article>
+          </div>
+          <p class="confidential">
+            Representative experience from prior engagements. Client identities
+            are kept confidential.
+          </p>
+        </div>
+      </section>
+      <section class="light">
+        <div class="container leader">
+          <img
+            src="./assets/mark-fackrell.webp"
+            alt="Mark Fackrell"
+            width="230"
+            height="285"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p class="eyebrow">Finance &amp; accounting leadership</p>
+            <h2>Mark Fackrell, MBA</h2>
+            <p>
+              Mark brings 25 years of finance and accounting experience across
+              more than 50 companies, from pre-revenue businesses through
+              approximately $100 million in valuation.
+            </p>
+            <p>
+              His work spans professional services, education, SaaS,
+              construction, e-commerce, manufacturing and nonprofit
+              organizations. He combines executive perspective with hands-on
+              accounting: understanding the detail, resolving the underlying
+              issues and giving business owners information they can use.
+            </p>
+            <a href="./index.html#team">Meet the C³ leadership team →</a>
+          </div>
+        </div>
+      </section>
+      <section class="cta">
+        <div class="container cta-inner">
+          <div>
+            <h2>Let's put your finances<br />on firmer ground.</h2>
+            <p>
+              Tell us what is working, what is not and where you need support.
+              We will start there.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a
+              class="button gold"
+              href="./index.html?service=accounting#contact"
+              >Discuss Your Accounting Needs</a
+            ><a
+              class="email"
+              href="mailto:mark.fackrell@c3execs.com?subject=Accounting%20%26%20CFO%20Services"
+              >mark.fackrell@c3execs.com</a
+            ><a
+              href="https://calendly.com/mfackrell79/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Book a 30-minute conversation</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-name">C³ Executive Suite</p>
+          <p class="footer-statement">
+            Experienced leadership. Practical financial support.
+          </p>
+          <p class="footer-statement">
+            © <span data-year>2026</span> C³ Executive Suite.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="./index.html#services">Executive Services</a
+          ><a href="./accounting.html">Accounting &amp; CFO</a
+          ><a href="./index.html#diagnostic">Diagnostic</a
+          ><a href="mailto:mark.fackrell@c3execs.com">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>
