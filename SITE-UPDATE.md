@@ -2,7 +2,7 @@
 
 ## Rationale
 
-The site now shows why Mark, Eric and Ravi work together through specific career and project evidence. Full profiles establish each leader’s experience; capability links connect that experience to a buyer’s situation. The homepage preserves the financial recovery evidence while adding technology and procurement work. Reported outcomes remain attributed, and illustrative scenarios are clearly separated from historical engagements. The existing design, contact workflow and recent photographs remain intact.
+The site now shows why Mark, Eric and Ravi work together through specific career and project evidence. Full profiles establish each leader’s experience; capability links connect that experience to a buyer’s situation. The homepage states all seven C-suite seats, keeps Financial Services distinct, and puts the leadership suite ahead of PE-specific proof. The global financial recovery case, Chapter 11 cash governance and SaaS revenue case remain the selected homepage work. The design, team profiles, contact workflow and recent photographs remain intact.
 
 ## Complete source files
 
@@ -14,6 +14,16 @@ The site now shows why Mark, Eric and Ravi work together through specific career
 
 All pages remain standalone HTML with the same inline stylesheet and no new runtime dependency.
 
+## Final positioning changes
+
+| Change | Reason |
+| --- | --- |
+| Rewrote the homepage hero to state all seven leadership seats and the separate Financial Services practice | Establish the full suite before the sponsor-specific proof |
+| Moved Practices, Leadership and Situations ahead of the PE case | Present the firm broadly while retaining the strongest PE experience |
+| Added Contact to the desktop and mobile header on all pages | Give visitors a direct route to the form |
+| Corrected the misplaced People & Culture proof sentence | Keep each capability description accurate |
+| Restored the two-second Tidio loader and approved privacy disclosures | Follow the prompt’s explicit integration requirement |
+
 ## Changelog
 
 | Change | Reason |
@@ -21,11 +31,11 @@ All pages remain standalone HTML with the same inline stylesheet and no new runt
 | Added Our People page with three 90-word bios, career lists, industry-tagged selected work and capability coverage | Give each leader specific, visible proof |
 | Updated Our People navigation across all pages | Make the full profiles directly accessible |
 | Added the stabilize, commercialize and design narrative and “Why these three” section | Explain the complementary team |
-| Added eight capabilities with responsible-leader lines | Make coverage and accountability explicit |
+| Defined seven C-suite seats with responsible-leader lines | Make full-suite coverage and accountability explicit |
 | Added proof links and “Where each leader steps in” to Executive Leadership | Connect capabilities to actual experience |
 | Added three explicitly illustrative combined-team scenarios | Explain collaboration without inventing client history |
-| Retained the full-width global recovery case and education and solar cases | Preserve the strongest finance and operations evidence |
-| Added the reported cloud migration and electronic-procurement cases | Demonstrate Eric’s and Ravi’s work with clear attribution |
+| Featured the full-width global recovery case, Chapter 11 cash governance and SaaS revenue on the homepage | Show leadership outcomes across finance, operations and growth |
+| Kept the education sale on Financial Services and the cloud migration and procurement examples on Our People | Preserve approved work with the right prominence and attribution |
 | Restored the existing unattributed SaaS case on the homepage | Follow the requested proof order without assigning it to an individual |
 | Added startup modeling and angel-fund analysis on Financial Services | Show financial experience on both sides of capital decisions |
 | Replaced compact bios with new roles and links to full profiles | Improve the homepage summary without duplicating the entire team page |
@@ -33,7 +43,7 @@ All pages remain standalone HTML with the same inline stylesheet and no new runt
 | Removed degrees and phone numbers; used generic ERP terminology | Follow the latest exclusions |
 | Restored Start a Conversation for scheduling links | Use the requested CTA consistently |
 | Preserved the approved photos, form and design system | Keep recent work and technical behavior intact |
-| Kept the privacy policy body unchanged | Follow the explicit policy-preservation instruction |
+| Restored the previously approved chat disclosures in the privacy policy | Reflect the restored Tidio integration accurately |
 | Updated the legacy timing.html copy to match model.html | Keep existing entry points consistent |
 
 ## Names and claims check
@@ -43,7 +53,7 @@ The source categories below reflect the supplied, approved brief. They do not re
 | Check | Result |
 | --- | --- |
 | Marketing copy | No employer, client, school, association or software/product brand names. The firm’s own name and three public leader names remain. |
-| Existing privacy disclosures | Provider names and their links remain because the brief explicitly requires the policy text to stay unchanged. This is the limited exception to an absolute “no names anywhere” claim. |
+| Existing privacy disclosures | Provider names and links remain for accurate disclosure. The previously approved Tidio wording is restored with the integration. |
 | Technical code | Existing analytics identifiers and service URLs remain as required. |
 | Excluded details | No degrees, certifications, phone numbers, named sponsors, reference offers or excluded biographical details. Public firm email and scheduling links remain. |
 | Attribution | Historical roles use past tense. Reported figures retain attribution. No current employment at former firms is asserted. |
@@ -98,7 +108,7 @@ The source categories below reflect the supplied, approved brief. They do not re
 - [x] Calendly destinations, labels and safe new-tab attributes checked.
 - [x] Breadcrumbs, practice cross-links and case-card styling checked.
 - [x] Desktop visual review completed; automated WCAG A/AA checks including contrast found zero violations on all five pages at mobile and desktop widths.
-- [x] Shared stylesheet and privacy policy body compared with the prior version and unchanged.
+- [x] Shared stylesheet matches across all pages. Privacy content matches the previously approved version that discloses Tidio.
 - [x] Current leadership photo URLs retained.
-- [x] Analytics retained on every page. Tidio remains absent following the prior approved removal; the brief’s QA reference was not treated as an instruction to reinstall chat.
+- [x] Vercel Insights, Clarity, Google Analytics and Tidio retained on every page. Tidio is scheduled two seconds after window load.
 - [ ] Lighthouse targets remain Performance 90+ and Accessibility 95+; numeric Lighthouse scores were not measured.
