@@ -46,15 +46,16 @@ const audit = {
       finalStep.style.display = 'none';
       const q = this.questions[n - 1];
       const html = `
-        <div class="step active card">
+        <div class="step active question-box">
           <span class="eyebrow" style="margin-bottom: 0;">Question ${n} of 5</span>
-          <h3 style="margin: 12px 0 0; font-size: 22px;">${q.q}</h3>
-          <div class="audit-options">
-            ${q.opts.map((opt, idx) => `<button type="button" class="opt-btn" data-opt-index="${idx}">${opt}</button>`).join('')}
+          <h3 tabindex="-1" style="margin: 12px 0 0; font-size: 22px;">${q.q}</h3>
+          <div class="audit-options options-grid">
+            ${q.opts.map((opt, idx) => `<button type="button" class="opt-btn option-btn" data-opt-index="${idx}">${opt}</button>`).join('')}
           </div>
         </div>
       `;
       questionContainer.innerHTML = html;
+      questionContainer.querySelector("h3")?.focus({ preventScroll: true });
 
       questionContainer.querySelectorAll('.opt-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -224,39 +225,39 @@ document.addEventListener('DOMContentLoaded', () => {
       return `<div style="white-space: pre-wrap; line-height: 1.6;">${escapeHtml(text)}</div>`;
     }
 
-    const title = escapeHtml(sections.title || 'Audit Complete');
-    const diagnosis = escapeHtml(sections.diagnosis || 'Analysis pending...');
+    const title = escapeHtml(sections.title || 'Your assessment');
+    const diagnosis = escapeHtml(sections.diagnosis || 'Analysis is not available.');
     const costs = sections.costs.length
       ? sections.costs.map((cost) => `<li>${escapeHtml(cost)}</li>`).join('')
-      : '<li>Operational impact estimates pending.</li>';
-    const fix = escapeHtml(sections.fix || 'Strategic plan required.');
-    const next = escapeHtml(sections.next || 'Contact for next steps.');
+      : '<li>No operational observations were returned.</li>';
+    const fix = escapeHtml(sections.fix || 'No suggested action was returned.');
+    const next = escapeHtml(sections.next || 'Consider which responsibility needs clearer ownership.');
 
     return `
       <div class="audit-report">
         <div class="report-header">
-          <span class="report-eyebrow">Executive Summary</span>
-          <h2 class="report-title">${title}</h2>
+          <span class="report-eyebrow">Ownership assessment</span>
+          <h3 class="report-title">${title}</h3>
         </div>
 
         <div class="report-section">
-          <label>Strategic Diagnosis</label>
+          <h4 class="report-label">Observations</h4>
           <p class="report-text">${diagnosis}</p>
         </div>
 
         <div class="report-section">
-          <label>Operational Friction</label>
+          <h4 class="report-label">Points of friction</h4>
           <ul class="report-list">${costs}</ul>
         </div>
 
         <div class="report-stabilization">
-          <label>Stabilization Plan</label>
+          <h4 class="report-label">Suggested action</h4>
           <p class="report-text">${fix}</p>
         </div>
 
         <div class="report-action-block">
-          <p class="report-next-step"><strong>Immediate Action:</strong> ${next}</p>
-          <button id="email-results-btn" class="btn-primary btn-block">Email Strategic Plan</button>
+          <p class="report-next-step"><strong>Next step:</strong> ${next}</p>
+          <button id="email-results-btn" class="secondary" type="button">Email this assessment</button>
         </div>
       </div>
     `;
@@ -269,14 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="audit-loading">
         <div class="audit-spinner-row">
           <div class="audit-spinner"></div>
-          <div style="font-weight:700;">Building your scorecard…</div>
+          <div style="font-weight:500;">Reviewing your responses.</div>
         </div>
         <div class="audit-progress">
           <div class="audit-step active" data-step="1"><span class="audit-dot"></span><span>Interpreting your answers</span></div>
-          <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Diagnosing the ownership gap</span></div>
-          <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Writing your action plan</span></div>
+          <div class="audit-step" data-step="2"><span class="audit-dot"></span><span>Considering ownership</span></div>
+          <div class="audit-step" data-step="3"><span class="audit-dot"></span><span>Preparing the assessment</span></div>
         </div>
-        <div class="text-muted" style="font-size:13px;">Usually less than 60 seconds.</div>
       </div>
     `;
   };
@@ -363,11 +363,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resultEl) {
         const incompleteNote = data?.complete
           ? ''
-          : '<div style="margin-top:10px;color:#b45309;font-size:12px;">Note: response may be truncated. Please retry if this result looks incomplete.</div>';
+          : '<p class="note">The response may be incomplete. Please try again if information is missing.</p>';
 
         resultEl.innerHTML = `
           ${formatAuditResponse(resultText)}
           ${incompleteNote}
+          <p class="assessment-invitation"><a href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer">If it would be useful, we are glad to walk through this with you.</a></p>
         `;
       }
     } catch (err) {
@@ -376,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
       writeDiag('submit failed', { message: String(err?.message || err) });
       const resultEl = document.getElementById('audit-result');
       if (resultEl) {
-        resultEl.innerHTML = `<div style="color:#b91c1c;font-weight:600;">Unable to generate your scorecard right now. ${String(err?.message || '')}</div>`;
+        resultEl.innerHTML = `<p class="audit-error">Unable to review your responses right now. Please try again later.</p>`;
       }
     } finally {
       finalStep.dataset.busy = '0';
