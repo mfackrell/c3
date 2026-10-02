@@ -1205,6 +1205,21 @@
           opacity: 1;
         }
       }
+
+      /* Compact homepage and mobile practice navigation */
+      .home-hero .intro { max-width: 780px; }
+      .home-hero .note { margin-top: 24px; }
+      .proof-summary { padding: 48px 0; }
+      .proof-summary h2 { font-size: 32px; line-height: 1.2; }
+      @media (max-width: 600px) {
+        .home-hero { padding-top: 104px; }
+        .home-hero h1 { font-size: 42px; line-height: 1.08; }
+        .home-hero .intro { margin-bottom: 24px; }
+        .proof-summary h2 { font-size: 28px; }
+        .service-nav { position: static; }
+        .service-nav .container { flex-wrap: wrap; gap: 0 20px; padding-top: 8px; padding-bottom: 8px; overflow-x: visible; }
+        .service-nav a { min-height: 44px; white-space: normal; }
+      }
     </style>
     <script>
       window.va =

@@ -1227,6 +1227,21 @@
           opacity: 1;
         }
       }
+
+      /* Compact homepage and mobile practice navigation */
+      .home-hero .intro { max-width: 780px; }
+      .home-hero .note { margin-top: 24px; }
+      .proof-summary { padding: 48px 0; }
+      .proof-summary h2 { font-size: 32px; line-height: 1.2; }
+      @media (max-width: 600px) {
+        .home-hero { padding-top: 104px; }
+        .home-hero h1 { font-size: 42px; line-height: 1.08; }
+        .home-hero .intro { margin-bottom: 24px; }
+        .proof-summary h2 { font-size: 28px; }
+        .service-nav { position: static; }
+        .service-nav .container { flex-wrap: wrap; gap: 0 20px; padding-top: 8px; padding-bottom: 8px; overflow-x: visible; }
+        .service-nav a { min-height: 44px; white-space: normal; }
+      }
     </style>
     <script>
       window.va =
@@ -1274,55 +1289,32 @@
       </div>
     </header>
     <main id="main">
-      <section class="hero dark" aria-labelledby="hero-heading">
+      <section class="hero dark home-hero" aria-labelledby="hero-heading">
         <div class="container">
           <p class="eyebrow">Interim &amp; fractional executive leadership</p>
-          <h1 id="hero-heading">
-            Interim and fractional leadership across the C-suite.
-          </h1>
-          <p class="intro">
-            C³ Executive Suite provides interim and fractional leadership across
-            finance, operations, strategy, growth and marketing, transformation,
-            people and culture, and risk and governance. Our executives take
-            ownership through transition, supported by a dedicated Financial
-            Services practice for accounting, controllership and CFO advisory.
-          </p>
-          <p class="hero-difference">
-            One operator stabilizes the business, one commercializes it, and one
-            designs how it should run. We join your leadership team, define who
-            owns the work and execute through the transition.
-          </p>
+          <h1 id="hero-heading">Leadership when your business cannot stand still.</h1>
+          <p class="intro">C³ executives take ownership through transition, growth and recovery. Finance, operations, commercial strategy and transformation, supported by a dedicated Financial Services practice.</p>
           <div class="actions">
-            <a
-              class="primary"
-              href="https://calendly.com/mfackrell79/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Start a Conversation</a
-            ><a class="text-link" href="./accounting.html"
-              >Financial services practice <span aria-hidden="true">→</span></a
-            >
+            <a class="primary" href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer">Book a confidential conversation</a>
           </div>
-          <div class="credentials" aria-label="Experience">
-            <div class="credential">
-              <strong>25+ years</strong
-              ><span>Leading finance and operations teams</span>
-            </div>
-            <div class="credential">
-              <strong>50+ companies</strong
-              ><span>Supported across Mark’s career</span>
-            </div>
-            <div class="credential">
-              <strong>$25M–$100M+</strong
-              ><span>Transaction and operating experience</span>
-            </div>
+          <p class="note">Urgent need? <a class="text-link" href="mailto:mark.fackrell@c3execs.com">Email Mark directly</a>. We respond within one business day.</p>
+        </div>
+      </section>
+      <section id="pe-experience" class="section stone proof-summary" aria-labelledby="pe-heading">
+        <div class="container">
+          <p class="eyebrow" id="pe-heading">Selected leadership results</p>
+          <div class="practice-grid">
+            <article>
+              <h2>18 months of unclosed books. Audit completed in 10 weeks.</h2>
+              <p>Mark led the recovery of a PE-owned, global professional services firm with approximately $100M in revenue, then led due diligence support.</p>
+              <a class="text-link" href="#cleanup-case-heading">Read the recovery story <span aria-hidden="true">→</span></a>
+            </article>
+            <article>
+              <h2>A $2.5M hardware refresh avoided.</h2>
+              <p>The customer’s CIO reported that the firm Eric led completed a cloud migration in about 60 days and cut hosting and support costs roughly in half.</p>
+              <a class="text-link" href="./team.html#eric-heading">Explore Eric’s experience <span aria-hidden="true">→</span></a>
+            </article>
           </div>
-          <p class="note">
-            Urgent need?
-            <a class="text-link" href="mailto:mark.fackrell@c3execs.com"
-              >Email Mark directly</a
-            >. We respond within one business day.
-          </p>
         </div>
       </section>
       <section
@@ -1350,142 +1342,20 @@
               >
             </article>
             <article>
-              <h3>Financial Services</h3>
+              <h3 id="financial-services">Financial Services</h3>
               <p>
-                A standing accounting and CFO practice, from bookkeeping and
-                month-end close to controllership and financial advisory.
+                CFO leadership, controllership, close, reporting and transaction
+                support, backed by a complete accounting function.
               </p>
               <a class="text-link" href="./accounting.html"
                 >Explore Financial Services <span aria-hidden="true">→</span></a
               >
             </article>
           </div>
-          <div
-            id="financial-services"
-            class="engagement-models"
-            aria-labelledby="financial-services-heading"
-          >
-            <div>
-              <div class="section-heading">
-                <p class="eyebrow">Financial services practice</p>
-                <h2 id="financial-services-heading">
-                  Financial leadership, backed by a complete accounting
-                  practice.
-                </h2>
-              </div>
-              <div class="three">
-                <article class="service-summary">
-                  <h3>CFO &amp; advisory</h3>
-                  <p>
-                    Cash governance, lender and board reporting, audit readiness
-                    and transaction preparation.
-                  </p>
-                </article>
-                <article class="service-summary">
-                  <h3>Controllership</h3>
-                  <p>
-                    Month-end close, financial statements, multi-entity
-                    accounting and internal controls.
-                  </p>
-                </article>
-                <article class="service-summary">
-                  <h3>Bookkeeping</h3>
-                  <p>
-                    Transaction recording, accounts payable and receivable,
-                    reconciliations and ledger maintenance.
-                  </p>
-                </article>
-              </div>
-              <p class="band-note">
-                Engaged as a complete function, an extension of your team or a
-                defined project.
-              </p>
-              <div class="actions">
-                <a class="secondary" href="./accounting.html"
-                  >Explore Financial Services</a
-                ><a class="text-link" href="?service=accounting#contact"
-                  >Discuss your accounting needs
-                  <span aria-hidden="true">→</span></a
-                >
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
-      <section
-        id="capabilities"
-        class="section stone"
-        aria-labelledby="capabilities-heading"
-      >
-        <div class="container reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Capabilities</p>
-            <h2 id="capabilities-heading">Leadership across seven seats.</h2>
-          </div>
-          <div class="capability-grid">
-            <article class="capability">
-              <h3>Finance</h3>
-              <p>
-                CFO leadership for financial recovery, cash governance, audit,
-                diligence and transaction preparation.
-              </p>
-              <p class="person-role">Led by Mark</p>
-            </article>
-            <article class="capability">
-              <h3>Operations</h3>
-              <p>
-                Executive ownership of operating priorities, accountability and
-                the systems that carry a business through transition.
-              </p>
-              <p class="person-role">Led by Mark, Ravi</p>
-            </article>
-            <article class="capability">
-              <h3>Strategy</h3>
-              <p>
-                Test business assumptions and connect commercial priorities to
-                capital, capacity and execution.
-              </p>
-              <p class="person-role">Led by Eric, Ravi</p>
-            </article>
-            <article class="capability">
-              <h3>Growth &amp; Marketing</h3>
-              <p>
-                Commercial leadership across market development, partnerships,
-                lead generation and go-to-market execution.
-              </p>
-              <p class="person-role">Led by Eric</p>
-            </article>
-            <article class="capability">
-              <h3>Transformation</h3>
-              <p>
-                Lead integration, technology and operating-model change with a
-                clear commercial outcome.
-              </p>
-              <p class="person-role">Led by Eric, Ravi</p>
-            </article>
-            <article class="capability">
-              <h3>People &amp; Culture</h3>
-              <p>
-                Role accountability and management cadence, led by C³ leadership
-                as part of broader engagements and matched to the seat.
-              </p>
-              <p class="person-role">Led by C³ leadership</p>
-            </article>
-            <article class="capability">
-              <h3>Risk &amp; Governance</h3>
-              <p>
-                Clarify decision rights, execution risk, procurement
-                requirements and commercial terms before capital is committed.
-              </p>
-              <p class="person-role">Led by Ravi</p>
-            </article>
-          </div>
-          <p class="note">
-            The executive in your seat is backed by colleagues who have run the
-            neighboring functions.
-          </p>
-        </div>
-      </section>
+
       <section
         id="situations"
         class="section"
@@ -1516,73 +1386,104 @@
           </ul>
         </div>
       </section>
+
+
+
+      <span id="outcomes" class="legacy-anchor" aria-hidden="true"></span>
+      <span id="cases" class="legacy-anchor" aria-hidden="true"></span>
       <section
-        id="pe-experience"
-        class="section stone"
-        aria-labelledby="pe-heading"
+        id="engagements"
+        class="section"
+        aria-labelledby="engagements-heading"
       >
         <div class="container reveal">
           <div class="section-heading">
-            <p class="eyebrow">For sponsors and portfolio companies</p>
-            <h2 id="pe-heading">
-              Financial recovery under pressure. Ownership through execution.
-            </h2>
-            <p>
-              Private equity-owned businesses. Audit deadlines. Transactions
-              that need reliable numbers and an executive who owns the work.
-            </p>
+            <p class="eyebrow">Selected engagements</p>
+            <h2 id="engagements-heading">Work that shows how we lead.</h2>
           </div>
-          <div class="split">
-            <p class="case-number">10 weeks</p>
+          <article class="featured-case" aria-labelledby="cleanup-case-heading">
             <div>
-              <h3>Eighteen months of unclosed books. A completed audit.</h3>
-              <p>
-                Mark directed the financial recovery of a PE-owned, global,
-                multi-entity professional services firm with about $100M
-                revenue, then led due diligence support.
+              <p class="case-category">
+                Global, multi-entity professional services
               </p>
-              <a class="text-link" href="#cleanup-case-heading"
-                >Read the full engagement <span aria-hidden="true">→</span></a
-              >
+              <p class="case-number">10 weeks</p>
+              <p class="case-copy">
+                18 months of unclosed books cleaned up.<br />Audit completed.
+              </p>
             </div>
-          </div>
-          <div class="three">
-            <article class="capability">
-              <h3>CFO &amp; financial leadership</h3>
-              <p>
-                Financial recovery, reliable close and reporting, audit
-                coordination, diligence and exit preparation.
+            <div>
+              <h3 id="cleanup-case-heading">
+                Eighteen months of unclosed books. A completed audit in 10
+                weeks.
+              </h3>
+              <p class="case-copy">
+                A private equity-owned, global, multi-entity professional
+                services firm with approximately $100 million in revenue faced
+                18 months of unclosed books, a badly implemented ERP system and
+                unreliable legacy records. The prior personnel had departed,
+                leaving a completely new accounting team to untangle the
+                problems.
               </p>
+              <p class="case-copy">
+                Mark assumed executive-level ownership of the recovery, setting
+                priorities, directing the new team and driving the
+                reconstruction and cleanup of the financial records. Within 10
+                weeks, the team cleared the accounting backlog and completed the
+                audit. Mark also led the due diligence support.
+              </p>
+            </div>
+          </article>
+          <div class="two">
+            <article class="case">
+              <p class="case-category">
+                Restructuring · Cash governance<br />Solar infrastructure
+                business
+              </p>
+              <p class="case-number">13-week</p>
+              <h3>Operational leadership through Chapter 11.</h3>
+              <p class="case-label">Situation</p>
+              <p class="case-copy">
+                A solar infrastructure business entered Chapter 11 without an
+                executive owner and required financial discipline and hands-on
+                operational leadership.
+              </p>
+              <div class="case-result">
+                <p class="case-label">Result</p>
+                <p class="case-copy">
+                  Mark carried significant operational responsibilities
+                  alongside financial leadership, installed 13-week cash
+                  governance and protected core operations.
+                </p>
+              </div>
             </article>
-            <article class="capability">
-              <h3>Operations &amp; execution</h3>
-              <p>
-                Set immediate priorities and team accountability, with an
-                executive responsible for delivery.
+            <article class="case">
+              <p class="case-category">
+                Technology · Operating cost<br />Consumer membership business
               </p>
-            </article>
-            <article class="capability">
-              <h3>Cash &amp; lender reporting</h3>
-              <p>
-                13-week cash forecasts, covenant reporting and financial
-                information for lenders, sponsors and boards.
+              <p class="case-number">~60 days</p>
+              <h3>A cloud migration with a commercial result.</h3>
+              <p class="case-label">Situation</p>
+              <p class="case-copy">
+                A consumer membership business faced a major hardware refresh
+                and needed a more sustainable infrastructure model.
               </p>
+              <div class="case-result">
+                <p class="case-label">Result</p>
+                <p class="case-copy">
+                  The customer’s CIO reported that the firm Eric led avoided a
+                  $2.5 million hardware refresh, cut hosting and support costs
+                  roughly in half, and completed the migration in about 60 days.
+                </p>
+              </div>
             </article>
           </div>
           <p class="note">
-            25+ years of finance and operations leadership across more than 50
-            companies. Chapter 11, financial recovery and transaction
-            experience. Client identities remain confidential.
+            Client names are withheld to protect confidentiality.
           </p>
-          <div class="actions">
-            <a class="text-link" href="mailto:mark.fackrell@c3execs.com"
-              >Email for an urgent need</a
-            >
-          </div>
-          <p class="engagement-note">
-            Meet within seven days for an initial assessment. Engagement timing
-            follows the agreed scope.
-          </p>
+          <a class="text-link" href="./accounting.html"
+            >More on our financial services work
+            <span aria-hidden="true">→</span></a
+          >
         </div>
       </section>
       <span id="services" class="legacy-anchor" aria-hidden="true"></span>
@@ -1667,125 +1568,27 @@
           </div>
         </div>
       </section>
-      <span id="outcomes" class="legacy-anchor" aria-hidden="true"></span
-      ><span id="cases" class="legacy-anchor" aria-hidden="true"></span>
-      <section
-        id="engagements"
-        class="section"
-        aria-labelledby="engagements-heading"
-      >
-        <div class="container reveal">
+      <section id="capabilities" class="section stone" aria-labelledby="capabilities-heading">
+        <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Selected engagements</p>
-            <h2 id="engagements-heading">Work that shows how we lead.</h2>
+            <p class="eyebrow">Executive Leadership</p>
+            <h2 id="capabilities-heading">The right experience for the work ahead.</h2>
           </div>
-          <article class="featured-case" aria-labelledby="cleanup-case-heading">
-            <div>
-              <p class="case-category">
-                Global, multi-entity professional services
-              </p>
-              <p class="case-number">10 weeks</p>
-              <p class="case-copy">
-                18 months of unclosed books cleaned up.<br />Audit completed.
-              </p>
-            </div>
-            <div>
-              <h3 id="cleanup-case-heading">
-                Eighteen months of unclosed books. A completed audit in 10
-                weeks.
-              </h3>
-              <p class="case-copy">
-                A private equity-owned, global, multi-entity professional
-                services firm with approximately $100 million in revenue faced
-                18 months of unclosed books, a badly implemented ERP system and
-                unreliable legacy records. The prior personnel had departed,
-                leaving a completely new accounting team to untangle the
-                problems.
-              </p>
-              <p class="case-copy">
-                Mark assumed executive-level ownership of the recovery, setting
-                priorities, directing the new team and driving the
-                reconstruction and cleanup of the financial records. Within 10
-                weeks, the team cleared the accounting backlog and completed the
-                audit. Mark also led the due diligence support.
-              </p>
-            </div>
-          </article>
           <div class="three">
-            <article class="case">
-              <p class="case-category">
-                Restructuring · Cash governance<br />Solar infrastructure
-                business
-              </p>
-              <p class="case-number">13-week</p>
-              <h3>Operational leadership through Chapter 11.</h3>
-              <p class="case-label">Situation</p>
-              <p class="case-copy">
-                A solar infrastructure business entered Chapter 11 without an
-                executive owner and required financial discipline and hands-on
-                operational leadership.
-              </p>
-              <div class="case-result">
-                <p class="case-label">Result</p>
-                <p class="case-copy">
-                  Mark carried significant operational responsibilities
-                  alongside financial leadership, installed 13-week cash
-                  governance and protected core operations.
-                </p>
-              </div>
-            </article>
-            <article class="case">
-              <p class="case-category">
-                Technology · Operating cost<br />Consumer membership business
-              </p>
-              <p class="case-number">~60 days</p>
-              <h3>A cloud migration with a commercial result.</h3>
-              <p class="case-label">Situation</p>
-              <p class="case-copy">
-                A consumer membership business faced a major hardware refresh
-                and needed a more sustainable infrastructure model.
-              </p>
-              <div class="case-result">
-                <p class="case-label">Result</p>
-                <p class="case-copy">
-                  The customer’s CIO reported that the firm Eric led avoided a
-                  $2.5 million hardware refresh, cut hosting and support costs
-                  roughly in half, and completed the migration in about 60 days.
-                </p>
-              </div>
-            </article>
+            <article class="capability"><h3>Finance &amp; operations</h3><p>Mark leads financial recovery, operating priorities, cash governance and transaction execution.</p></article>
+            <article class="capability"><h3>Growth &amp; transformation</h3><p>Eric connects commercial strategy, partnerships, technology and integration to business outcomes.</p></article>
+            <article class="capability"><h3>Strategy &amp; operating systems</h3><p>Ravi brings operating-model design, procurement, commercial terms and execution governance.</p></article>
           </div>
-          <p class="note">
-            Client names are withheld to protect confidentiality.
-          </p>
-          <a class="text-link" href="./accounting.html"
-            >More on our financial services work
-            <span aria-hidden="true">→</span></a
-          >
+          <p class="note">Engagements can span all seven leadership areas, including people and culture priorities within the agreed scope.</p>
+          <a class="text-link" href="./model.html">Explore the full leadership practice <span aria-hidden="true">→</span></a>
         </div>
       </section>
+
+
+
+
       <span id="team" class="legacy-anchor" aria-hidden="true"></span>
-      <section
-        id="why-three"
-        class="section stone"
-        aria-labelledby="why-three-heading"
-      >
-        <div class="container reveal">
-          <div class="section-heading">
-            <h2 id="why-three-heading">Why these three</h2>
-          </div>
-          <p class="intro">
-            One operator stabilizes the business, one commercializes it, and one
-            designs how it should run.
-          </p>
-          <p>
-            Transitions rarely break in one function. Financial recovery can
-            expose an operating problem; an integration can stall growth;
-            commercial terms can undermine cash. The executive in your seat can
-            draw on colleagues who have run the neighboring functions.
-          </p>
-        </div>
-      </section>
+      <span id="why-three" class="legacy-anchor" aria-hidden="true"></span>
       <section id="people" class="section" aria-labelledby="people-heading">
         <div class="container reveal">
           <div class="section-heading">
@@ -1793,7 +1596,8 @@
             <h2 id="people-heading">Meet your leadership team.</h2>
             <p>
               One operator stabilizes the business, one commercializes it, and
-              one designs how it should run.
+              one designs how it should run. The executive in your seat can draw
+              on colleagues who have run the neighboring functions.
             </p>
           </div>
           <div class="three">

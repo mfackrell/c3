@@ -1,3 +1,18 @@
+# October 2 — homepage hierarchy update
+
+- Replaced the category headline with “Leadership when your business cannot stand still.”
+- Shortened the introduction and added a specific booking label.
+- Placed Mark’s recovery and Eric’s attributed migration proof directly below the hero.
+- Removed the duplicated financial-service breakdown and standalone three-operator section; retained the complete services on their dedicated pages.
+- Condensed the homepage capabilities around the three leaders; retained all seven areas on Executive Leadership.
+- Moved selected engagements ahead of process and capabilities. Preserved inbound section anchors.
+- Wrapped mobile Financial Services navigation onto two lines instead of clipping horizontally.
+- Preserved all scripts, form behavior, analytics and privacy text byte for byte.
+
+Verification: 375–1440px layouts without horizontal overflow; zero automated WCAG A/AA violations at 375px and 1440px on five pages. At 390px the hero measures 724px and the booking button ends at 594px; proof begins at 725px. Desktop and mobile screenshots reviewed. Public team image URLs returned HTTP 200 and valid PNG content. Real-device photo rendering was not independently tested.
+
+---
+
 # C³ Executive Suite — three complementary operators
 
 ## Rationale
