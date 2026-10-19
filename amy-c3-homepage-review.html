@@ -57,7 +57,15 @@
         ]
       }
     </script>
-    <style>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+  <style>
       /* Tokens */
       :root {
         --ink: #0b1220;
@@ -1240,46 +1248,8 @@
         .service-nav .container { flex-wrap: wrap; gap: 0 20px; padding-top: 8px; padding-bottom: 8px; overflow-x: visible; }
         .service-nav a { min-height: 44px; white-space: normal; }
       }
-    </style>
-    <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-        <style>
-        /* Review-page-only presentation; the public C3 homepage is untouched. */
-        .partner-four {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
-        .partner-four .person {min-width:0;display:flex;flex-direction:column;height:100%}
-        .partner-four .person > div:last-child {display:flex;flex-direction:column;flex:1}
-        .partner-four .person .person-body {flex:1}
-        .partner-four .person .person-role {min-height:66px}
-        .partner-four .person .person-photo {width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;margin-bottom:24px}
-        .partner-four .person .text-link {align-self:flex-start;margin-top:auto}
-        .partner-four .partner-profile {border-top:0;padding-top:0}
-        .partner-four .person h3 {font-size:clamp(23px,2.1vw,30px)}
-        .partner-four .person-body {font-size:15px;line-height:1.65}
-        .partner-profile {border-top:3px solid var(--brass);padding-top:14px}
-        .partner-monogram {width:100%;aspect-ratio:4/5;margin-bottom:24px;background:linear-gradient(140deg,#0b1220,#233b61);color:#dfc395;display:flex;align-items:center;justify-content:center;font:400 clamp(70px,8vw,130px)/1 var(--serif)}
-        .partner-practices {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
-        .partner-practices article {border-top:1px solid var(--line);padding-top:22px}
-        .partner-practices h3 {margin-bottom:12px}
-        @media(max-width:1000px){.partner-four {grid-template-columns:repeat(2,minmax(0,1fr))}}
-        @media(max-width:640px){.partner-four,.partner-practices {grid-template-columns:1fr}}
-      </style>
-        <style>
-        .proof-summary .proof-three { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px; }
-        .proof-summary .proof-three > article + article {padding-left:30px;}
-        .proof-summary .proof-three h2 {font-size:clamp(24px,2.15vw,32px);}
-        @media(max-width:850px) {
-          .proof-summary .proof-three {grid-template-columns:1fr;gap:20px}
-          .proof-summary .proof-three > article + article {border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px;}
-        }
-      </style>
-  
-      <style>
+    
+
         /* Amy partnership review — unified layout and responsive rhythm */
         #pe-experience .proof-three { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;align-items:stretch; }
         #pe-experience .proof-three > article {min-width:0;display:flex;flex-direction:column;padding:0 30px;}
@@ -1330,7 +1300,33 @@
           #people .partner-four .person-photo {max-width:400px;}
           #pe-experience .proof-three h2 {font-size:27px;}
         }
-      </style>
+      
+      /* Compact review-page rhythm and balanced practice cards. */
+      .section { padding: 80px 0; }
+      .section-heading { margin-bottom: 40px; }
+      #practices .practice-grid > article { display:flex; flex-direction:column; min-width:0; }
+      #practices .text-link { margin-top:auto; align-self:flex-start; }
+      #people .partner-four { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+      #people .partner-four .person { height:100%; }
+      #people .partner-four .person-role { min-height:58px; }
+      #people .partner-four .person > div:last-child { min-width:0; }
+      #amy-strategic-partner .section-heading { margin-bottom:32px; }
+      #amy-strategic-partner .prose p { font-size:17px; }
+      #amy-strategic-partner h3 { margin-bottom:16px; }
+      #leadership-and-change .approach-note { margin-top:28px; }
+      #faq details { padding-top:20px; padding-bottom:20px; }
+      @media(max-width:1050px) {
+        #people .partner-four { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        #people .partner-four .person-role { min-height:40px; }
+      }
+      @media(max-width:600px) {
+        .section { padding:56px 0; }
+        .section-heading { margin-bottom:32px; }
+        #people .partner-four { grid-template-columns:1fr; }
+        #people .partner-four .person-role { min-height:0; }
+      }
+
+    </style>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -1354,10 +1350,10 @@
         <nav id="primary-navigation" class="site-nav" aria-label="Primary">
           <a href="./model.html">Executive Leadership</a
           ><a href="./accounting.html">Financial Services</a
-          ><a href="./index.html#how-we-work">How We Work</a
-          ><a href="./index.html#engagements">Engagements</a
-          ><a href="./team.html">Our People</a
-          ><a href="./index.html#contact">Contact</a
+          ><a href="#how-we-work">How We Work</a
+          ><a href="#engagements">Engagements</a
+          ><a href="#people">Our People</a
+          ><a href="#contact">Contact</a
           ><a
             class="primary"
             href="https://calendly.com/mfackrell79/30min"
@@ -1373,7 +1369,7 @@
         <div class="container">
           <p class="eyebrow">Interim &amp; fractional executive leadership</p>
           <h1 id="hero-heading">Interim and fractional leadership across the C-suite.</h1>
-          <p class="intro">C³ executives take ownership through transition, growth and recovery. Finance, operations, commercial strategy and transformation. We also help organizations strengthen leadership teams, improve accountability, align people through change and execute strategy, supported by independent strategic partners and a dedicated Financial Services practice.</p>
+          <p class="intro">C³ brings executive ownership across finance, operations, growth and transformation. We help businesses recover performance, strengthen leadership teams and carry change through to results, with a dedicated Financial Services practice.</p>
           <div class="actions">
             <a class="primary" href="https://calendly.com/mfackrell79/30min" target="_blank" rel="noopener noreferrer">Book a confidential conversation</a>
           </div>
@@ -1418,7 +1414,7 @@
             <article>
               <h3>Executive Leadership</h3>
               <p>
-                Interim and fractional executives who step into critical seats during vacancy, growth, transition or restructuring. Working with independent leadership specialists, C³ can also help clients build stronger management teams, navigate organizational change and turn an operating plan into consistent execution.
+                Interim and fractional executives take ownership through vacancy, growth and restructuring. Leadership development and team alignment help your people execute the change.
               </p>
               <a class="text-link" href="./model.html"
                 >Explore Executive Leadership
@@ -1428,8 +1424,7 @@
             <article>
               <h3 id="financial-services">Financial Services</h3>
               <p>
-                CFO leadership, controllership, close, reporting and transaction
-                support, backed by a complete accounting function.
+                CFO leadership, controllership and a complete accounting function. Restore reliable reporting, manage cash and prepare for audits, financing and transactions.
               </p>
               <a class="text-link" href="./accounting.html"
                 >Explore Financial Services <span aria-hidden="true">→</span></a
@@ -1674,27 +1669,7 @@
           </div>
         </div>
       </section>
-      <section id="capabilities" class="section stone" aria-labelledby="capabilities-heading">
-        <div class="container reveal">
-          <div class="section-heading">
-            <p class="eyebrow">The C³ Executive Suite</p>
-            <h2 id="capabilities-heading">The leadership to fix the business. The expertise to make the change last.</h2>
-            <p>Our executives bring hands-on ownership across finance, operations, commercial strategy and execution. Amy Burkett's proposed independent partnership adds deep experience in developing leaders, aligning teams and navigating organizational change.</p>
-          </div>
-          <div class="partner-practices">
-            <article><p class="eyebrow">Mark Fackrell</p><h3>Finance &amp; operations</h3><p>Financial recovery, cash management, operational improvement, M&amp;A and executive leadership when the business needs immediate ownership.</p></article>
-            <article><p class="eyebrow">Eric Hughes</p><h3>Growth &amp; transformation</h3><p>Commercial strategy, partnerships, technology transformation and acquisition integration linked to business outcomes.</p></article>
-            <article><p class="eyebrow">Ravi VC</p><h3>Strategy &amp; operating systems</h3><p>Operating-model design, procurement, commercial terms and execution governance to make strategy actionable.</p></article>
-            <article><p class="eyebrow">Amy Burkett · Independent strategic partner</p><h3>Leadership &amp; organizational transformation</h3><p>Executive coaching, leadership development, team effectiveness, DISC assessments, strategic facilitation and change leadership, grounded in decades of executive operating experience.</p></article>
-          </div>
-          <p class="note">The proposed relationship with Amy Burkett Consulting is subject to mutual agreement. The firms remain independent.</p>
-        </div>
-      </section>
-
-
-
-
-      <span id="team" class="legacy-anchor" aria-hidden="true"></span>
+<span id="team" class="legacy-anchor" aria-hidden="true"></span>
       <span id="why-three" class="legacy-anchor" aria-hidden="true"></span>
       <section id="people" class="section" aria-labelledby="people-heading">
         <div class="container reveal">
@@ -1702,7 +1677,7 @@
             <p class="eyebrow">Our people</p>
             <h2 id="people-heading">Executive operators, supported by specialist partners.</h2>
             <p>
-              Three C³ operating executives, complemented by Amy Burkett as a proposed independent strategic partner. Together, the model spans financial recovery, growth, operating systems and the leadership effectiveness required to carry transformation through.
+              Meet the executives who lead the work, alongside Amy Burkett, our proposed independent strategic partner in leadership and organizational transformation.
             </p>
           </div>
           <div class="partner-four">
@@ -1788,36 +1763,23 @@
         </div>
       </section>
       <section id="amy-strategic-partner" class="section stone" aria-labelledby="amy-partner-heading">
-        <div class="container reveal">
+        <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Leadership &amp; organizational transformation · Proposed strategic executive partner</p>
-            <h2 id="amy-partner-heading">Amy Burkett: an executive who has led the change herself.</h2>
-            <p>Financial and operational change succeeds when people can lead it. C³'s executive operators can work alongside experienced independent specialists to help organizations align their leadership, strengthen execution and sustain results.</p>
+            <p class="eyebrow">Amy Burkett Consulting · Proposed strategic partner</p>
+            <h2 id="amy-partner-heading">Executive experience behind the leadership work.</h2>
           </div>
-          <div class="split">
+          <div class="split prose">
             <div>
-              <p class="eyebrow">Independent strategic partner · Proposed</p>
-              <h3>Amy Burkett</h3>
-              <p class="person-role">Founder, Amy Burkett Consulting<br />Leadership &amp; Organizational Transformation</p>
-              <p>Amy brings more than 30 years of broadcast leadership experience, including executive turnaround work at a struggling PBS station in Charlotte. Under her leadership the organization repaid more than $1 million in debt while increasing audience, donors and community impact.</p>
-              <p style="margin-top:20px">A Maxwell Leadership-certified coach, trainer and speaker, with Maxwell DISC certification, Amy works with leaders on communication, team dynamics, strategic planning and leading change. This practical leadership expertise complements C³'s financial, operational and commercial transformation work.</p>
-              <p class="note">Amy Burkett Consulting is an independent business. This page proposes a potential strategic partnership; it does not announce a finalized relationship.</p>
+              <h3>A turnaround led from the inside.</h3>
+              <p>Amy led the recovery of a struggling PBS station in Charlotte. Under her leadership, the organization repaid more than $1 million in debt while increasing its audience, donors and community impact.</p>
+            </div>
+            <div>
+              <h3>Practical development for your leaders.</h3>
+              <p>With more than 30 years of broadcast leadership experience, Amy brings Maxwell Leadership coaching, training and speaking credentials and Maxwell DISC certification to her work with executives and teams.</p>
               <a class="text-link" href="https://www.amyburkettconsulting.com/" target="_blank" rel="noopener noreferrer">Explore Amy Burkett Consulting <span aria-hidden="true">↗</span></a>
             </div>
-            <div>
-              <article class="capability" style="border-top:2px solid var(--brass);padding-top:24px">
-                <p class="eyebrow">Complementary expertise</p>
-                <h3>Leadership that carries the change.</h3>
-                <ul class="rule-list">
-                  <li>Executive coaching and leadership development</li>
-                  <li>Leadership-team alignment and communication</li>
-                  <li>DISC-based team insight and effectiveness</li>
-                  <li>Strategic facilitation and organizational change</li>
-                </ul>
-                <p class="note">Potential engagements remain subject to scope, availability and mutual agreement between independent firms.</p>
-              </article>
-            </div>
           </div>
+          <p class="note">Proposed partnership, subject to mutual agreement. C³ Executive Suite and Amy Burkett Consulting remain independent businesses.</p>
         </div>
       </section>
       <section id="faq" class="section stone" aria-labelledby="faq-heading">
@@ -1826,20 +1788,11 @@
             <h2 id="faq-heading">Common questions.</h2>
           </div>
           <div class="faq-list">
-            <details>
-              <summary>How soon can we meet?</summary>
-              <p class="engagement-note">
-                We can meet within seven days for an initial assessment. We
-                agree on the engagement start date as part of defining the
-                scope.
-              </p>
-            </details>
-            <details>
+<details>
               <summary>How does an engagement work?</summary>
               <p>
                 We agree on the responsibilities and scope. Support can mean an
-                embedded executive, a complete accounting function, an extension
-                of your team or a defined financial project.
+                embedded executive, leadership and team development, a complete accounting function or a defined transformation project.
               </p>
               <p class="engagement-note">
                 There is no minimum commitment. We shape the engagement around
@@ -1932,9 +1885,7 @@
               Discuss the situation directly with Mark.
             </h2>
             <p>
-              A vacant seat, an audit deadline or an urgent financial issue:
-              email Mark directly. We respond within one business day. Every
-              conversation and engagement is confidential.
+              A leadership gap, a growth challenge or a team struggling through change: let’s discuss what your business needs. Email Mark directly. We respond within one business day. Every conversation and engagement is confidential.
             </p>
             <a class="email" href="mailto:mark.fackrell@c3execs.com"
               >mark.fackrell@c3execs.com</a
@@ -2048,10 +1999,10 @@
         <nav class="footer-nav" aria-label="Footer">
           <a href="./model.html">Executive Leadership</a
           ><a href="./accounting.html">Financial Services</a
-          ><a href="./index.html#how-we-work">How We Work</a
-          ><a href="./index.html#engagements">Engagements</a
-          ><a href="./team.html">Our People</a
-          ><a href="./index.html#contact">Contact</a
+          ><a href="#how-we-work">How We Work</a
+          ><a href="#engagements">Engagements</a
+          ><a href="#people">Our People</a
+          ><a href="#contact">Contact</a
           ><a href="./privacy.html">Privacy policy</a>
           <a
             href="https://calendly.com/mfackrell79/30min"
@@ -2263,19 +2214,7 @@
       gtag("js", new Date());
       gtag("config", "G-RWL2212988");
     </script>
-    <script>
-      (function () {
-        function loadTidio() {
-          setTimeout(function () {
-            var script = document.createElement("script");
-            script.src = "//code.tidio.co/uiap4am7uimptkyiu5appg7td3meog6a.js";
-            script.async = true;
-            document.body.appendChild(script);
-          }, 2000);
-        }
 
-        window.addEventListener("load", loadTidio, { once: true });
-      })();
-    </script>
   </body>
 </html>
+
