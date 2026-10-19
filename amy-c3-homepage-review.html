@@ -1263,6 +1263,15 @@
         @media(max-width:1000px){.partner-four {grid-template-columns:repeat(2,minmax(0,1fr))}}
         @media(max-width:640px){.partner-four,.partner-practices {grid-template-columns:1fr}}
       </style>
+        <style>
+        .proof-summary .proof-three { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px; }
+        .proof-summary .proof-three > article + article {padding-left:30px;}
+        .proof-summary .proof-three h2 {font-size:clamp(24px,2.15vw,32px);}
+        @media(max-width:850px) {
+          .proof-summary .proof-three {grid-template-columns:1fr;gap:20px}
+          .proof-summary .proof-three > article + article {border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px;}
+        }
+      </style>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -1315,7 +1324,7 @@
       <section id="pe-experience" class="section stone proof-summary" aria-labelledby="pe-heading">
         <div class="container">
           <p class="eyebrow" id="pe-heading">Selected leadership results</p>
-          <div class="practice-grid">
+          <div class="practice-grid proof-three">
             <article>
               <h2>18 months of unclosed books. Audit completed in 10 weeks.</h2>
               <p>Mark led the recovery of a PE-owned, global professional services firm with approximately $100M in revenue, then led due diligence support.</p>
@@ -1325,6 +1334,11 @@
               <h2>A $2.5M hardware refresh avoided.</h2>
               <p>The customer’s CIO reported that the firm Eric led completed a cloud migration in about 60 days and cut hosting and support costs roughly in half.</p>
               <a class="text-link" href="./team.html#eric-heading">Explore Eric’s experience <span aria-hidden="true">→</span></a>
+            </article>
+            <article>
+              <h2>Over $1M in debt repaid. A struggling PBS station rebuilt.</h2>
+              <p>Amy took charge of a struggling PBS station in Charlotte, restructured operations and led its recovery, repaying more than $1 million in debt while growing its audience, donors and community impact.</p>
+              <a class="text-link" href="#amy-strategic-partner">Explore Amy’s turnaround experience <span aria-hidden="true">→</span></a>
             </article>
           </div>
         </div>
