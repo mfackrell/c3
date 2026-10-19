@@ -1252,9 +1252,15 @@
         <style>
         /* Review-page-only presentation; the public C3 homepage is untouched. */
         .partner-four {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
-        .partner-four .person {min-width:0}
+        .partner-four .person {min-width:0;display:flex;flex-direction:column;height:100%}
+        .partner-four .person > div:last-child {display:flex;flex-direction:column;flex:1}
+        .partner-four .person .person-body {flex:1}
+        .partner-four .person .person-role {min-height:66px}
+        .partner-four .person .person-photo {width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;margin-bottom:24px}
+        .partner-four .person .text-link {align-self:flex-start;margin-top:auto}
+        .partner-four .partner-profile {border-top:0;padding-top:0}
         .partner-four .person h3 {font-size:clamp(23px,2.1vw,30px)}
-        .partner-four .person-body {font-size:15px}
+        .partner-four .person-body {font-size:15px;line-height:1.65}
         .partner-profile {border-top:3px solid var(--brass);padding-top:14px}
         .partner-monogram {width:100%;aspect-ratio:4/5;margin-bottom:24px;background:linear-gradient(140deg,#0b1220,#233b61);color:#dfc395;display:flex;align-items:center;justify-content:center;font:400 clamp(70px,8vw,130px)/1 var(--serif)}
         .partner-practices {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
@@ -1663,11 +1669,7 @@
                   Interim Executive · Finance, Operations &amp; Transactions
                 </p>
                 <p class="person-body">
-                  Mark takes ownership of financial and operating recovery in
-                  businesses under pressure. His work spans more than 50
-                  companies, including PE-owned businesses, and includes audit
-                  completion, sale leadership and operational responsibility
-                  through permanent handoff.
+                  Mark leads finance and operating recovery across more than 50 companies, including PE-owned businesses. He takes ownership of stabilization, audit completion, transaction execution and operational handoff.
                 </p>
                 <a class="text-link" href="./team.html#mark"
                   >Full profile <span aria-hidden="true">→</span></a
@@ -1690,10 +1692,7 @@
                   Growth, Strategy &amp; Technology Transformation
                 </p>
                 <p class="person-body">
-                  Eric built and led businesses across marketing, partnerships
-                  and technology transformation. His experience connects
-                  commercial strategy, acquisition integration and the operating
-                  decisions behind growth.
+                  Eric leads commercial strategy, partnerships and technology transformation. His experience connects acquisition integration, growth planning and operating execution to measurable business outcomes.
                 </p>
                 <a class="text-link" href="./team.html#eric"
                   >Full profile <span aria-hidden="true">→</span></a
@@ -1716,10 +1715,7 @@
                   Strategy, Execution Risk &amp; Commercial Systems
                 </p>
                 <p class="person-body">
-                  Ravi designs operating models, commercial systems and the path
-                  from concept to market. He tests strategy, capacity and
-                  execution risk before more capital is committed, with
-                  particular depth in procurement and commercial terms.
+                  Ravi designs operating models and commercial systems. He tests strategy, capacity and execution risk, bringing particular depth in procurement, commercial terms and practical implementation.
                 </p>
                 <a class="text-link" href="./team.html#ravi"
                   >Full profile <span aria-hidden="true">→</span></a
@@ -1727,12 +1723,12 @@
               </div>
             </article>
             <article class="person partner-profile">
-              <div class="partner-monogram" role="img" aria-label="Amy Burkett portrait to be added from approved marketing assets">AB</div>
+              <img class="person-photo" src="data:image/webp;base64,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" alt="Amy Burkett — temporary portrait from supplied consulting flyer, pending approval" width="480" height="600" loading="lazy" decoding="async" />
               <div>
                 <h3>Amy Burkett</h3>
                 <p class="person-role">Independent Strategic Executive Partner · Leadership &amp; Organizational Transformation</p>
-                <p class="person-body">Founder of Amy Burkett Consulting. Over 30 years in broadcasting and executive leadership, including a PBS station turnaround that repaid more than $1 million in debt. Maxwell Leadership and DISC certified, she brings executive coaching, team alignment and organizational change expertise.</p>
-                <a class="text-link" href="#amy-strategic-partner">Partner profile <span aria-hidden="true">→</span></a>
+                <p class="person-body">Amy has led a PBS station turnaround, repaying more than $1 million in debt. She brings 30+ years of executive experience, Maxwell Leadership coaching and DISC certification, and expertise in aligning teams through change.</p>
+                <a class="text-link" href="#amy-strategic-partner">Full profile <span aria-hidden="true">→</span></a>
               </div>
             </article>
           </div>
