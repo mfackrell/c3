@@ -1278,6 +1278,59 @@
           .proof-summary .proof-three > article + article {border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px;}
         }
       </style>
+  
+      <style>
+        /* Amy partnership review — unified layout and responsive rhythm */
+        #pe-experience .proof-three { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;align-items:stretch; }
+        #pe-experience .proof-three > article {min-width:0;display:flex;flex-direction:column;padding:0 30px;}
+        #pe-experience .proof-three > article:first-child {padding-left:0;}
+        #pe-experience .proof-three > article:last-child {padding-right:0;}
+        #pe-experience .proof-three > article + article {border-left:1px solid var(--line);}
+        #pe-experience .proof-three h2 {font-size:clamp(25px,2vw,32px);line-height:1.18;margin:0 0 18px;letter-spacing:-.018em;}
+        #pe-experience .proof-three p {font-size:16px;line-height:1.62;max-width:42ch;margin:0 0 24px;}
+        #pe-experience .proof-three .text-link {margin-top:auto;align-self:flex-start;}
+        #leadership-and-change .three > article {display:flex;flex-direction:column;min-width:0;border-top:1px solid var(--line);padding-top:22px;}
+        #leadership-and-change .three h3 {font-size:26px;line-height:1.18;margin:0 0 16px;}
+        #leadership-and-change .three p {font-size:16px;line-height:1.65;}
+        #capabilities .partner-practices {align-items:stretch;}
+        #capabilities .partner-practices article {min-width:0;padding-top:22px;}
+        #capabilities .partner-practices h3 {font-size:28px;line-height:1.2;}
+        #capabilities .partner-practices p:not(.eyebrow) {font-size:16px;line-height:1.65;}
+        #people .partner-four {align-items:stretch;gap:26px;}
+        #people .partner-four .person {min-width:0;display:flex;flex-direction:column;}
+        #people .partner-four .person > div:last-child {display:flex;flex-direction:column;flex:1;}
+        #people .partner-four .person-photo {aspect-ratio:4/5;width:100%;object-fit:cover;object-position:center 20%;margin-bottom:22px;}
+        #people .partner-four .person h3 {font-size:clamp(25px,2vw,30px);line-height:1.2;margin-bottom:12px;}
+        #people .partner-four .person-role {font-size:12px;line-height:1.55;min-height:77px;margin-bottom:14px;}
+        #people .partner-four .person-body {font-size:15px;line-height:1.65;flex:1;margin-bottom:14px;}
+        #people .partner-four .person .text-link {margin-top:auto;align-self:flex-start;}
+        #amy-strategic-partner .split {align-items:start;}
+        #amy-strategic-partner .rule-list li {font-size:16px;line-height:1.5;}
+        #leadership-and-change .approach-note {margin-top:44px;}
+        #leadership-and-change .approach-note .engagement-note {max-width:78ch;}
+        @media(max-width:1050px) {
+          #people .partner-four {grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 28px;}
+          #people .partner-four .person-role {min-height:0;}
+          #pe-experience .proof-three > article {padding:0 22px;}
+        }
+        @media(max-width:800px) {
+          #pe-experience .proof-three {grid-template-columns:1fr;}
+          #pe-experience .proof-three > article,
+          #pe-experience .proof-three > article:first-child,
+          #pe-experience .proof-three > article:last-child {padding:24px 0;}
+          #pe-experience .proof-three > article:first-child {padding-top:0;}
+          #pe-experience .proof-three > article + article {border-left:0;border-top:1px solid var(--line);}
+          #pe-experience .proof-three .text-link {margin-top:8px;}
+          #capabilities .partner-practices {grid-template-columns:1fr;}
+          #leadership-and-change .three {grid-template-columns:1fr;gap:24px;}
+          #amy-strategic-partner .split {grid-template-columns:1fr;gap:40px;}
+        }
+        @media(max-width:600px) {
+          #people .partner-four {grid-template-columns:1fr;gap:44px;}
+          #people .partner-four .person-photo {max-width:400px;}
+          #pe-experience .proof-three h2 {font-size:27px;}
+        }
+      </style>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
