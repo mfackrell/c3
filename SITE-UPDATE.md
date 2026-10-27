@@ -82,7 +82,7 @@ The source categories below reflect the supplied, approved brief. They do not re
 | $25M–$100M+ transaction and operating range | Firm case | Latest user-approved range; no larger claim |
 | Mark: outsourced finance and interim CFO leadership since 2008 | Own-profile | Career history |
 | Mark: finance, capital formation, financing, operations, sales, project management, reporting and system implementation/cleanup | Own-profile | Work performed, without additional outcomes |
-| Global PE-owned professional services firm, about $100M revenue; 18 months unclosed; new team; cleanup and audit in ten weeks; diligence leadership | Firm case | Full narrative retained; revenue is not called valuation; no unconfirmed CFO title assigned |
+| Global PE-owned professional services firm, [SCALE FIGURE: TBD]; 18 months unclosed; new team; cleanup and audit in ten weeks; diligence leadership | Firm case | Full narrative retained; revenue is not called valuation; no unconfirmed CFO title assigned |
 | PE-owned education business cleanup and sale at approximately $100M valuation; one year interim CFO with operating responsibility through full-time onboarding | Firm case | Retained with approximate valuation |
 | Solar infrastructure Chapter 11; no executive owner; 13-week cash governance and protection of core operations | Firm case | No claim of an unconfirmed final restructuring resolution |
 | International e-commerce CFO and company manager; commercial intellectual-property and fraudulent-listing matter | Own-profile | Work performed with legal counsel; no legal credential implied |
